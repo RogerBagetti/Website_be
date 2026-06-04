@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Betina Bernardi Boff — Odontologia</title>
+<meta name="description" content="Odontologia com cuidado, técnica e estética. Atendimento humano e personalizado com a Dra. Betina Bernardi Boff." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          cream:   '#F7F1E8',
+          sand:    '#EADFCE',
+          sandy:   '#E0D2BC',
+          gold:    '#B4966A',
+          golden:  '#C8AE82',
+          wine:    '#5C2335',
+          winedeep:'#3F1825',
+          ink:     '#2C2620',
+          muted:   '#7B6F61',
+        },
+        fontFamily: {
+          serif: ['"Cormorant Garamond"', 'serif'],
+          sans:  ['"Jost"', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #F7F1E8; color: #2C2620; -webkit-font-smoothing: antialiased; }
+
+  /* ---- grain / texture overlay ---- */
+  .grain::before {
+    content: "";
+    position: fixed; inset: 0; z-index: 1; pointer-events: none;
+    opacity: .04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---- layered radial atmosphere ---- */
+  .atmosphere {
+    background:
+      radial-gradient(60% 50% at 78% 12%, rgba(180,150,106,0.22), transparent 60%),
+      radial-gradient(50% 60% at 8% 88%, rgba(92,35,53,0.10), transparent 60%),
+      radial-gradient(40% 40% at 50% 50%, rgba(234,223,206,0.6), transparent 70%);
+  }
+
+  /* ---- soft mesh gradient (brand-tinted, very subtle) ---- */
+  .mesh {
+    position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; opacity: 1;
+    -webkit-mask-image: radial-gradient(ellipse 110% 100% at 62% 0%, #000 38%, transparent 92%);
+            mask-image: radial-gradient(ellipse 110% 100% at 62% 0%, #000 38%, transparent 92%);
+  }
+  .mesh__p { position: absolute; inset: 0; will-change: transform; transition: transform .6s cubic-bezier(.22,.61,.36,1); }
+  .mesh__blob { position: absolute; border-radius: 50%; filter: blur(48px); will-change: transform; }
+  .mesh__blob--a { width: 50vw; height: 50vw; left: -10%; top: -22%; background: radial-gradient(circle at 50% 50%, rgba(180,150,106,.78), transparent 66%); animation: meshA 15s ease-in-out infinite; }
+  .mesh__blob--b { width: 44vw; height: 44vw; right: -8%; top: -16%; background: radial-gradient(circle at 50% 50%, rgba(200,174,130,.72), transparent 66%); animation: meshB 18s ease-in-out infinite; }
+  .mesh__blob--c { width: 42vw; height: 42vw; left: 24%;  top: -18%; background: radial-gradient(circle at 50% 50%, rgba(122,46,68,.5),    transparent 64%); animation: meshC 13s ease-in-out infinite; }
+  .mesh__blob--d { width: 32vw; height: 32vw; right: 14%; top: 4%;   background: radial-gradient(circle at 50% 50%, rgba(168,129,78,.6),    transparent 64%); animation: meshD 20s ease-in-out infinite; }
+  @keyframes meshA {
+    0%,100% { transform: translate(0,0)        scale(1);    }
+    33%     { transform: translate(34%,18%)    scale(1.2);  }
+    66%     { transform: translate(14%,34%)    scale(1.08); }
+  }
+  @keyframes meshB {
+    0%,100% { transform: translate(0,0)        scale(1);    }
+    33%     { transform: translate(-30%,22%)   scale(1.18); }
+    66%     { transform: translate(-14%,8%)    scale(1.26); }
+  }
+  @keyframes meshC {
+    0%,100% { transform: translate(0,0)        scale(1);    }
+    50%     { transform: translate(40%,26%)    scale(1.3);  }
+  }
+  @keyframes meshD {
+    0%,100% { transform: translate(0,0)        scale(1);    }
+    50%     { transform: translate(-32%,-20%)  scale(1.28); }
+  }
+  @media (prefers-reduced-motion: reduce) { .mesh__blob { animation: none !important; } }
+
+  /* ---- tinted, layered shadows ---- */
+  .shadow-soft   { box-shadow: 0 1px 2px rgba(63,24,37,0.04), 0 12px 32px -12px rgba(63,24,37,0.18); }
+  .shadow-float  { box-shadow: 0 2px 4px rgba(63,24,37,0.05), 0 24px 60px -20px rgba(63,24,37,0.28); }
+  .shadow-gold   { box-shadow: 0 1px 2px rgba(180,150,106,0.18), 0 16px 40px -16px rgba(180,150,106,0.45); }
+
+  /* ---- hero portrait color treatment ---- */
+  .portrait-tone { mix-blend-mode: multiply; }
+
+  /* ---- thin rule with gold gradient ---- */
+  .rule-gold { height: 1px; background: linear-gradient(90deg, transparent, #B4966A, transparent); }
+
+  /* ---- reveal-on-scroll ---- */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .9s cubic-bezier(.16,.84,.44,1), transform .9s cubic-bezier(.16,.84,.44,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ---- link underline animation ---- */
+  .navlink { position: relative; }
+  .navlink::after {
+    content: ""; position: absolute; left: 0; bottom: -4px; height: 1px; width: 100%;
+    background: #B4966A; transform: scaleX(0); transform-origin: right;
+    transition: transform .4s cubic-bezier(.16,.84,.44,1);
+  }
+  .navlink:hover::after, .navlink:focus-visible::after { transform: scaleX(1); transform-origin: left; }
+
+  /* ---- buttons ---- */
+  .btn-wine {
+    transition: transform .35s cubic-bezier(.16,.84,.44,1), box-shadow .35s ease, background-color .35s ease;
+  }
+  .btn-wine:hover { transform: translateY(-2px); }
+  .btn-wine:active { transform: translateY(0); }
+  .btn-ghost { transition: color .35s ease, border-color .35s ease, transform .35s cubic-bezier(.16,.84,.44,1); }
+  .btn-ghost:hover { transform: translateY(-2px); }
+
+  /* ---- liquid glass button ---- */
+  .glass {
+    position: relative; isolation: isolate;
+    display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+    border-radius: 9999px; padding: 1rem 2.25rem;
+    font-weight: 400; letter-spacing: .01em; cursor: pointer; color: #F7F1E8;
+    transition: transform .4s cubic-bezier(.16,.84,.44,1);
+  }
+  .glass:hover { transform: translateY(-2px); }
+  .glass:active { transform: translateY(0) scale(.99); }
+  .glass__distort {
+    position: absolute; inset: 0; z-index: -1; border-radius: inherit; overflow: hidden;
+    backdrop-filter: url('#container-glass') saturate(1.4);
+    -webkit-backdrop-filter: url('#container-glass') saturate(1.4);
+  }
+  .glass__edge {
+    position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    box-shadow:
+      0 1px 2px rgba(63,24,37,.10), 0 10px 26px -10px rgba(63,24,37,.45),
+      inset 3px 3px .5px -3.5px rgba(255,255,255,.55),
+      inset -3px -3px .5px -3.5px rgba(255,255,255,.55),
+      inset 1px 1px 1px -.5px rgba(255,255,255,.45),
+      inset -1px -1px 1px -.5px rgba(255,255,255,.45),
+      inset 0 0 6px 6px rgba(255,255,255,.10),
+      inset 0 0 2px 2px rgba(255,255,255,.06);
+  }
+  .glass__tint { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; }
+  .glass--gold  .glass__tint { background: linear-gradient(180deg, rgba(206,179,137,.46), rgba(180,150,106,.26)); }
+  .glass--clear .glass__tint { background: linear-gradient(180deg, rgba(247,241,232,.14), rgba(247,241,232,.05)); }
+  .glass--gold  .glass__label,
+  .glass--clear .glass__label { font-weight: 500; text-shadow: 0 1px 2px rgba(63,24,37,.45); }
+  .glass--dark  { color: #3F1825; }
+  .glass--dark  .glass__tint { background: linear-gradient(180deg, rgba(247,241,232,.55), rgba(234,223,206,.35)); }
+  .glass--dark  .glass__edge {
+    box-shadow:
+      0 1px 2px rgba(63,24,37,.08), 0 10px 26px -12px rgba(63,24,37,.30),
+      inset 3px 3px .5px -3.5px rgba(255,255,255,.9),
+      inset -3px -3px .5px -3.5px rgba(63,24,37,.18),
+      inset 1px 1px 1px -.5px rgba(255,255,255,.7),
+      inset 0 0 6px 6px rgba(255,255,255,.14);
+  }
+  .glass--sm { padding: .62rem 1.5rem; font-size: .875rem; }
+  .glass__label { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: .5rem; }
+
+  /* ---- liquid glass top bar ---- */
+  .glass-nav {
+    position: relative; isolation: isolate; overflow: hidden; border-radius: 1.1rem;
+    box-shadow: 0 8px 24px -10px rgba(63,24,37,.22), 0 1px 2px rgba(63,24,37,.06);
+    transition: box-shadow .5s ease;
+  }
+  .glass-nav__distort {
+    position: absolute; inset: 0; z-index: 0;
+    backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+    filter: url('#glass-distortion');
+  }
+  .glass-nav__tint {
+    position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: linear-gradient(180deg, rgba(247,241,232,.42), rgba(234,223,206,.30));
+    transition: background .6s ease;
+  }
+  .glass-nav__edge {
+    position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    box-shadow:
+      inset 2px 2px 1px 0 rgba(255,255,255,.6),
+      inset -1px -1px 1px 1px rgba(255,255,255,.4),
+      inset 0 0 0 1px rgba(255,255,255,.10);
+  }
+  /* dark sections behind the bar → flip to readable light styling */
+  .glass-nav.nav-dark .glass-nav__tint { background: linear-gradient(180deg, rgba(63,24,37,.42), rgba(63,24,37,.30)); }
+  .glass-nav.nav-dark .glass-nav__edge {
+    box-shadow:
+      inset 2px 2px 1px 0 rgba(255,255,255,.22),
+      inset -1px -1px 1px 1px rgba(255,255,255,.12),
+      inset 0 0 0 1px rgba(255,255,255,.06);
+  }
+  .glass-nav.nav-dark .nav-title { color: #F7F1E8; }
+  .glass-nav.nav-dark .nav-links { color: rgba(247,241,232,.9); }
+  .glass-nav.nav-dark .nav-cta { background: #C8AE82; color: #3F1825; }
+  .glass-nav.nav-dark .nav-cta:hover { background: #DCC79B; }
+
+  /* ---- especialidades scrollytelling ---- */
+  .spec-num { font-variant-numeric: tabular-nums; line-height: 1; }
+  .spec-stage-icon { transition: none; }
+  /* index list */
+  .spec-idx { position: relative; display: flex; align-items: center; gap: .85rem; width: 100%;
+    padding: .35rem 0; text-align: left; cursor: pointer; color: rgba(123,111,97,.65);
+    transition: color .4s ease; }
+  .spec-idx:hover { color: #5C2335; }
+  .spec-idx .spec-idx__num { font-size: .7rem; letter-spacing: .12em; color: rgba(123,111,97,.5); transition: color .4s ease; }
+  .spec-idx .spec-idx__dot { height: 6px; width: 6px; border-radius: 9999px; background: rgba(123,111,97,.3); transition: background .4s ease, transform .4s ease; }
+  .spec-idx.is-active { color: #5C2335; }
+  .spec-idx.is-active .spec-idx__num { color: #B4966A; }
+  .spec-idx.is-active .spec-idx__dot { background: #B4966A; transform: scale(1.7); }
+  .spec-idx.is-passed .spec-idx__dot { background: rgba(180,150,106,.6); }
+  /* progress rail */
+  .spec-rail { position: relative; width: 2px; background: rgba(44,38,32,.1); border-radius: 2px; overflow: hidden; }
+  .spec-rail__fill { position: absolute; inset: 0 0 auto 0; height: 0; background: linear-gradient(#C8AE82, #B4966A); transition: height .6s cubic-bezier(.16,.84,.44,1); }
+  /* steps */
+  .spec-step { min-height: 72vh; display: flex; flex-direction: column; justify-content: center;
+    opacity: .25; transform: translateY(10px); transition: opacity .6s ease, transform .6s ease; }
+  .spec-step.is-active { opacity: 1; transform: none; }
+  @media (max-width: 1023px) { .spec-step { min-height: 0; opacity: 1; transform: none; padding: 2.5rem 0; border-top: 1px solid rgba(44,38,32,.08); } }
+
+  /* ---- avaliações: carrossel infinito ---- */
+  .rev { position: relative; }
+  .rev-viewport { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; -ms-overflow-style: none; cursor: grab; -webkit-overflow-scrolling: touch; }
+  .rev-viewport::-webkit-scrollbar { display: none; }
+  .rev-viewport.is-grabbing { cursor: grabbing; }
+  .rev-track { display: flex; align-items: stretch; gap: 1.5rem; width: max-content; padding-left: 1.5rem; }
+  .rev-card { flex: 0 0 auto; width: 84vw; max-width: 22rem; user-select: none; }
+  @media (min-width: 640px) { .rev-card { width: 22rem; } }
+  .rev-card blockquote { quotes: none; }
+  .rev-fade { position: absolute; top: 0; bottom: 0; width: 7vw; max-width: 110px; pointer-events: none; z-index: 2; }
+  .rev-fade--l { left: 0; background: linear-gradient(90deg, #F7F1E8 10%, rgba(247,241,232,0)); }
+  .rev-fade--r { right: 0; background: linear-gradient(270deg, #F7F1E8 10%, rgba(247,241,232,0)); }
+  .rev-arrow { display: inline-flex; align-items: center; justify-content: center; height: 2.75rem; width: 2.75rem; border-radius: 9999px; border: 1px solid rgba(44,38,32,.15); color: #5C2335; cursor: pointer; transition: transform .35s cubic-bezier(.16,.84,.44,1), border-color .35s ease, color .35s ease; }
+  .rev-arrow:hover { border-color: #B4966A; color: #B4966A; transform: translateY(-2px); }
+  .rev-arrow:active { transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
+  }
+
+  :focus-visible { outline: 2px solid #B4966A; outline-offset: 3px; border-radius: 2px; }
+
+  .tracking-tightest { letter-spacing: -0.03em; }
+</style>
+</head>
+
+<body class="grain font-sans antialiased">
+
+<!-- ============ LIQUID GLASS FILTERS ============ -->
+<svg class="absolute h-0 w-0" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="container-glass" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05 0.05" numOctaves="1" seed="1" result="turbulence" />
+      <feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise" />
+      <feDisplacementMap in="SourceGraphic" in2="blurredNoise" scale="70" xChannelSelector="R" yChannelSelector="B" result="displaced" />
+      <feGaussianBlur in="displaced" stdDeviation="4" result="finalBlur" />
+      <feComposite in="finalBlur" in2="finalBlur" operator="over" />
+    </filter>
+
+    <!-- Smooth refractive glass for the top bar -->
+    <filter id="glass-distortion" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
+      <feTurbulence type="fractalNoise" baseFrequency="0.001 0.006" numOctaves="1" seed="17" result="turbulence" />
+      <feComponentTransfer in="turbulence" result="mapped">
+        <feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5" />
+        <feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
+        <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5" />
+      </feComponentTransfer>
+      <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap" />
+      <feSpecularLighting in="softMap" surfaceScale="4" specularConstant="0.9" specularExponent="100" lighting-color="white" result="specLight">
+        <fePointLight x="-200" y="-200" z="300" />
+      </feSpecularLighting>
+      <feComposite in="specLight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litImage" />
+      <feDisplacementMap in="SourceGraphic" in2="softMap" scale="80" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+</svg>
+
+<!-- ============ NAV ============ -->
+<header id="top" class="fixed top-0 inset-x-0 z-40" data-nav>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 pt-3 sm:pt-4">
+    <div class="glass-nav" data-glassnav>
+      <span class="glass-nav__distort"></span>
+      <span class="glass-nav__tint"></span>
+      <span class="glass-nav__edge"></span>
+
+      <div class="relative z-10 flex items-center justify-between gap-4 px-4 sm:px-6 py-2.5">
+        <a href="#top" class="flex items-center gap-3 group">
+          <img src="brand/Logo_ber.png" alt="Logo Betina Bernardi Boff" class="h-11 w-11 rounded-full object-cover ring-1 ring-white/40" />
+          <span class="leading-tight">
+            <span class="nav-title block font-serif text-lg tracking-tightest text-ink transition-colors duration-500">Betina Bernardi Boff</span>
+            <span class="block font-sans text-[10px] uppercase tracking-[0.32em] text-gold">Odontologia</span>
+          </span>
+        </a>
+
+        <div class="nav-links hidden md:flex items-center gap-9 text-sm font-light text-ink/80 transition-colors duration-500">
+          <a href="#sobre" class="navlink">Sobre</a>
+          <a href="#especialidades" class="navlink">Serviços</a>
+          <a href="#avaliacoes" class="navlink">Avaliações</a>
+          <a href="blog.html" class="navlink">Blog</a>
+        </div>
+
+        <a href="#contato" class="nav-cta hidden sm:inline-flex items-center gap-2 rounded-full bg-wine px-5 py-2.5 text-sm font-light text-cream shadow-soft transition-all duration-500 hover:-translate-y-0.5">
+          Agendar consulta
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="atmosphere relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28" data-hero>
+  <div class="mesh" aria-hidden="true">
+    <span class="mesh__p" data-depth="34"><span class="mesh__blob mesh__blob--a"></span></span>
+    <span class="mesh__p" data-depth="-46"><span class="mesh__blob mesh__blob--b"></span></span>
+    <span class="mesh__p" data-depth="26"><span class="mesh__blob mesh__blob--c"></span></span>
+    <span class="mesh__p" data-depth="-58"><span class="mesh__blob mesh__blob--d"></span></span>
+  </div>
+  <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="grid items-center gap-14 lg:grid-cols-12">
+
+      <!-- copy -->
+      <div class="lg:col-span-6 reveal">
+        <span class="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-cream/60 px-4 py-1.5 text-[11px] uppercase tracking-[0.3em] text-gold">
+          <span class="h-1 w-1 rounded-full bg-gold"></span> Cirurgiã-Dentista
+        </span>
+
+        <h1 class="mt-7 font-serif text-5xl leading-[1.05] tracking-tightest text-ink sm:text-6xl lg:text-7xl">
+          Um sorriso<br />
+          cuidado com<br />
+          <span class="italic text-wine">técnica e arte.</span>
+        </h1>
+
+        <p class="mt-7 max-w-md text-base font-light leading-[1.8] text-muted">
+          Odontologia moderna e humana. Cada atendimento é pensado no detalhe —
+          unindo precisão clínica, estética natural e um acolhimento que te deixa à vontade.
+        </p>
+
+        <div class="mt-10 flex flex-wrap items-center gap-4">
+          <a href="#contato" class="btn-wine inline-flex items-center gap-2 rounded-full bg-wine px-8 py-4 text-sm font-light tracking-wide text-cream shadow-soft hover:bg-winedeep">
+            Agendar uma consulta
+          </a>
+          <a href="#sobre" class="btn-ghost inline-flex items-center gap-2 rounded-full border border-ink/15 px-8 py-4 text-sm font-light tracking-wide text-ink hover:border-gold hover:text-gold">
+            Conhecer a Dra. Betina
+          </a>
+        </div>
+
+        <div class="mt-12 flex items-center gap-8">
+          <div>
+            <div class="font-serif text-3xl text-ink">+10</div>
+            <div class="text-[11px] uppercase tracking-[0.2em] text-muted">anos de cuidado</div>
+          </div>
+          <div class="h-10 w-px bg-ink/10"></div>
+          <div>
+            <div class="font-serif text-3xl text-ink">5,0★</div>
+            <div class="text-[11px] uppercase tracking-[0.2em] text-muted">nas avaliações</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- portrait -->
+      <div class="lg:col-span-6 reveal">
+        <div class="relative mx-auto max-w-md">
+          <!-- floating gold frame -->
+          <div class="absolute -inset-3 -z-10 rounded-[2rem] border border-gold/30"></div>
+          <div class="absolute -bottom-6 -left-6 -z-10 h-40 w-40 rounded-full bg-golden/30 blur-2xl"></div>
+
+          <figure class="relative overflow-hidden rounded-[1.7rem] bg-wine shadow-float">
+            <img src="brand/ff2ac173-db7a-4f11-a954-6a5f3321c4d9.jpg"
+                 alt="Dra. Betina Bernardi Boff em seu consultório"
+                 class="h-full w-full object-cover" />
+            <!-- color treatment + gradient overlay -->
+            <div class="pointer-events-none absolute inset-0 bg-wine/10 portrait-tone"></div>
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+
+            <figcaption class="absolute bottom-5 left-5 right-5 flex items-center gap-3 rounded-2xl bg-cream/85 px-5 py-3 backdrop-blur-sm shadow-soft">
+              <img src="brand/Logo_ber.png" alt="" class="h-9 w-9 rounded-full object-cover" />
+              <div class="leading-tight">
+                <div class="font-serif text-base text-ink">Dra. Betina Bernardi Boff</div>
+                <div class="text-[10px] uppercase tracking-[0.22em] text-gold">CRO-SC 25849 • Odontologia</div>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ VALORES ============ -->
+<section class="border-y border-ink/5 bg-sand/40 py-16 lg:py-20">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="reveal text-center">
+      <span class="text-[11px] uppercase tracking-[0.32em] text-gold">Valores</span>
+      <h2 class="mt-3 font-serif text-3xl leading-tight tracking-tightest text-ink sm:text-4xl">
+        O que guia cada atendimento
+      </h2>
+    </div>
+
+    <div class="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="reveal text-center">
+        <div class="font-serif text-2xl text-wine">Cuidado</div>
+        <div class="mx-auto mt-3 h-px w-8 bg-gold/50"></div>
+        <p class="mx-auto mt-3 max-w-[15rem] text-sm font-light leading-[1.7] text-muted">Entender as condições de cada paciente e acolher de forma empática.</p>
+      </div>
+      <div class="reveal text-center">
+        <div class="font-serif text-2xl text-wine">Clareza</div>
+        <div class="mx-auto mt-3 h-px w-8 bg-gold/50"></div>
+        <p class="mx-auto mt-3 max-w-[15rem] text-sm font-light leading-[1.7] text-muted">Comunicar com transparência para que o paciente saiba exatamente o que está sendo feito.</p>
+      </div>
+      <div class="reveal text-center">
+        <div class="font-serif text-2xl text-wine">Técnica</div>
+        <div class="mx-auto mt-3 h-px w-8 bg-gold/50"></div>
+        <p class="mx-auto mt-3 max-w-[15rem] text-sm font-light leading-[1.7] text-muted">Aplicar o máximo de rigor e excelência científica na execução de cada procedimento.</p>
+      </div>
+      <div class="reveal text-center">
+        <div class="font-serif text-2xl text-wine">Integridade</div>
+        <div class="mx-auto mt-3 h-px w-8 bg-gold/50"></div>
+        <p class="mx-auto mt-3 max-w-[15rem] text-sm font-light leading-[1.7] text-muted">Agir com honestidade absoluta, priorizando sempre a ética e a necessidade real do paciente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOBRE / HISTÓRIA ============ -->
+<section id="sobre" class="relative py-24 lg:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="grid gap-16 lg:grid-cols-12 lg:items-center">
+
+      <div class="reveal lg:col-span-5">
+        <div class="relative mx-auto max-w-sm">
+          <div class="absolute -inset-3 -z-10 rounded-[1.8rem] border border-gold/30"></div>
+          <div class="absolute -right-6 -top-6 -z-10 h-32 w-32 rounded-full bg-golden/25 blur-2xl"></div>
+          <img src="brand/WhatsApp%20Image%202026-06-03%20at%2017.46.49%20(1).jpeg"
+               alt="Dra. Betina Bernardi Boff"
+               class="w-full rounded-[1.6rem] object-cover shadow-float" />
+        </div>
+      </div>
+
+      <div class="reveal lg:col-span-7">
+        <span class="text-[11px] uppercase tracking-[0.32em] text-gold">A história</span>
+        <h2 class="mt-4 max-w-xl font-serif text-4xl leading-tight tracking-tightest text-ink sm:text-5xl">
+          Uma trajetória dedicada ao seu sorriso.
+        </h2>
+
+        <div class="mt-7 max-w-xl space-y-5 text-base font-light leading-[1.85] text-muted">
+          <p>
+            Formada em Odontologia pela Universidade do Sul de Santa Catarina, a Dra. Betina
+            construiu sua trajetória unindo técnica apurada e um cuidado genuíno com as pessoas.
+          </p>
+          <p>
+            Hoje, especializa-se em <span class="text-ink">Implantodontia e Periodontia</span> —
+            áreas que devolvem saúde, função e confiança ao sorriso. Entre ligas de cirurgia,
+            estágios e a prática clínica, mantém uma certeza: cada sorriso merece tempo, escuta
+            e um cuidado feito sob medida.
+          </p>
+        </div>
+
+        <!-- credenciais -->
+        <dl class="mt-8 grid max-w-xl gap-x-8 gap-y-4 border-t border-ink/10 pt-6 sm:grid-cols-2">
+          <div>
+            <dt class="text-[11px] uppercase tracking-[0.22em] text-gold">Formação</dt>
+            <dd class="mt-1 text-sm font-light text-ink">Odontologia — Unisul · 2021–2025</dd>
+          </div>
+          <div>
+            <dt class="text-[11px] uppercase tracking-[0.22em] text-gold">Especialização</dt>
+            <dd class="mt-1 text-sm font-light text-ink">Implantodontia &amp; Periodontia — CEOI · 2025–2028</dd>
+          </div>
+        </dl>
+
+        <!-- signature mark -->
+        <div class="mt-8 flex items-center gap-4">
+          <div class="rule-gold w-16"></div>
+          <span class="font-serif text-2xl italic text-wine">Betina Bernardi Boff</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ ESPECIALIDADES ============ -->
+<section id="especialidades" class="relative bg-sand/30 py-24 lg:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="reveal mx-auto max-w-2xl text-center">
+      <span class="text-[11px] uppercase tracking-[0.32em] text-gold">Serviços</span>
+      <h2 class="mt-4 font-serif text-4xl leading-tight tracking-tightest text-ink sm:text-5xl">
+        Cuidado completo, do preventivo ao sorriso dos sonhos
+      </h2>
+      <p class="mt-5 text-sm font-light text-muted">Role a página para explorar cada especialidade.</p>
+    </div>
+
+    <div class="mt-12 lg:mt-14 lg:grid lg:grid-cols-12 lg:gap-16" data-scrolly>
+      <!-- sticky stage (desktop) -->
+      <div class="hidden lg:col-span-5 lg:block">
+        <div class="sticky top-0 flex h-screen flex-col justify-center">
+          <span class="text-[11px] uppercase tracking-[0.32em] text-gold">Serviço</span>
+          <div class="mt-3 flex items-end gap-4">
+            <span class="spec-num font-serif text-[7rem] text-wine" data-spec-num>01</span>
+            <span class="mb-4 text-sm font-light text-muted">/ 06</span>
+          </div>
+          <div class="mt-3 flex h-16 w-16 items-center justify-center rounded-full bg-wine/8 text-wine" data-spec-icon></div>
+
+          <div class="mt-10 flex gap-5">
+            <div class="spec-rail self-stretch" aria-hidden="true"><div class="spec-rail__fill" data-spec-rail></div></div>
+            <ol class="flex-1" data-spec-index>
+              <li><button type="button" class="spec-idx" data-go="0"><span class="spec-idx__dot"></span><span class="spec-idx__num">01</span><span class="font-serif text-lg">Estética dental</span></button></li>
+              <li><button type="button" class="spec-idx" data-go="1"><span class="spec-idx__dot"></span><span class="spec-idx__num">02</span><span class="font-serif text-lg">Odontologia preventiva</span></button></li>
+              <li><button type="button" class="spec-idx" data-go="2"><span class="spec-idx__dot"></span><span class="spec-idx__num">03</span><span class="font-serif text-lg">Restaurações</span></button></li>
+              <li><button type="button" class="spec-idx" data-go="3"><span class="spec-idx__dot"></span><span class="spec-idx__num">04</span><span class="font-serif text-lg">Clareamento</span></button></li>
+              <li><button type="button" class="spec-idx" data-go="4"><span class="spec-idx__dot"></span><span class="spec-idx__num">05</span><span class="font-serif text-lg">Reabilitação</span></button></li>
+              <li><button type="button" class="spec-idx" data-go="5"><span class="spec-idx__dot"></span><span class="spec-idx__num">06</span><span class="font-serif text-lg">Consulta de avaliação</span></button></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <!-- detail steps -->
+      <div class="lg:col-span-7" data-spec-steps>
+        <article class="spec-step" data-step="0">
+          <span class="text-[11px] uppercase tracking-[0.3em] text-gold">Serviço 01</span>
+          <span class="mt-4 flex h-11 w-11 items-center justify-center rounded-full bg-wine/8 text-wine lg:hidden"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3c-3 0-4 2-4 4 0 2 1 3 1 6s-1 8 1 8 1-4 2-4 1 4 2 4 0-5 1-8 1-2 1-4c0-2-1-4-5-4z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h3 class="mt-3 font-serif text-3xl tracking-tightest text-ink sm:text-4xl">Estética dental</h3>
+          <p class="mt-4 max-w-lg text-base font-light leading-[1.85] text-muted">Planejo o seu sorriso pensando no conjunto do rosto — cor, formato e proporção. Um trabalho minucioso para um resultado natural, que valorize a sua expressão.</p>
+          <ul class="mt-5 space-y-2.5 text-sm font-light text-ink/80">
+            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Facetas e lentes de contato dental</li>
+            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Harmonização e desenho do sorriso</li>
+            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Fechamento de espaços entre os dentes</li>
+          </ul>
+        </article>
+
+        <article class="spec-step" data-step="1">
+          <span class="text-[11px] uppercase tracking-[0.3em] text-gold">Serviço 02</span>
+          <span class="mt-4 flex h-11 w-11 items-center justify-center rounded-full bg-wine/8 text-wine lg:hidden"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.65A4 4 0 0119 11c0 5.65-7 10-7 10z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h3 class="mt-3 font-serif text-3xl tracking-tightest text-ink sm:text-4xl">Odontologia preventiva</h3>
+          <p class="mt-4 max-w-lg text-base font-light leading-[1.85] text-muted">A melhor forma de cuidar do sorriso é evitar problemas antes que eles apareçam. Cuidado periódico e orientação feita para a sua rotina.</p>
+          <ul class="mt-5 space-y-2.5 text-sm font-light text-ink/80">
+            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Limpeza profissional (profilaxia)</li>
+            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Aplicação de flúor</li>
+            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Avaliação e acompanhamento periódico</li>
+          </ul>
+        </article>
+
+        <article class="spec-step" data-step="2">
+          <span class="text-[11px] uppercase tracking-[0.3em] text-gold">Serviço 03</span>
+          <span class="mt-4 flex h-11 w-11 items-center justify-center rounded-full bg-wine/8 text-wine lg:hidden"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h3 class="mt-3 font-serif text-3xl tracking-tightest text-ink sm:text-4xl">Restaurações</h3>
+          <p class="mt-4 max-w-lg text-base font-light leading-[1.85] text-muted">Restaurações em resina de alta estética que devolvem forma, função e naturalidade ao dente — com acabamento cuidadoso, respeitando a cor e a anatomia original.</p>
+          <ul class="mt-5 space-y-2.5 text-sm font-light text-ink/80">
+            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Resina estética</li>
+            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Tratamento de cáries</li>
+            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Reparo de pequenas fraturas</li>
+          </ul>
+        </article>
+
+        <article class="spec-step" data-step="3">
+          <span class="text-[11px] uppercase tracking-[0.3em] text-gold">Serviço 04</span>
+          <span class="mt-4 flex h-11 w-11 items-center justify-center rounded-full bg-wine/8 text-wine lg:hidden"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 12h14M12 5v14" stroke-linecap="round"/></svg></span>
+          <h3 class="mt-3 font-serif text-3xl tracking-tightest text-ink sm:text-4xl">Clareamento</h3>
+          <p class="mt-4 max-w-lg text-base font-light leading-[1.85] text-muted">Clareamento seguro e supervisionado — em consultório ou com moldeiras para uso em casa. Avalio sensibilidade e tom ideal para um resultado bonito, sem agredir o esmalte.</p>
+          <ul class="mt-5 space-y-2.5 text-sm font-light text-ink/80">
+            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Clareamento em consultório</li>
+            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Clareamento caseiro supervisionado</li>
+            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Controle de sensibilidade</li>
+          </ul>
+        </article>
+
+        <article class="spec-step" data-step="4">
+          <span class="text-[11px] uppercase tracking-[0.3em] text-gold">Serviço 05</span>
+          <span class="mt-4 flex h-11 w-11 items-center justify-center rounded-full bg-wine/8 text-wine lg:hidden"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 7l8-4 8 4-8 4-8-4zM4 7v6l8 4 8-4V7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h3 class="mt-3 font-serif text-3xl tracking-tightest text-ink sm:text-4xl">Reabilitação</h3>
+          <p class="mt-4 max-w-lg text-base font-light leading-[1.85] text-muted">Para casos que pedem mais, um plano completo que pode envolver implantes, próteses e reabilitação da mordida — devolvendo saúde, mastigação e autoestima, etapa por etapa.</p>
+          <ul class="mt-5 space-y-2.5 text-sm font-light text-ink/80">
+            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Implantes e próteses</li>
+            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Reabilitação da mordida</li>
+            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Planejamento passo a passo</li>
+          </ul>
+        </article>
+
+        <article class="spec-step" data-step="5">
+          <span class="text-[11px] uppercase tracking-[0.3em] text-gold">Serviço 06</span>
+          <span class="mt-4 flex h-11 w-11 items-center justify-center rounded-full bg-wine/8 text-wine lg:hidden"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 21h8M12 17v4M7 4h10l-1 9a4 4 0 01-8 0L7 4z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h3 class="mt-3 font-serif text-3xl tracking-tightest text-ink sm:text-4xl">Consulta de avaliação</h3>
+          <p class="mt-4 max-w-lg text-base font-light leading-[1.85] text-muted">O primeiro passo. Uma conversa e um exame clínico detalhado para entender suas necessidades, esclarecer dúvidas e montar um plano transparente, com prioridades e sem surpresas.</p>
+          <ul class="mt-5 space-y-2.5 text-sm font-light text-ink/80">
+            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Exame clínico completo</li>
+            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Plano de tratamento personalizado</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AVALIAÇÕES ============ -->
+<section id="avaliacoes" class="relative overflow-hidden py-24 lg:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="reveal flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+      <div class="max-w-xl">
+        <span class="text-[11px] uppercase tracking-[0.32em] text-gold">Avaliações</span>
+        <h2 class="mt-4 font-serif text-4xl leading-tight tracking-tightest text-ink sm:text-5xl">
+          O que dizem os pacientes
+        </h2>
+      </div>
+      <div class="flex items-center gap-5">
+        <div class="flex items-center gap-2 text-gold">
+          <span class="text-2xl">★★★★★</span>
+          <span class="text-sm font-light text-muted">5,0 de média</span>
+        </div>
+        <div class="hidden items-center gap-2 sm:flex">
+          <button type="button" class="rev-arrow" data-rev-prev aria-label="Avaliação anterior">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button type="button" class="rev-arrow" data-rev-next aria-label="Próxima avaliação">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal rev mt-14" data-rev>
+    <div class="rev-viewport" data-rev-viewport>
+      <div class="rev-track" data-rev-track>
+
+        <figure class="rev-card flex flex-col rounded-[1.25rem] border border-ink/5 bg-cream p-8 shadow-soft">
+          <div class="text-gold">★★★★★</div>
+          <blockquote class="mt-4 flex-1 font-serif text-xl italic leading-relaxed text-ink">“Nunca me senti tão tranquila num dentista. A Dra. Betina explica tudo com calma e o resultado ficou perfeito.”</blockquote>
+          <figcaption class="mt-6 flex items-center gap-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-wine/10 font-serif text-wine">M</div>
+            <div class="leading-tight"><div class="text-sm text-ink">Mariana L.</div><div class="text-[11px] uppercase tracking-[0.2em] text-muted">Paciente</div></div>
+          </figcaption>
+        </figure>
+
+        <figure class="rev-card flex flex-col rounded-[1.25rem] border border-ink/5 bg-cream p-8 shadow-soft">
+          <div class="text-gold">★★★★★</div>
+          <blockquote class="mt-4 flex-1 font-serif text-xl italic leading-relaxed text-ink">“Atendimento impecável e muito humano. Meu sorriso mudou e a minha confiança também. Recomendo de olhos fechados.”</blockquote>
+          <figcaption class="mt-6 flex items-center gap-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-wine/10 font-serif text-wine">R</div>
+            <div class="leading-tight"><div class="text-sm text-ink">Rafael S.</div><div class="text-[11px] uppercase tracking-[0.2em] text-muted">Paciente</div></div>
+          </figcaption>
+        </figure>
+
+        <figure class="rev-card flex flex-col rounded-[1.25rem] border border-ink/5 bg-cream p-8 shadow-soft">
+          <div class="text-gold">★★★★★</div>
+          <blockquote class="mt-4 flex-1 font-serif text-xl italic leading-relaxed text-ink">“Profissional cuidadosa e detalhista. O consultório é lindo e acolhedor. Saí encantada com o atendimento.”</blockquote>
+          <figcaption class="mt-6 flex items-center gap-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-wine/10 font-serif text-wine">C</div>
+            <div class="leading-tight"><div class="text-sm text-ink">Camila P.</div><div class="text-[11px] uppercase tracking-[0.2em] text-muted">Paciente</div></div>
+          </figcaption>
+        </figure>
+
+        <figure class="rev-card flex flex-col rounded-[1.25rem] border border-ink/5 bg-cream p-8 shadow-soft">
+          <div class="text-gold">★★★★★</div>
+          <blockquote class="mt-4 flex-1 font-serif text-xl italic leading-relaxed text-ink">“Sempre tive medo de dentista. Fui tratado com tanta paciência que hoje vou às consultas tranquilo.”</blockquote>
+          <figcaption class="mt-6 flex items-center gap-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-wine/10 font-serif text-wine">J</div>
+            <div class="leading-tight"><div class="text-sm text-ink">João M.</div><div class="text-[11px] uppercase tracking-[0.2em] text-muted">Paciente</div></div>
+          </figcaption>
+        </figure>
+
+        <figure class="rev-card flex flex-col rounded-[1.25rem] border border-ink/5 bg-cream p-8 shadow-soft">
+          <div class="text-gold">★★★★★</div>
+          <blockquote class="mt-4 flex-1 font-serif text-xl italic leading-relaxed text-ink">“Resultado super natural e um cuidado que faz toda a diferença. Recomendo de olhos fechados.”</blockquote>
+          <figcaption class="mt-6 flex items-center gap-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-wine/10 font-serif text-wine">B</div>
+            <div class="leading-tight"><div class="text-sm text-ink">Beatriz F.</div><div class="text-[11px] uppercase tracking-[0.2em] text-muted">Paciente</div></div>
+          </figcaption>
+        </figure>
+
+        <figure class="rev-card flex flex-col rounded-[1.25rem] border border-ink/5 bg-cream p-8 shadow-soft">
+          <div class="text-gold">★★★★★</div>
+          <blockquote class="mt-4 flex-1 font-serif text-xl italic leading-relaxed text-ink">“Pontualidade, organização e muita atenção aos detalhes. Saí do consultório encantado.”</blockquote>
+          <figcaption class="mt-6 flex items-center gap-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-wine/10 font-serif text-wine">L</div>
+            <div class="leading-tight"><div class="text-sm text-ink">Lucas A.</div><div class="text-[11px] uppercase tracking-[0.2em] text-muted">Paciente</div></div>
+          </figcaption>
+        </figure>
+
+        <figure class="rev-card flex flex-col rounded-[1.25rem] border border-ink/5 bg-cream p-8 shadow-soft">
+          <div class="text-gold">★★★★★</div>
+          <blockquote class="mt-4 flex-1 font-serif text-xl italic leading-relaxed text-ink">“Explicou cada etapa do tratamento com clareza. Me senti segura e bem cuidada o tempo todo.”</blockquote>
+          <figcaption class="mt-6 flex items-center gap-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-wine/10 font-serif text-wine">P</div>
+            <div class="leading-tight"><div class="text-sm text-ink">Patrícia R.</div><div class="text-[11px] uppercase tracking-[0.2em] text-muted">Paciente</div></div>
+          </figcaption>
+        </figure>
+
+        <figure class="rev-card flex flex-col rounded-[1.25rem] border border-ink/5 bg-cream p-8 shadow-soft">
+          <div class="text-gold">★★★★★</div>
+          <blockquote class="mt-4 flex-1 font-serif text-xl italic leading-relaxed text-ink">“O clareamento ficou incrível e sem nenhuma sensibilidade. Profissional excelente, super indico.”</blockquote>
+          <figcaption class="mt-6 flex items-center gap-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-wine/10 font-serif text-wine">E</div>
+            <div class="leading-tight"><div class="text-sm text-ink">Eduardo N.</div><div class="text-[11px] uppercase tracking-[0.2em] text-muted">Paciente</div></div>
+          </figcaption>
+        </figure>
+
+      </div>
+    </div>
+    <div class="rev-fade rev-fade--l"></div>
+    <div class="rev-fade rev-fade--r"></div>
+  </div>
+</section>
+
+<!-- ============ CTA / CONTATO ============ -->
+<section id="contato" class="relative overflow-hidden py-24 lg:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="atmosphere relative overflow-hidden rounded-[2rem] bg-winedeep px-8 py-16 text-center shadow-float sm:px-16 lg:py-24" data-nav-theme="dark">
+      <div class="pointer-events-none absolute -right-10 -top-10 h-56 w-56 rounded-full bg-gold/20 blur-3xl"></div>
+      <div class="pointer-events-none absolute -bottom-12 -left-12 h-56 w-56 rounded-full bg-gold/10 blur-3xl"></div>
+
+      <div class="reveal relative">
+        <img src="brand/Logo_ber.png" alt="" class="mx-auto h-16 w-16 rounded-full object-cover ring-1 ring-gold/40" />
+        <h2 class="mt-6 font-serif text-4xl leading-tight tracking-tightest text-cream sm:text-5xl">
+          Vamos cuidar do seu sorriso?
+        </h2>
+        <p class="mx-auto mt-5 max-w-md text-base font-light leading-[1.8] text-cream/70">
+          Agende sua avaliação e descubra um atendimento pensado em cada detalhe.
+        </p>
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <a href="https://wa.me/554888634224" target="_blank" rel="noopener noreferrer" class="glass glass--gold text-sm">
+            <span class="glass__distort"></span>
+            <span class="glass__tint"></span>
+            <span class="glass__edge"></span>
+            <span class="glass__label">
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7a8.5 8.5 0 1 1 16.1-3.8z"/></svg>
+              Falar no WhatsApp
+            </span>
+          </a>
+          <a href="https://www.instagram.com/betinaber/" target="_blank" rel="noopener noreferrer" class="glass glass--clear text-sm">
+            <span class="glass__distort"></span>
+            <span class="glass__tint"></span>
+            <span class="glass__edge"></span>
+            <span class="glass__label">
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              Instagram
+            </span>
+          </a>
+          <a href="contato.html" class="glass glass--clear text-sm">
+            <span class="glass__distort"></span>
+            <span class="glass__tint"></span>
+            <span class="glass__edge"></span>
+            <span class="glass__label">Enviar e-mail</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-ink/10 bg-sand/40">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="sm:col-span-2">
+        <div class="flex items-center gap-3">
+          <img src="brand/Logo_ber.png" alt="" class="h-11 w-11 rounded-full object-cover" />
+          <span class="font-serif text-lg text-ink tracking-tightest">Betina Bernardi Boff</span>
+        </div>
+        <p class="mt-4 max-w-xs text-sm font-light leading-[1.8] text-muted">
+          Odontologia com cuidado, técnica e estética. Cada sorriso tratado com a atenção que merece.
+        </p>
+      </div>
+
+      <div>
+        <div class="text-[11px] uppercase tracking-[0.28em] text-gold">Navegação</div>
+        <ul class="mt-4 space-y-2 text-sm font-light text-muted">
+          <li><a href="#sobre" class="navlink">Sobre</a></li>
+          <li><a href="#especialidades" class="navlink">Serviços</a></li>
+          <li><a href="#avaliacoes" class="navlink">Avaliações</a></li>
+          <li><a href="blog.html" class="navlink">Blog</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="text-[11px] uppercase tracking-[0.28em] text-gold">Contato</div>
+        <ul class="mt-4 space-y-2 text-sm font-light text-muted">
+          <li><a href="https://wa.me/554888634224" target="_blank" rel="noopener noreferrer" class="navlink">WhatsApp · +55 48 8863-4224</a></li>
+          <li><a href="contato.html" class="navlink">E-mail</a></li>
+          <li><a href="https://www.instagram.com/betinaber/" target="_blank" rel="noopener noreferrer" class="navlink">Instagram · @betinaber</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rule-gold"></div>
+    <div class="flex flex-col items-center justify-between gap-2 py-6 text-xs font-light text-muted sm:flex-row">
+      <span>© 2026 Betina Bernardi Boff — Todos os direitos reservados.</span>
+      <span>CRO-SC 25849 • Cirurgiã-Dentista</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  // Adaptive glass bar: flip to light styling when passing over dark sections.
+  const glassNav = document.querySelector('[data-glassnav]');
+  const darkSections = document.querySelectorAll('[data-nav-theme="dark"]');
+  const probeY = 42; // a point just under the bar
+  const updateNavTheme = () => {
+    let dark = false;
+    for (const el of darkSections) {
+      const r = el.getBoundingClientRect();
+      if (r.top <= probeY && r.bottom >= probeY) { dark = true; break; }
+    }
+    glassNav.classList.toggle('nav-dark', dark);
+  };
+  updateNavTheme();
+  window.addEventListener('scroll', updateNavTheme, { passive: true });
+  window.addEventListener('resize', updateNavTheme);
+
+  // Avaliações: infinite horizontal carousel (autoplay + drag + arrows).
+  (function () {
+    const viewport = document.querySelector('[data-rev-viewport]');
+    const track = document.querySelector('[data-rev-track]');
+    if (!viewport || !track) return;
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const originalCount = track.children.length;
+    // duplicate the set so the scroll loops seamlessly
+    [...track.children].forEach((node) => track.appendChild(node.cloneNode(true)));
+
+    let setWidth = 0;
+    const measure = () => {
+      setWidth = track.children[originalCount].offsetLeft - track.children[0].offsetLeft;
+    };
+    measure();
+    window.addEventListener('resize', measure);
+
+    let paused = false, dragging = false, startX = 0, startScroll = 0, resumeT;
+    const speed = 0.5;
+
+    const wrap = () => {
+      if (setWidth <= 0) return;
+      if (viewport.scrollLeft >= setWidth) viewport.scrollLeft -= setWidth;
+      else if (viewport.scrollLeft <= 0) viewport.scrollLeft += setWidth;
+    };
+    const frame = () => {
+      if (!paused && !dragging && !reduce) viewport.scrollLeft += speed;
+      wrap();
+      requestAnimationFrame(frame);
+    };
+    viewport.scrollLeft = 1;
+    requestAnimationFrame(frame);
+
+    const cooldown = (ms) => { paused = true; clearTimeout(resumeT); resumeT = setTimeout(() => { paused = false; }, ms); };
+
+    // hover pause (desktop)
+    viewport.addEventListener('mouseenter', () => { paused = true; });
+    viewport.addEventListener('mouseleave', () => { if (!dragging) paused = false; });
+
+    // drag to scroll (mouse); touch uses native scrolling
+    viewport.addEventListener('pointerdown', (e) => {
+      paused = true;
+      if (e.pointerType === 'mouse') {
+        dragging = true; startX = e.clientX; startScroll = viewport.scrollLeft;
+        viewport.classList.add('is-grabbing');
+        viewport.setPointerCapture(e.pointerId);
+      }
+    });
+    viewport.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      viewport.scrollLeft = startScroll - (e.clientX - startX);
+    });
+    const endDrag = () => {
+      if (dragging) { dragging = false; viewport.classList.remove('is-grabbing'); }
+      cooldown(1200);
+    };
+    viewport.addEventListener('pointerup', endDrag);
+    viewport.addEventListener('pointercancel', endDrag);
+
+    // arrows
+    const step = () => Math.min(viewport.clientWidth * 0.8, 380);
+    const prev = document.querySelector('[data-rev-prev]');
+    const next = document.querySelector('[data-rev-next]');
+    prev && prev.addEventListener('click', () => { viewport.scrollBy({ left: -step(), behavior: 'smooth' }); cooldown(1600); });
+    next && next.addEventListener('click', () => { viewport.scrollBy({ left: step(), behavior: 'smooth' }); cooldown(1600); });
+  })();
+
+  // Hero mesh gradient reacts to the mouse (parallax).
+  const hero = document.querySelector('[data-hero]');
+  if (hero) {
+    const layers = hero.querySelectorAll('.mesh__p');
+    hero.addEventListener('pointermove', (e) => {
+      const r = hero.getBoundingClientRect();
+      const mx = ((e.clientX - r.left) / r.width - 0.5) * 2;   // -1 … 1
+      const my = ((e.clientY - r.top) / r.height - 0.5) * 2;   // -1 … 1
+      layers.forEach((l) => {
+        const d = parseFloat(l.dataset.depth) || 0;
+        l.style.transform = `translate3d(${(mx * d).toFixed(1)}px, ${(my * d).toFixed(1)}px, 0)`;
+      });
+    });
+    hero.addEventListener('pointerleave', () => {
+      layers.forEach((l) => { l.style.transform = 'translate3d(0,0,0)'; });
+    });
+  }
+
+  // Especialidades: scroll-synced sticky stage.
+  (function () {
+    const wrap = document.querySelector('[data-scrolly]');
+    if (!wrap) return;
+    const steps = [...document.querySelectorAll('[data-spec-steps] .spec-step')];
+    const idxBtns = [...document.querySelectorAll('[data-spec-index] .spec-idx')];
+    const numEl = document.querySelector('[data-spec-num]');
+    const iconEl = document.querySelector('[data-spec-icon]');
+    const railEl = document.querySelector('[data-spec-rail]');
+    const ICONS = [
+      '<svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3c-3 0-4 2-4 4 0 2 1 3 1 6s-1 8 1 8 1-4 2-4 1 4 2 4 0-5 1-8 1-2 1-4c0-2-1-4-5-4z" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      '<svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.65A4 4 0 0119 11c0 5.65-7 10-7 10z" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      '<svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      '<svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 12h14M12 5v14" stroke-linecap="round"/></svg>',
+      '<svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 7l8-4 8 4-8 4-8-4zM4 7v6l8 4 8-4V7" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      '<svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 21h8M12 17v4M7 4h10l-1 9a4 4 0 01-8 0L7 4z" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    ];
+    let current = -1;
+    const setActive = (i) => {
+      if (i === current || i < 0) return;
+      current = i;
+      steps.forEach((s, j) => s.classList.toggle('is-active', j === i));
+      idxBtns.forEach((b, j) => { b.classList.toggle('is-active', j === i); b.classList.toggle('is-passed', j < i); });
+      if (numEl) {
+        numEl.textContent = String(i + 1).padStart(2, '0');
+        numEl.animate && numEl.animate([{ opacity: 0, transform: 'translateY(14px)' }, { opacity: 1, transform: 'none' }], { duration: 500, easing: 'cubic-bezier(.16,.84,.44,1)' });
+      }
+      if (iconEl) {
+        iconEl.innerHTML = ICONS[i] || '';
+        iconEl.animate && iconEl.animate([{ opacity: 0, transform: 'scale(.8)' }, { opacity: 1, transform: 'none' }], { duration: 500, easing: 'cubic-bezier(.16,.84,.44,1)' });
+      }
+      if (railEl) railEl.style.height = ((i + 1) / steps.length * 100) + '%';
+    };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) setActive(steps.indexOf(e.target)); });
+    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+    steps.forEach((s) => io.observe(s));
+    idxBtns.forEach((b) => b.addEventListener('click', () => {
+      const i = +b.dataset.go;
+      steps[i] && steps[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }));
+    setActive(0);
+  })();
+</script>
+</body>
+</html>

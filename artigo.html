@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Artigo — Betina Bernardi Boff</title>
+<meta name="description" content="Conteúdos sobre saúde bucal, estética e cuidados com o sorriso, por Dra. Betina Bernardi Boff." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: {
+        cream:'#F7F1E8', sand:'#EADFCE', sandy:'#E0D2BC',
+        gold:'#B4966A', golden:'#C8AE82',
+        wine:'#5C2335', winedeep:'#3F1825',
+        ink:'#2C2620', muted:'#7B6F61',
+      },
+      fontFamily: { serif:['"Cormorant Garamond"','serif'], sans:['"Jost"','sans-serif'] },
+    }},
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { background:#F7F1E8; color:#2C2620; -webkit-font-smoothing:antialiased; }
+  .grain::before { content:""; position:fixed; inset:0; z-index:1; pointer-events:none; opacity:.04;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .atmosphere { background:
+      radial-gradient(60% 50% at 80% 8%, rgba(180,150,106,0.22), transparent 60%),
+      radial-gradient(50% 60% at 6% 90%, rgba(92,35,53,0.10), transparent 60%); }
+  .shadow-soft  { box-shadow:0 1px 2px rgba(63,24,37,0.04), 0 12px 32px -12px rgba(63,24,37,0.18); }
+  .shadow-float { box-shadow:0 2px 4px rgba(63,24,37,0.05), 0 24px 60px -20px rgba(63,24,37,0.28); }
+  .rule-gold { height:1px; background:linear-gradient(90deg,transparent,#B4966A,transparent); }
+  .reveal { opacity:0; transform:translateY(22px); transition:opacity .9s cubic-bezier(.16,.84,.44,1), transform .9s cubic-bezier(.16,.84,.44,1); }
+  .reveal.in { opacity:1; transform:none; }
+  .navlink { position:relative; }
+  .navlink::after { content:""; position:absolute; left:0; bottom:-4px; height:1px; width:100%;
+    background:#B4966A; transform:scaleX(0); transform-origin:right; transition:transform .4s cubic-bezier(.16,.84,.44,1); }
+  .navlink:hover::after,.navlink:focus-visible::after { transform:scaleX(1); transform-origin:left; }
+  .card-img { transition:transform .6s cubic-bezier(.16,.84,.44,1); }
+  .post:hover .card-img { transform:scale(1.05); }
+
+  /* ---- liquid glass top bar ---- */
+  .glass-nav { position:relative; isolation:isolate; overflow:hidden; border-radius:1.1rem;
+    box-shadow:0 8px 24px -10px rgba(63,24,37,.22),0 1px 2px rgba(63,24,37,.06); transition:box-shadow .5s ease; }
+  .glass-nav__distort { position:absolute; inset:0; z-index:0; backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); filter:url('#glass-distortion'); }
+  .glass-nav__tint { position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:linear-gradient(180deg,rgba(247,241,232,.42),rgba(234,223,206,.30)); transition:background .6s ease; }
+  .glass-nav__edge { position:absolute; inset:0; z-index:2; pointer-events:none;
+    box-shadow:inset 2px 2px 1px 0 rgba(255,255,255,.6),inset -1px -1px 1px 1px rgba(255,255,255,.4),inset 0 0 0 1px rgba(255,255,255,.10); }
+
+  /* ---- article prose ---- */
+  .prose-article p { margin-top:1.4rem; font-size:1.05rem; font-weight:300; line-height:1.95; color:rgba(44,38,32,.85); }
+  .prose-article p:first-child { margin-top:0; }
+  .prose-article .lead { font-size:1.2rem; line-height:1.85; color:rgba(44,38,32,.92); }
+  .prose-article h2 { margin-top:2.75rem; font-family:"Cormorant Garamond",serif; font-size:2rem; line-height:1.2; letter-spacing:-0.02em; color:#2C2620; }
+  .prose-article ul { margin-top:1.4rem; display:flex; flex-direction:column; gap:.65rem; }
+  .prose-article li { display:flex; gap:.65rem; font-weight:300; line-height:1.7; color:rgba(44,38,32,.85); }
+  .prose-article li::before { content:""; margin-top:.62rem; height:.3rem; width:.3rem; flex:none; border-radius:9999px; background:#B4966A; }
+  .prose-article blockquote { margin:2.25rem 0; border-left:2px solid #B4966A; padding-left:1.4rem; font-family:"Cormorant Garamond",serif; font-style:italic; font-size:1.5rem; line-height:1.4; color:#5C2335; }
+  .prose-article strong { font-weight:500; color:#2C2620; }
+  .prose-article em { font-style:italic; }
+  .prose-article .cta-link { color:#5C2335; text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(180,150,106,.7); }
+  /* references */
+  .prose-article .refs-head { margin-top:2.75rem; font-family:"Cormorant Garamond",serif; font-size:1.5rem; line-height:1.2; letter-spacing:-0.02em; color:#2C2620; }
+  .prose-article .refs { display:block; margin-top:1.1rem; padding:0; list-style:none; }
+  .prose-article .refs li { display:block; gap:0; padding-left:1.3rem; text-indent:-1.3rem; font-size:.85rem; line-height:1.6; color:rgba(44,38,32,.66); }
+  .prose-article .refs li::before { content:none; }
+  .prose-article .refs li + li { margin-top:.7rem; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity:1 !important; transform:none !important; transition:none !important; }
+    html { scroll-behavior:auto; }
+  }
+
+  :focus-visible { outline:2px solid #B4966A; outline-offset:3px; border-radius:2px; }
+  .tracking-tightest { letter-spacing:-0.03em; }
+</style>
+</head>
+
+<body class="grain font-sans antialiased">
+
+<!-- ============ LIQUID GLASS FILTER ============ -->
+<svg class="absolute h-0 w-0" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="glass-distortion" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
+      <feTurbulence type="fractalNoise" baseFrequency="0.001 0.006" numOctaves="1" seed="17" result="turbulence" />
+      <feComponentTransfer in="turbulence" result="mapped">
+        <feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5" />
+        <feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
+        <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5" />
+      </feComponentTransfer>
+      <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap" />
+      <feSpecularLighting in="softMap" surfaceScale="4" specularConstant="0.9" specularExponent="100" lighting-color="white" result="specLight">
+        <fePointLight x="-200" y="-200" z="300" />
+      </feSpecularLighting>
+      <feComposite in="specLight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litImage" />
+      <feDisplacementMap in="SourceGraphic" in2="softMap" scale="80" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+</svg>
+
+<!-- ============ NAV ============ -->
+<header id="top" class="fixed top-0 inset-x-0 z-40" data-nav>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 pt-3 sm:pt-4">
+    <div class="glass-nav" data-glassnav>
+      <span class="glass-nav__distort"></span>
+      <span class="glass-nav__tint"></span>
+      <span class="glass-nav__edge"></span>
+
+      <div class="relative z-10 flex items-center justify-between gap-4 px-4 sm:px-6 py-2.5">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="brand/Logo_ber.png" alt="Logo Betina Bernardi Boff" class="h-11 w-11 rounded-full object-cover ring-1 ring-white/40" />
+          <span class="leading-tight">
+            <span class="nav-title block font-serif text-lg tracking-tightest text-ink transition-colors duration-500">Betina Bernardi Boff</span>
+            <span class="block font-sans text-[10px] uppercase tracking-[0.32em] text-gold">Odontologia</span>
+          </span>
+        </a>
+
+        <div class="nav-links hidden md:flex items-center gap-9 text-sm font-light text-ink/80 transition-colors duration-500">
+          <a href="index.html#sobre" class="navlink">Sobre</a>
+          <a href="index.html#especialidades" class="navlink">Serviços</a>
+          <a href="index.html#avaliacoes" class="navlink">Avaliações</a>
+          <a href="blog.html" class="navlink text-gold">Blog</a>
+        </div>
+
+        <a href="index.html#contato" class="nav-cta hidden sm:inline-flex items-center gap-2 rounded-full bg-wine px-5 py-2.5 text-sm font-light text-cream shadow-soft transition-all duration-500 hover:-translate-y-0.5">
+          Agendar consulta
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ ARTICLE ============ -->
+<main id="article-root">
+  <!-- ARTICLE HERO -->
+  <section class="atmosphere pt-32 pb-10 lg:pt-40">
+    <div class="mx-auto max-w-3xl px-6 lg:px-10">
+      <a href="blog.html" class="reveal inline-flex items-center gap-2 text-sm font-light text-muted transition-colors hover:text-wine">
+        <span aria-hidden="true">←</span> Voltar ao Blog
+      </a>
+      <div class="reveal mt-6 flex items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-gold">
+        <span data-art="category">Categoria</span>
+        <span class="h-1 w-1 rounded-full bg-gold"></span>
+        <span data-art="read">— min de leitura</span>
+      </div>
+      <h1 data-art="title" class="reveal mt-4 font-serif text-4xl leading-[1.08] tracking-tightest text-ink sm:text-5xl">Carregando…</h1>
+      <div class="reveal mt-6 flex items-center gap-3">
+        <img src="brand/Logo_ber.png" alt="" class="h-10 w-10 rounded-full object-cover ring-1 ring-gold/30" />
+        <div class="leading-tight">
+          <div class="text-sm text-ink">Dra. Betina Bernardi Boff</div>
+          <div class="text-[11px] uppercase tracking-[0.2em] text-muted">CRO-SC 25849</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVER -->
+  <div class="mx-auto max-w-4xl px-6 lg:px-10">
+    <figure class="reveal relative overflow-hidden rounded-[1.6rem] shadow-float">
+      <img data-art="image" src="" alt="" class="h-64 w-full object-cover sm:h-80 lg:h-[26rem]" />
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+    </figure>
+  </div>
+
+  <!-- BODY -->
+  <section class="py-12 lg:py-16">
+    <div class="mx-auto max-w-3xl px-6 lg:px-10">
+      <div data-art="body" class="prose-article reveal"></div>
+
+      <!-- signature + cta -->
+      <div class="reveal mt-12 flex items-center gap-4">
+        <div class="rule-gold w-16"></div>
+        <span class="font-serif text-2xl italic text-wine">Betina Bernardi Boff</span>
+      </div>
+      <div class="reveal mt-8 rounded-[1.4rem] border border-ink/5 bg-sand/40 p-7 sm:flex sm:items-center sm:justify-between sm:gap-6">
+        <p class="font-serif text-2xl leading-snug text-ink">Ficou com alguma dúvida sobre o seu sorriso?</p>
+        <a href="index.html#contato" class="mt-4 inline-flex shrink-0 items-center gap-2 rounded-full bg-wine px-6 py-3 text-sm font-light text-cream shadow-soft transition-all duration-500 hover:-translate-y-0.5 hover:bg-winedeep sm:mt-0">
+          Agendar consulta
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section class="border-t border-ink/10 bg-sand/30 py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-6 lg:px-10">
+      <div class="reveal flex items-end justify-between gap-6">
+        <h2 class="font-serif text-3xl leading-tight tracking-tightest text-ink sm:text-4xl">Continue lendo</h2>
+        <a href="blog.html" class="navlink shrink-0 text-sm font-light text-wine">Ver todos os artigos →</a>
+      </div>
+      <div data-art="related" class="mt-10 grid gap-8 sm:grid-cols-2"></div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-ink/10 bg-sand/40">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="sm:col-span-2">
+        <div class="flex items-center gap-3">
+          <img src="brand/Logo_ber.png" alt="" class="h-11 w-11 rounded-full object-cover" />
+          <span class="font-serif text-lg text-ink tracking-tightest">Betina Bernardi Boff</span>
+        </div>
+        <p class="mt-4 max-w-xs text-sm font-light leading-[1.8] text-muted">
+          Odontologia com cuidado, técnica e estética. Cada sorriso tratado com a atenção que merece.
+        </p>
+      </div>
+      <div>
+        <div class="text-[11px] uppercase tracking-[0.28em] text-gold">Navegação</div>
+        <ul class="mt-4 space-y-2 text-sm font-light text-muted">
+          <li><a href="index.html#sobre" class="navlink">Sobre</a></li>
+          <li><a href="index.html#especialidades" class="navlink">Serviços</a></li>
+          <li><a href="index.html#avaliacoes" class="navlink">Avaliações</a></li>
+          <li><a href="blog.html" class="navlink">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="text-[11px] uppercase tracking-[0.28em] text-gold">Contato</div>
+        <ul class="mt-4 space-y-2 text-sm font-light text-muted">
+          <li><a href="https://wa.me/554888634224" target="_blank" rel="noopener noreferrer" class="navlink">WhatsApp · +55 48 8863-4224</a></li>
+          <li><a href="contato.html" class="navlink">E-mail</a></li>
+          <li><a href="https://www.instagram.com/betinaber/" target="_blank" rel="noopener noreferrer" class="navlink">Instagram · @betinaber</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rule-gold"></div>
+    <div class="flex flex-col items-center justify-between gap-2 py-6 text-xs font-light text-muted sm:flex-row">
+      <span>© 2026 Betina Bernardi Boff — Todos os direitos reservados.</span>
+      <span>CRO-SC 25849 • Cirurgiã-Dentista</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---- Article data ----
+  const POSTS = {
+    'sensibilidade': {
+      category: 'Rotina', read: '7 min de leitura',
+      title: 'Sensibilidade nos dentes: por que acontece?',
+      image: 'https://placehold.co/1200x700/5C2335/F7F1E8?text=Sensibilidade',
+      body: `
+        <p class="lead"><em>Aquela fisgada com o sorvete ou com o café quente tem nome, tem explicação científica e, principalmente, tem solução.</em></p>
+
+        <p>Você morde o sorvete e... pronto. Aquela fisgada rápida, elétrica, que sobe pelo dente e some quase tão depressa quanto veio. Ou talvez seja o gole de café quente, o ar gelado num dia de frio, a primeira garfada de algo muito doce. Por um segundo, parece que alguém cutucou um nervo lá dentro.</p>
+        <p>E, em certo sentido, foi mais ou menos isso que aconteceu.</p>
+        <p>A sensibilidade dentária é uma das queixas mais comuns no consultório, e também uma das mais subestimadas: muita gente simplesmente aprende a conviver com ela, desviando do lado “ruim” da boca ou tomando a água sem gelo. Mas, por trás daquele susto de um segundo, existe um mecanismo elegante, bem estudado, e que vale a pena entender. Porque, quando você entende o porquê, a solução fica óbvia.</p>
+
+        <h2>O que é, afinal, “dente sensível”?</h2>
+        <p>Os pesquisadores têm uma definição bastante precisa para isso. A <strong>hipersensibilidade dentinária</strong>, como é chamada tecnicamente, é uma dor curta e aguda que vem da dentina exposta em resposta a estímulos (frio, calor, ar, toque, doce ou ácido) e que <em>não pode ser explicada por nenhum outro problema do dente</em> (Holland e colaboradores, 1997).</p>
+        <p>Essa última parte é importante e a gente volta nela mais para o fim. Por enquanto, guarde a ideia central: a sensibilidade clássica é aquela dor rápida que aparece com um gatilho e some quando o gatilho vai embora.</p>
+
+        <h2>Uma rápida viagem para dentro do dente</h2>
+        <p>Para entender o que acontece, vale lembrar como o dente é montado por dentro. Pense em três camadas.</p>
+        <p>Por fora, na coroa, está o <strong>esmalte</strong>, a estrutura mais dura do corpo humano, uma espécie de capacete sem nervos nenhum. Embaixo dele (e formando boa parte da raiz) está a <strong>dentina</strong>, mais macia e amarelada. E, no centro, vive a <strong>polpa</strong>, o miolo do dente, cheia de vasos e nervos.</p>
+        <p>O detalhe que muda tudo está na dentina. Ela não é maciça: é atravessada por milhares de canalículos microscópicos, os <strong>túbulos dentinários</strong>, que correm da superfície em direção à polpa. E esses túbulos são preenchidos por um fluido. São tão numerosos que cabem milhares deles em um único milímetro quadrado.</p>
+        <p>Enquanto o esmalte e a gengiva cobrem tudo, esses túbulos ficam protegidos. O problema começa quando eles ficam expostos.</p>
+
+        <h2>A teoria que explica (quase) tudo: a hidrodinâmica de Brännström</h2>
+        <p>A explicação mais aceita até hoje foi proposta pelo pesquisador sueco Martin Brännström na década de 1960, e é conhecida como <strong>teoria hidrodinâmica</strong>.</p>
+        <p>Imagine os túbulos como canudinhos microscópicos cheios de líquido. Quando algo atinge a dentina exposta (o frio do sorvete, o calor do café, um jato de ar, um toque, o açúcar), esse estímulo faz o fluido dentro dos túbulos se movimentar. O frio tende a puxar o líquido para fora; o calor, a empurrá-lo para dentro. Esse movimento, por menor que seja, sacode as terminações nervosas que ficam na outra ponta do túbulo, junto à polpa. Os nervos disparam. E o cérebro lê tudo isso como aquela fisgada curta e afiada.</p>
+        <p>A beleza da teoria é que ela explica por que estímulos tão diferentes provocam exatamente a mesma dor: no fundo, todos fazem a mesma coisa, mexem o fluido. Brännström também observou que a dentina sensível tem muito mais túbulos abertos e desobstruídos do que a dentina que não dói, e que bloquear esses túbulos reduzia a dor. Guarde também esse detalhe: é nele que mora a solução.</p>
+
+        <h2>Mas por que o dente fica exposto?</h2>
+        <p>Para a sensibilidade aparecer, duas coisas precisam acontecer ao mesmo tempo, num raciocínio bem organizado pelo pesquisador Martin Addy e seus colegas: a dentina precisa ficar <strong>exposta</strong>, e os túbulos precisam estar <strong>abertos</strong>, conectando a superfície à polpa. Há, basicamente, dois caminhos para isso.</p>
+        <p>O primeiro é a <strong>perda de esmalte</strong>. Ela pode vir da erosão (ataque de ácidos, sejam os da dieta, como refrigerantes, cítricos, vinho e isotônicos, sejam os internos, em quem sofre de refluxo), da abrasão (escovação agressiva demais, com pasta abrasiva), do desgaste por bruxismo (o ranger de dentes) ou da abfração (aquele desgaste em cunha pertinho da gengiva).</p>
+        <p>O segundo caminho é a <strong>retração da gengiva</strong>. Quando a gengiva recua, ela expõe a raiz do dente, que não tem a proteção do esmalte e onde os túbulos ficam especialmente vulneráveis. Isso acontece muito por escovação traumática e por doença periodontal (a doença da gengiva).</p>
+        <p>Aqui vale destacar uma conclusão importante da literatura: para Addy, a <strong>erosão ácida costuma ser a grande vilã</strong>, porque o ácido faz as duas coisas ao mesmo tempo: expõe a dentina e ainda “destampa” os túbulos, removendo a fina camada protetora que os cobre. E existe uma armadilha prática que pouca gente conhece: escovar os dentes logo após algo ácido, quando o esmalte está temporariamente amolecido, multiplica o desgaste. Ácido e escova agem em sinergia, um potencializando o estrago do outro.</p>
+        <p>Por fim, há a sensibilidade temporária: depois de um clareamento ou de uma limpeza profissional, é comum sentir os dentes mais sensíveis por alguns dias. Costuma passar.</p>
+
+        <h2>Quão comum é isso?</h2>
+        <p>Mais do que você imagina, e os números variam bastante. Os estudos relatam desde menos de 10% até mais da metade das pessoas em certos grupos, justamente porque cada pesquisa mede de um jeito e estuda populações diferentes. O que se sabe com mais segurança é que a sensibilidade tende a ter um pico entre os 20 e os 40 anos e é bem mais frequente em quem tem retração gengival ou doença periodontal.</p>
+        <p>A moral da história não está no número exato. Está no fato de que isso é comum, costuma ser subnotificado (muita gente nem comenta com o dentista) e, se é o seu caso, você definitivamente não está sozinho.</p>
+
+        <h2>O que dá para fazer</h2>
+        <p>Aqui vem a melhor parte: a sensibilidade é bastante tratável, e as estratégias seguem exatamente a lógica do mecanismo. Existem, em essência, duas frentes.</p>
+        <p>A primeira é <strong>acalmar o nervo</strong>. Cremes dentais dessensibilizantes à base de sais de potássio (como o nitrato de potássio) liberam íons de potássio que reduzem a excitabilidade das terminações nervosas. O detalhe é que eles precisam de uso constante por algumas semanas para fazer efeito. Não são alívio instantâneo.</p>
+        <p>A segunda frente é <strong>bloquear os túbulos</strong>. Agentes como o fluoreto estanhoso, a combinação de arginina com carbonato de cálcio e outros compostos selam fisicamente a entrada dos túbulos, cortando o movimento do fluido na fonte. O alívio costuma ser mais rápido.</p>
+        <p>No consultório, o dentista tem ainda outras cartas na manga: aplicações de verniz de flúor (estudos mostram alívio significativo e duradouro já com uma única aplicação), selantes e resinas, e, quando a retração gengival é a causa, em alguns casos um enxerto de gengiva.</p>
+        <p>Mas talvez o passo mais negligenciado seja <strong>tratar a causa</strong>. Maneirar nos alimentos e bebidas ácidas, não escovar imediatamente depois deles (esperar de 30 a 60 minutos, ou ao menos enxaguar com água antes), trocar para uma escova macia com técnica suave, e resolver o bruxismo (com uma placa de proteção noturna) ou o refluxo, quando eles estão por trás do problema. Caso contrário, é como secar o chão com a torneira ainda aberta.</p>
+
+        <h2>Quando isso deixa de ser “só sensibilidade”</h2>
+        <p>Esse é o ponto que ninguém deveria ignorar.</p>
+        <p>A sensibilidade verdadeira é aquela fisgada rápida que aparece com um gatilho e desaparece logo em seguida. Mas se a dor <strong>persiste</strong> depois que o estímulo já passou, se ela surge <strong>sozinha</strong>, sem motivo, se <strong>lateja</strong>, se dói ao <strong>morder</strong> ou se vem acompanhada de <strong>inchaço</strong>, a conversa é outra. Pode ser uma cárie, um dente trincado ou uma inflamação do nervo, e isso precisa de avaliação profissional.</p>
+        <p>Lembra da definição lá do começo? Hipersensibilidade dentinária é, por definição, a dor que “não pode ser explicada por nenhum outro problema”. Descartar esses outros problemas é exatamente o trabalho do dentista. Não vale a pena aguentar calado uma dor que foge do padrão da fisgada rápida.</p>
+
+        <h2>No fim das contas</h2>
+        <p>A sensibilidade é a sua dentina mandando um recado através de milhares de canais microscópicos: alguma coisa que deveria estar protegida acabou exposta. A solução raramente é complicada, mas funciona melhor quando você cuida ao mesmo tempo do sintoma e da causa.</p>
+        <p>Então, se ultimamente o sorvete anda ganhando de você, talvez seja a hora de investigar.</p>
+
+        <blockquote><a class="cta-link" href="index.html#contato"><strong>Se aquela fisgada virou rotina, vale a pena investigar.</strong></a> Agende uma avaliação com a gente: vamos encontrar a causa e montar um plano que trate o problema na raiz, e não só o susto.</blockquote>
+
+        <h2 class="refs-head">Referências e leituras</h2>
+        <ul class="refs">
+          <li>HOLLAND, G. R.; NÄRHI, M. N.; ADDY, M.; GANGAROSA, L.; ORCHARDSON, R. Guidelines for the design and conduct of clinical trials on dentine hypersensitivity. <em>Journal of Clinical Periodontology</em>, v. 24, n. 11, p. 808–813, 1997.</li>
+          <li>BRÄNNSTRÖM, M.; ASTRÖM, A. The hydrodynamics of the dentine; its possible relationship to dentinal pain. <em>International Dental Journal</em>, v. 22, n. 2, p. 219–227, 1972.</li>
+          <li>ADDY, M. Dentine hypersensitivity: new perspectives on an old problem. <em>International Dental Journal</em>, v. 52, supl. 1, p. 367–375, 2002.</li>
+          <li>CANADIAN ADVISORY BOARD ON DENTIN HYPERSENSITIVITY. Consensus-based recommendations for the diagnosis and management of dentin hypersensitivity. <em>Journal of the Canadian Dental Association</em>, v. 69, n. 4, p. 221–226, 2003.</li>
+          <li>WEST, N. X.; SANZ, M.; LUSSI, A.; BARTLETT, D.; BOUCHARD, P.; BOURGEOIS, D. Prevalence of dentine hypersensitivity and study of associated factors: a European population-based cross-sectional study. <em>Journal of Dentistry</em>, v. 41, n. 10, p. 841–851, 2013.</li>
+          <li>WEST, N. X.; SEONG, J.; DAVIES, M. Management of dentine hypersensitivity: efficacy of professionally and self-administered agents. <em>Journal of Clinical Periodontology</em>, v. 42, supl. 16, p. S256–S302, 2015.</li>
+        </ul>
+      `,
+    },
+    'frequencia-limpeza': {
+      category: 'Prevenção', read: '8 min de leitura',
+      title: 'A “limpeza” do dentista: por que esses 40 minutos importam muito mais',
+      image: 'https://placehold.co/1200x700/EADFCE/5C2335?text=Profilaxia',
+      body: `
+        <p class="lead"><em>Spoiler: aquela sensação de dente liso é só a parte que você vê. O que importa de verdade acontece nos bastidores.</em></p>
+
+        <p>Você conhece aquela sensação. Acabou de sair da cadeira do dentista, passa a língua pelos dentes e eles estão lisos, escorregadios, quase rangendo de limpos. Por alguns dias você jura que vai escovar com mais capricho, usar fio dental religiosamente, manter aquilo para sempre.</p>
+        <p>E aí a vida acontece.</p>
+        <p>A profilaxia — ou “limpeza”, como quase todo mundo chama — é provavelmente o procedimento odontológico mais subestimado que existe. A gente marca, desmarca, empurra com a barriga, trata como aquela tarefa chata que dá pra deixar pra depois. Mas por trás desses poucos minutos na cadeira existe ciência, existe uma história de quase três séculos e, principalmente, existe uma boa dose de prevenção que vai muito além do sorriso bonito.</p>
+
+        <h2>Limpeza ou profilaxia? Não é só frescura de nome</h2>
+        <p>Vale começar desfazendo uma confusão comum. No dia a dia, “limpeza” virou um guarda-chuva para qualquer coisa que deixe os dentes limpos. Tecnicamente, porém, a palavra certa é <strong>profilaxia</strong>.</p>
+        <p>O termo vem do grego <em>prophylaxis</em>, algo como “guardar antes”, “proteger previamente”. Já diz tudo, né? A profilaxia não é sobre consertar um estrago. É sobre impedir que ele aconteça. Trata-se da remoção profissional da placa bacteriana e das manchas, seguida de um polimento que deixa a superfície do dente lisinha e mais difícil de ser colonizada de novo.</p>
+        <p>Quando o caso já envolve tártaro acumulado abaixo da gengiva, aí entramos em outro território: o da raspagem periodontal. São coisas diferentes, ainda que primas próximas. Mas a lógica é sempre a mesma: tirar do caminho aquilo que, deixado em paz, vira problema.</p>
+
+        <h2>Uma história de quase 300 anos</h2>
+        <p>A vontade de manter a boca limpa é antiga. Muito antiga. Povos da Antiguidade já mastigavam gravetos de árvores específicas (o <em>miswak</em>, usado até hoje em algumas culturas) para esfregar os dentes. Mas a profilaxia como a entendemos hoje começa a tomar forma no século XVIII.</p>
+        <p>O marco costuma ser atribuído ao francês <strong>Pierre Fauchard</strong>, considerado o pai da odontologia moderna. Em 1728, ele publicou <em>Le Chirurgien Dentiste</em>, uma obra impressionante para a época, em que já descrevia a remoção do tártaro e defendia a limpeza regular dos dentes como forma de preservá-los. Décadas antes de alguém sonhar com bactérias, Fauchard intuía que sujeira acumulada não era boa companhia.</p>
+        <p>A peça que faltava — o <em>porquê</em> — veio no fim do século XIX, quando o americano <strong>W. D. Miller</strong> demonstrou que os micro-organismos da boca tinham tudo a ver com a cárie. E foi só em 1913 que a prevenção ganhou gente especializada: o dentista <strong>Alfred Fones</strong> fundou, nos Estados Unidos, a primeira escola de higienistas dentais, profissionalizando de vez o cuidado preventivo. A primeira higienista da história, aliás, foi Irene Newman, treinada por ele alguns anos antes.</p>
+
+        <h2>O que está acontecendo na sua boca neste exato momento</h2>
+        <p>Aqui vai a parte que costuma surpreender as pessoas: a sua boca nunca está “parada”. Mesmo agora, enquanto você lê isto, uma película de bactérias — o famoso <strong>biofilme</strong>, ou placa bacteriana — está se formando sobre os seus dentes. É um processo contínuo e absolutamente normal.</p>
+        <p>O problema não é a placa existir. É deixá-la acampar.</p>
+        <p>Quando o biofilme não é removido, em questão de um ou dois dias ele começa a se mineralizar e endurecer, virando <strong>tártaro</strong> (o cálculo dental). E aqui mora a sacada: tártaro não sai com escova. Não importa o capricho, a escova premium ou o fio dental usado com devoção. Uma vez calcificado, só instrumento profissional resolve.</p>
+        <p>Quer uma prova elegante de que isso importa? Em 1965, um grupo de pesquisadores liderado por <strong>Harald Löe</strong> conduziu um experimento que virou clássico da periodontia. Eles pediram a voluntários com gengivas saudáveis que simplesmente parassem de fazer higiene bucal. Em poucos dias, todos desenvolveram gengivite: gengivas inflamadas, vermelhas, sangrando. Quando voltaram a escovar, a inflamação regrediu. Simples assim. Ficou demonstrado, de forma quase didática, que a placa acumulada é causa direta da gengivite, e que removê-la reverte o quadro.</p>
+        <p>O perigo é que a gengivite, se ignorada, pode evoluir para a <strong>periodontite</strong>, uma doença que ataca os tecidos e o osso que sustentam o dente. É a principal causa de perda dentária em adultos. E o pior: costuma ser silenciosa, sem dor, até estar bem avançada.</p>
+        <p>E tem mais. Nas últimas décadas, a literatura acumulou evidências de que a saúde da boca conversa com o resto do corpo. A doença periodontal aparece associada a um risco aumentado de problemas cardiovasculares, tem uma relação de mão dupla com o diabetes (uma piora a outra) e está ligada a complicações na gravidez, entre outros desfechos. Sua boca não é uma ilha. O que acontece nela ecoa para fora.</p>
+
+        <h2>E como é, na prática, uma sessão de profilaxia?</h2>
+        <p>Para quem sente um friozinho na barriga só de pensar: relaxa. Uma profilaxia de rotina é tranquila e, na maioria das vezes, indolor.</p>
+        <p>Geralmente começa com uma avaliação da boca como um todo. Em seguida, o profissional remove a placa e o tártaro, muitas vezes com um aparelho de ultrassom, que usa vibração e um suave jato d'água para desprender o acúmulo, e às vezes com instrumentos manuais para o acabamento. Depois vem o polimento, com uma pasta específica e uma escovinha rotatória, que dá aquele toque liso e remove manchas superficiais de café, chá, vinho e cigarro. Em alguns casos, finaliza-se com aplicação de flúor para fortalecer o esmalte.</p>
+        <p>Tudo isso costuma levar de 30 a 60 minutos. Você sai com aquela sensação de boca nova e, mais importante, com o terreno limpo para recomeçar.</p>
+
+        <h2>De quanto em quanto tempo?</h2>
+        <p>A recomendação clássica é a cada seis meses, e ela funciona bem para a maioria das pessoas. Mas a verdade honesta é que não existe número mágico universal.</p>
+        <p>Quem tem tendência a acumular tártaro, fuma, usa aparelho ortodôntico, tem diabetes ou já apresenta histórico de problema gengival pode precisar de visitas mais frequentes, a cada três ou quatro meses. Outras pessoas, com saúde bucal impecável, talvez espacem um pouco mais. O ideal é que essa frequência seja definida junto com o seu dentista, olhando para a <em>sua</em> boca, e não para uma regra genérica.</p>
+
+        <h2>No fim das contas</h2>
+        <p>A profilaxia é um daqueles cuidados que não entregam um resultado dramático e instagramável. Ninguém vai notar de longe que você fez uma limpeza. Mas é exatamente esse o ponto. Ela trabalha nos bastidores, evitando a cárie que não apareceu, a gengivite que não inflamou, o tratamento caro e doloroso que você não precisou fazer.</p>
+        <p>É prevenção no sentido mais puro da palavra. E, convenhamos, sair da cadeira passando a língua por aqueles dentes lisinhos continua sendo uma das melhores sensações que existem.</p>
+        <p>Que tal não deixar para a próxima? Sua boca — e o resto de você — agradece.</p>
+
+        <blockquote><a class="cta-link" href="index.html#contato"><strong>Agende sua avaliação com a gente</strong></a> e descubra qual é a frequência ideal de profilaxia para o seu sorriso. Prevenir é sempre mais simples (e mais barato) do que remediar.</blockquote>
+
+        <h2 class="refs-head">Para quem quiser se aprofundar</h2>
+        <ul class="refs">
+          <li>FAUCHARD, P. <em>Le Chirurgien Dentiste, ou Traité des Dents</em>. Paris, 1728.</li>
+          <li>LÖE, H.; THEILADE, E.; JENSEN, S. B. Experimental Gingivitis in Man. <em>Journal of Periodontology</em>, v. 36, p. 177–187, 1965.</li>
+          <li>MILLER, W. D. <em>The Micro-Organisms of the Human Mouth</em>. Filadélfia, 1890.</li>
+          <li>MARSH, P. D. Microbial ecology of dental plaque and its significance in health and disease. <em>Advances in Dental Research</em>, v. 8, n. 2, p. 263–271, 1994.</li>
+          <li>NEWMAN, M. G.; TAKEI, H.; KLOKKEVOLD, P. R.; CARRANZA, F. A. <em>Newman and Carranza's Clinical Periodontology</em>. Elsevier.</li>
+        </ul>
+      `,
+    },
+    'autoestima': {
+      category: 'Bem-estar', read: '7 min de leitura',
+      title: 'O sorriso e a autoestima: o que a psicologia descobriu sobre o poder dos seus dentes',
+      image: 'https://placehold.co/1200x700/5C2335/F7F1E8?text=Confian%C3%A7a',
+      body: `
+        <p class="lead"><em>A ciência confirma o que talvez você já desconfie: a forma como você encara o próprio sorriso muda a forma como você se mostra para o mundo.</em></p>
+
+        <p>Pensa naquela foto. Aquela em que todo mundo ficou ótimo, menos você, porque você estava de boca fechada, ou rindo com a mão na frente do rosto, ou com aquele sorriso meio contido que mais parece um aperto de lábios. Talvez você nem tenha percebido que fez isso. Mas o seu corpo percebeu.</p>
+        <p>Quem não gosta do próprio sorriso costuma desenvolver um repertório inteiro de pequenas estratégias para escondê-lo: a mão na boca ao rir, o lábio que cobre os dentes, a recusa educada de aparecer nas fotos. São gestos automáticos, quase invisíveis. E eles dizem muito sobre uma relação que a psicologia estuda há décadas: a que existe entre os nossos dentes e a nossa autoestima.</p>
+        <p>A pergunta que fica é: isso é só vaidade? Ou tem coisa séria por trás? A resposta da ciência é bem clara, e mais interessante do que parece.</p>
+
+        <h2>A gente decide em um décimo de segundo</h2>
+        <p>Tudo começa antes de qualquer palavra ser dita.</p>
+        <p>Em 2006, os psicólogos Janine Willis e Alexander Todorov, da Universidade de Princeton, fizeram um experimento que ficou famoso. Eles mostraram rostos a participantes por frações de segundo e pediram que avaliassem características como confiabilidade e competência. O resultado foi impressionante: bastavam cerca de 100 milissegundos (um décimo de segundo, menos que um piscar de olhos) para que uma impressão se formasse. Dar mais tempo aos participantes praticamente não mudava o julgamento. Apenas aumentava a confiança que tinham nele.</p>
+        <p>Ou seja: julgamos rostos numa velocidade que mal dá para chamar de pensamento. É reflexo. E adivinha qual é um dos elementos centrais nesse julgamento relâmpago? O sorriso.</p>
+
+        <h2>“O que é bonito é bom”</h2>
+        <p>Aqui entra um dos grandes clássicos da psicologia social. Em 1972, as pesquisadoras Karen Dion, Ellen Berscheid e Elaine Walster publicaram um estudo com um título que virou conceito: <em>“What is beautiful is good”</em>, ou “o que é bonito é bom”.</p>
+        <p>Elas mostraram que tendemos a atribuir, de forma automática, uma porção de qualidades positivas a pessoas que consideramos atraentes. Achamos que são mais simpáticas, mais competentes, mais bem-sucedidas, mais sociáveis. É um atalho mental, um viés, conhecido como <strong>efeito halo</strong>: a beleza de um traço “vaza” e contamina a forma como percebemos a pessoa inteira.</p>
+        <p>Não é justo, claro. Mas é real e robusto. Décadas depois, uma grande meta-análise (Langlois e colaboradores, 2000) confirmou que esse efeito aparece de forma consistente em diferentes estudos e contextos. E como o sorriso é uma das partes mais expostas e expressivas do rosto, ele carrega um peso enorme nessa conta.</p>
+
+        <h2>Quando os dentes entram na equação da autoestima</h2>
+        <p>Tudo bem, o mundo nos julga. Mas e o nosso julgamento sobre nós mesmos?</p>
+        <p>É aqui que a pesquisa fica realmente específica. Existe um instrumento muito usado na odontologia e na psicologia, criado por Klages e colaboradores em 2006, chamado <strong>PIDAQ</strong> (sigla em inglês para “Questionário de Impacto Psicossocial da Estética Dental”). Ele mede exatamente o quanto a aparência dos dentes afeta a vida emocional e social de alguém, com domínios como autoconfiança dental, impacto social e impacto psicológico.</p>
+        <p>Quando os pesquisadores cruzam o PIDAQ com a <strong>Escala de Autoestima de Rosenberg</strong> (a régua mais usada no mundo para medir autoestima, criada pelo sociólogo Morris Rosenberg em 1965), um padrão aparece com frequência: pessoas mais incomodadas com a estética dos próprios dentes tendem a relatar autoestima mais baixa. Vários estudos transversais, com centenas de participantes, encontram essa associação. Em um deles, feito com estudantes universitários, observou-se uma correlação negativa clara: quanto maior o impacto psicossocial negativo da estética dental, menor a autoestima medida.</p>
+        <p>Vale uma ressalva honesta, porém. Esses estudos mostram <strong>associação, não uma relação simples de causa e efeito</strong>. Autoestima é coisa complexa, construída por mil fatores: história de vida, relações, temperamento. Os dentes são uma peça desse quebra-cabeça, não o quebra-cabeça inteiro. Mas são uma peça que pesa, e que a literatura insiste em mostrar.</p>
+
+        <h2>O laço invisível entre como você se sente e como você aparece</h2>
+        <p>Tem um detalhe nessa história que é fácil deixar passar, e talvez seja o mais importante.</p>
+        <p>Quando alguém não gosta do próprio sorriso, não é só que essa pessoa “se acha feia”. É que ela <strong>para de sorrir</strong>. Cobre a boca, evita fotos, fala menos, recua em situações sociais. E o sorriso, lembra, é um dos sinais mais poderosos de simpatia e abertura que existem. Estudos sobre percepção facial mostram que sorrir de forma genuína faz a pessoa parecer mais confiável e acessível aos olhos dos outros.</p>
+        <p>Forma-se então um círculo: a pessoa se sente insegura com os dentes, sorri menos, transmite menos calor e abertura, recebe respostas sociais mais frias, e isso reforça a insegurança. O incômodo estético, que começou “lá dentro”, acaba moldando a forma como ela é recebida “lá fora”. E vice-versa.</p>
+        <p>Levantamentos sobre o tema mostram o tamanho disso: boa parte das pessoas não gosta de como o próprio sorriso aparece nas fotos, e uma parcela significativa admite evitar sorrir de dentes à mostra diante da câmera. O sorriso, que deveria ser um gesto de alegria espontânea, vira fonte de autocrítica.</p>
+
+        <h2>A boa notícia</h2>
+        <p>Se o problema funciona em círculo, a solução também pode.</p>
+        <p>A própria literatura que liga estética dental e autoestima costuma apontar o outro lado da moeda: quando as pessoas resolvem aquilo que as incomoda (seja um tratamento ortodôntico, um clareamento ou a reposição de um dente perdido), o impacto psicossocial negativo tende a diminuir e a satisfação consigo mesmas costuma melhorar. Não é mágica, e não substitui o cuidado com a autoestima como um todo. Mas, para muita gente, destravar o sorriso é destravar também a vontade de mostrá-lo.</p>
+        <p>E talvez seja esse o ponto que a ciência, no fundo, está dizendo: cuidar dos dentes nunca foi só sobre dentes. É sobre rir sem pensar duas vezes. É sobre aparecer na foto. É sobre entrar numa sala sem a mão subindo automaticamente para cobrir a boca.</p>
+        <p>Um sorriso de que você gosta não muda quem você é. Mas pode, sim, mudar o quanto você se permite aparecer.</p>
+
+        <blockquote><a class="cta-link" href="index.html#contato"><strong>Se o seu sorriso anda te fazendo recuar, vale uma conversa.</strong></a> Agende uma avaliação com a gente e vamos entender, juntos, o que faz sentido para o seu caso. Sem promessas mágicas, com cuidado de verdade.</blockquote>
+
+        <h2 class="refs-head">Referências e leituras</h2>
+        <ul class="refs">
+          <li>DION, K.; BERSCHEID, E.; WALSTER, E. What is beautiful is good. <em>Journal of Personality and Social Psychology</em>, v. 24, n. 3, p. 285–290, 1972.</li>
+          <li>WILLIS, J.; TODOROV, A. First impressions: making up your mind after a 100-ms exposure to a face. <em>Psychological Science</em>, v. 17, n. 7, p. 592–598, 2006.</li>
+          <li>ROSENBERG, M. <em>Society and the Adolescent Self-Image</em>. Princeton: Princeton University Press, 1965.</li>
+          <li>KLAGES, U.; CLAUS, N.; WEHRBEIN, H.; ZENTNER, A. Development of a questionnaire for assessment of the psychosocial impact of dental aesthetics in young adults. <em>European Journal of Orthodontics</em>, v. 28, n. 2, p. 103–111, 2006. (questionário PIDAQ)</li>
+          <li>LANGLOIS, J. H. et al. Maxims or myths of beauty? A meta-analytic and theoretical review. <em>Psychological Bulletin</em>, v. 126, n. 3, p. 390–423, 2000.</li>
+        </ul>
+      `,
+    },
+  };
+
+  const ORDER = ['frequencia-limpeza','autoestima','sensibilidade'];
+
+  function getId() {
+    const id = new URLSearchParams(location.search).get('id');
+    return POSTS[id] ? id : 'frequencia-limpeza';
+  }
+
+  function render() {
+    const id = getId();
+    const post = POSTS[id];
+
+    document.title = post.title + ' — Betina Bernardi Boff';
+    document.querySelector('[data-art="category"]').textContent = post.category;
+    document.querySelector('[data-art="read"]').textContent = post.read;
+    document.querySelector('[data-art="title"]').textContent = post.title;
+    const img = document.querySelector('[data-art="image"]');
+    img.src = post.image; img.alt = post.title;
+    document.querySelector('[data-art="body"]').innerHTML = post.body;
+
+    // Related: the other articles (no duplicates), up to 3.
+    const others = ORDER.filter((k) => k !== id);
+    const picks = others.slice(0, 3);
+
+    const related = document.querySelector('[data-art="related"]');
+    related.innerHTML = picks.map((k) => {
+      const p = POSTS[k];
+      return `
+        <a href="artigo.html?id=${k}" class="post reveal in group flex flex-col overflow-hidden rounded-[1.25rem] border border-ink/5 bg-cream shadow-soft transition-transform duration-500 hover:-translate-y-1.5">
+          <div class="overflow-hidden">
+            <img src="${p.image}" alt="" class="card-img h-44 w-full object-cover" />
+          </div>
+          <div class="flex flex-1 flex-col p-7">
+            <div class="text-[11px] uppercase tracking-[0.24em] text-gold">${p.category}</div>
+            <h3 class="mt-3 font-serif text-xl leading-snug text-ink">${p.title}</h3>
+            <span class="mt-5 inline-flex items-center gap-2 text-sm font-light text-wine group-hover:gap-3 transition-all">Ler artigo <span aria-hidden="true">→</span></span>
+          </div>
+        </a>`;
+    }).join('');
+
+    window.scrollTo(0, 0);
+  }
+
+  render();
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+</body>
+</html>

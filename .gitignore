@@ -1,0 +1,14 @@
+# editor / local config
+.claude/
+
+# dependencies
+node_modules/
+
+# local dev artifacts
+print_website/
+temporary screenshots/
+*.log
+
+# os
+.DS_Store
+Thumbs.db

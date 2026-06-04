@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fale com a Dra. Betina — Contato</title>
+<meta name="description" content="Envie uma mensagem para a Dra. Betina Bernardi Boff. Tire dúvidas ou agende sua avaliação." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: { extend: {
+      colors: {
+        cream:'#F7F1E8', sand:'#EADFCE', sandy:'#E0D2BC',
+        gold:'#B4966A', golden:'#C8AE82',
+        wine:'#5C2335', winedeep:'#3F1825',
+        ink:'#2C2620', muted:'#7B6F61',
+      },
+      fontFamily: { serif:['"Cormorant Garamond"','serif'], sans:['"Jost"','sans-serif'] },
+    }},
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { background:#F7F1E8; color:#2C2620; -webkit-font-smoothing:antialiased; }
+  .grain::before { content:""; position:fixed; inset:0; z-index:1; pointer-events:none; opacity:.04;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .atmosphere { background:
+      radial-gradient(60% 50% at 80% 8%, rgba(180,150,106,0.22), transparent 60%),
+      radial-gradient(50% 60% at 6% 90%, rgba(92,35,53,0.10), transparent 60%); }
+  .shadow-soft  { box-shadow:0 1px 2px rgba(63,24,37,0.04), 0 12px 32px -12px rgba(63,24,37,0.18); }
+  .shadow-float { box-shadow:0 2px 4px rgba(63,24,37,0.05), 0 24px 60px -20px rgba(63,24,37,0.28); }
+  .rule-gold { height:1px; background:linear-gradient(90deg,transparent,#B4966A,transparent); }
+  .reveal { opacity:0; transform:translateY(22px); transition:opacity .9s cubic-bezier(.16,.84,.44,1), transform .9s cubic-bezier(.16,.84,.44,1); }
+  .reveal.in { opacity:1; transform:none; }
+  .navlink { position:relative; }
+  .navlink::after { content:""; position:absolute; left:0; bottom:-4px; height:1px; width:100%;
+    background:#B4966A; transform:scaleX(0); transform-origin:right; transition:transform .4s cubic-bezier(.16,.84,.44,1); }
+  .navlink:hover::after,.navlink:focus-visible::after { transform:scaleX(1); transform-origin:left; }
+
+  /* ---- liquid glass top bar ---- */
+  .glass-nav { position:relative; isolation:isolate; overflow:hidden; border-radius:1.1rem;
+    box-shadow:0 8px 24px -10px rgba(63,24,37,.22),0 1px 2px rgba(63,24,37,.06); transition:box-shadow .5s ease; }
+  .glass-nav__distort { position:absolute; inset:0; z-index:0; backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); filter:url('#glass-distortion'); }
+  .glass-nav__tint { position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:linear-gradient(180deg,rgba(247,241,232,.42),rgba(234,223,206,.30)); }
+  .glass-nav__edge { position:absolute; inset:0; z-index:2; pointer-events:none;
+    box-shadow:inset 2px 2px 1px 0 rgba(255,255,255,.6),inset -1px -1px 1px 1px rgba(255,255,255,.4),inset 0 0 0 1px rgba(255,255,255,.10); }
+
+  /* ---- form fields ---- */
+  .field-label { font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; color:#B4966A; }
+  .field {
+    margin-top:.5rem; width:100%; border-radius:.9rem; border:1px solid rgba(44,38,32,.12);
+    background:rgba(255,255,255,.55); padding:.85rem 1.1rem; font-size:.95rem; font-weight:300; color:#2C2620;
+    transition:border-color .3s ease, box-shadow .3s ease, background .3s ease;
+  }
+  .field::placeholder { color:rgba(123,111,97,.7); }
+  .field:focus { outline:none; border-color:#B4966A; background:#fff; box-shadow:0 0 0 3px rgba(180,150,106,.16); }
+  textarea.field { resize:vertical; min-height:9rem; line-height:1.7; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity:1 !important; transform:none !important; transition:none !important; }
+    html { scroll-behavior:auto; }
+  }
+  :focus-visible { outline:2px solid #B4966A; outline-offset:3px; border-radius:2px; }
+  .tracking-tightest { letter-spacing:-0.03em; }
+</style>
+</head>
+
+<body class="grain font-sans antialiased">
+
+<!-- ============ LIQUID GLASS FILTER ============ -->
+<svg class="absolute h-0 w-0" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="glass-distortion" x="0%" y="0%" width="100%" height="100%" filterUnits="objectBoundingBox">
+      <feTurbulence type="fractalNoise" baseFrequency="0.001 0.006" numOctaves="1" seed="17" result="turbulence" />
+      <feComponentTransfer in="turbulence" result="mapped">
+        <feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5" />
+        <feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
+        <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5" />
+      </feComponentTransfer>
+      <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap" />
+      <feSpecularLighting in="softMap" surfaceScale="4" specularConstant="0.9" specularExponent="100" lighting-color="white" result="specLight">
+        <fePointLight x="-200" y="-200" z="300" />
+      </feSpecularLighting>
+      <feComposite in="specLight" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litImage" />
+      <feDisplacementMap in="SourceGraphic" in2="softMap" scale="80" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+</svg>
+
+<!-- ============ NAV ============ -->
+<header id="top" class="fixed top-0 inset-x-0 z-40" data-nav>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 pt-3 sm:pt-4">
+    <div class="glass-nav">
+      <span class="glass-nav__distort"></span>
+      <span class="glass-nav__tint"></span>
+      <span class="glass-nav__edge"></span>
+
+      <div class="relative z-10 flex items-center justify-between gap-4 px-4 sm:px-6 py-2.5">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="brand/Logo_ber.png" alt="Logo Betina Bernardi Boff" class="h-11 w-11 rounded-full object-cover ring-1 ring-white/40" />
+          <span class="leading-tight">
+            <span class="block font-serif text-lg tracking-tightest text-ink">Betina Bernardi Boff</span>
+            <span class="block font-sans text-[10px] uppercase tracking-[0.32em] text-gold">Odontologia</span>
+          </span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-9 text-sm font-light text-ink/80">
+          <a href="index.html#sobre" class="navlink">Sobre</a>
+          <a href="index.html#especialidades" class="navlink">Serviços</a>
+          <a href="index.html#avaliacoes" class="navlink">Avaliações</a>
+          <a href="blog.html" class="navlink">Blog</a>
+        </div>
+
+        <a href="https://wa.me/554888634224" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 rounded-full bg-wine px-5 py-2.5 text-sm font-light text-cream shadow-soft transition-all duration-500 hover:-translate-y-0.5 hover:bg-winedeep">
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ CONTACT FORM ============ -->
+<main class="atmosphere min-h-screen pt-32 pb-20 lg:pt-40">
+  <div class="mx-auto max-w-2xl px-6 lg:px-10">
+    <div class="reveal text-center">
+      <a href="index.html" class="inline-flex items-center gap-2 text-sm font-light text-muted transition-colors hover:text-wine">
+        <span aria-hidden="true">←</span> Voltar ao início
+      </a>
+      <span class="mt-6 block text-[11px] uppercase tracking-[0.32em] text-gold">Fale comigo</span>
+      <h1 class="mt-3 font-serif text-4xl leading-tight tracking-tightest text-ink sm:text-5xl">
+        Envie uma mensagem
+      </h1>
+      <p class="mx-auto mt-4 max-w-md text-base font-light leading-[1.8] text-muted">
+        Conte o que você precisa que a Dra. Betina responde pessoalmente. Sua mensagem chega direto ao e-mail dela.
+      </p>
+    </div>
+
+    <!-- form card -->
+    <div class="reveal mt-10 rounded-[1.6rem] border border-ink/5 bg-cream/80 p-7 shadow-float sm:p-10">
+      <form id="contactForm" novalidate>
+        <!-- Web3Forms config -->
+        <input type="hidden" name="access_key" value="COLE_AQUI_SUA_CHAVE_WEB3FORMS" />
+        <input type="hidden" name="from_name" value="Site — Betina Bernardi Boff" />
+        <!-- honeypot anti-spam (deve ficar vazio) -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label for="f-name" class="field-label">Seu nome</label>
+            <input id="f-name" name="name" type="text" required placeholder="Como você se chama" class="field" />
+          </div>
+          <div>
+            <label for="f-email" class="field-label">Seu e-mail</label>
+            <input id="f-email" name="email" type="email" required placeholder="voce@email.com" class="field" />
+          </div>
+        </div>
+
+        <div class="mt-5">
+          <label for="f-subject" class="field-label">Assunto</label>
+          <input id="f-subject" name="subject" type="text" required placeholder="Sobre o que você quer falar" class="field" />
+        </div>
+
+        <div class="mt-5">
+          <label for="f-message" class="field-label">Mensagem</label>
+          <textarea id="f-message" name="message" required placeholder="Escreva aqui a sua mensagem, dúvida ou pedido de agendamento…" class="field"></textarea>
+        </div>
+
+        <button type="submit" id="submitBtn"
+          class="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-wine px-8 py-4 text-sm font-light tracking-wide text-cream shadow-soft transition-all duration-500 hover:-translate-y-0.5 hover:bg-winedeep disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto">
+          <span id="submitLabel">Enviar mensagem</span>
+          <svg id="submitSpinner" class="hidden h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2.5" stroke-opacity="0.25"/><path d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </button>
+
+        <!-- status message -->
+        <p id="formStatus" class="mt-4 hidden text-sm font-light"></p>
+      </form>
+
+      <!-- success state -->
+      <div id="successPanel" class="hidden text-center">
+        <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-wine/10 text-wine">
+          <svg viewBox="0 0 24 24" class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h2 class="mt-5 font-serif text-3xl text-ink">Mensagem enviada!</h2>
+        <p class="mx-auto mt-3 max-w-sm text-sm font-light leading-[1.8] text-muted">
+          Obrigada pelo contato. A Dra. Betina recebeu a sua mensagem e responderá em breve no e-mail informado.
+        </p>
+        <a href="index.html" class="mt-7 inline-flex items-center gap-2 rounded-full border border-ink/15 px-7 py-3 text-sm font-light text-ink transition-colors hover:border-gold hover:text-gold">
+          Voltar ao início
+        </a>
+      </div>
+    </div>
+
+    <!-- alternative contacts -->
+    <div class="reveal mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm font-light text-muted">
+      <a href="https://wa.me/554888634224" target="_blank" rel="noopener noreferrer" class="navlink">WhatsApp · +55 48 8863-4224</a>
+      <a href="https://www.instagram.com/betinaber/" target="_blank" rel="noopener noreferrer" class="navlink">Instagram · @betinaber</a>
+    </div>
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-ink/10 bg-sand/40">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="flex flex-col items-center justify-between gap-2 py-6 text-xs font-light text-muted sm:flex-row">
+      <span>© 2026 Betina Bernardi Boff — Todos os direitos reservados.</span>
+      <span>CRO-SC 25849 • Cirurgiã-Dentista</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const form = document.getElementById('contactForm');
+  const btn = document.getElementById('submitBtn');
+  const label = document.getElementById('submitLabel');
+  const spinner = document.getElementById('submitSpinner');
+  const status = document.getElementById('formStatus');
+  const successPanel = document.getElementById('successPanel');
+
+  function showStatus(msg, ok) {
+    status.textContent = msg;
+    status.classList.remove('hidden');
+    status.style.color = ok ? '#5C2335' : '#9a3322';
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.classList.add('hidden');
+
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    // loading state
+    btn.disabled = true;
+    label.textContent = 'Enviando…';
+    spinner.classList.remove('hidden');
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form),
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        form.classList.add('hidden');
+        successPanel.classList.remove('hidden');
+        successPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        showStatus(data.message || 'Não foi possível enviar. Tente novamente.', false);
+      }
+    } catch (err) {
+      showStatus('Falha de conexão. Verifique sua internet e tente novamente.', false);
+    } finally {
+      btn.disabled = false;
+      label.textContent = 'Enviar mensagem';
+      spinner.classList.add('hidden');
+    }
+  });
+
+  // Reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+</body>
+</html>

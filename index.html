@@ -201,6 +201,7 @@
   .glass-nav.nav-dark .nav-links { color: rgba(247,241,232,.9); }
   .glass-nav.nav-dark .nav-cta { background: #C8AE82; color: #3F1825; }
   .glass-nav.nav-dark .nav-cta:hover { background: #DCC79B; }
+  .glass-nav.nav-dark .nav-burger { color: #F7F1E8; }
 
   /* ---- especialidades scrollytelling ---- */
   .spec-num { font-variant-numeric: tabular-nums; line-height: 1; }
@@ -310,8 +311,22 @@
         <a href="#contato" class="nav-cta hidden sm:inline-flex items-center gap-2 rounded-full bg-wine px-5 py-2.5 text-sm font-light text-cream shadow-soft transition-all duration-500 hover:-translate-y-0.5">
           Agendar consulta
         </a>
+
+        <button type="button" class="nav-burger md:hidden inline-flex h-10 w-10 items-center justify-center rounded-full text-ink transition-colors" data-menu-btn aria-label="Abrir menu" aria-expanded="false">
+          <svg class="nav-burger__open h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="nav-burger__close hidden h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
       </div>
     </div>
+
+    <!-- mobile menu -->
+    <nav class="mobile-menu md:hidden mt-2 hidden overflow-hidden rounded-2xl border border-ink/10 bg-cream/95 p-2 shadow-float backdrop-blur-md" data-mobile-menu>
+      <a href="#sobre" class="block rounded-xl px-4 py-3 text-base font-light text-ink transition-colors hover:bg-sand">Sobre</a>
+      <a href="#especialidades" class="block rounded-xl px-4 py-3 text-base font-light text-ink transition-colors hover:bg-sand">Serviços</a>
+      <a href="#avaliacoes" class="block rounded-xl px-4 py-3 text-base font-light text-ink transition-colors hover:bg-sand">Avaliações</a>
+      <a href="blog.html" class="block rounded-xl px-4 py-3 text-base font-light text-ink transition-colors hover:bg-sand">Blog</a>
+      <a href="#contato" class="mt-1 block rounded-xl bg-wine px-4 py-3 text-center text-base font-light text-cream transition-colors hover:bg-winedeep">Agendar consulta</a>
+    </nav>
   </div>
 </header>
 
@@ -820,6 +835,20 @@
   updateNavTheme();
   window.addEventListener('scroll', updateNavTheme, { passive: true });
   window.addEventListener('resize', updateNavTheme);
+
+  // Mobile menu toggle.
+  const menuBtn = document.querySelector('[data-menu-btn]');
+  const mobileMenu = document.querySelector('[data-mobile-menu]');
+  if (menuBtn && mobileMenu) {
+    const setMenu = (open) => {
+      mobileMenu.classList.toggle('hidden', !open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.querySelector('.nav-burger__open').classList.toggle('hidden', open);
+      menuBtn.querySelector('.nav-burger__close').classList.toggle('hidden', !open);
+    };
+    menuBtn.addEventListener('click', () => setMenu(mobileMenu.classList.contains('hidden')));
+    mobileMenu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+  }
 
   // Avaliações: infinite horizontal carousel (autoplay + drag + arrows).
   (function () {

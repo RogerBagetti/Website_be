@@ -9,6 +9,9 @@ print_website/
 temporary screenshots/
 *.log
 
+# pdfs (materiais de estudo etc. — nao fazem parte do site)
+*.pdf
+
 # os
 .DS_Store
 Thumbs.db

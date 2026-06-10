@@ -112,31 +112,12 @@
     -webkit-mask-image: radial-gradient(ellipse 110% 100% at 62% 0%, #000 38%, transparent 92%);
             mask-image: radial-gradient(ellipse 110% 100% at 62% 0%, #000 38%, transparent 92%);
   }
-  .mesh__p { position: absolute; inset: 0; will-change: transform; transition: transform .6s cubic-bezier(.22,.61,.36,1); }
+  .mesh__p { position: absolute; inset: 0; will-change: transform; }
   .mesh__blob { position: absolute; border-radius: 50%; filter: blur(48px); will-change: transform; }
-  .mesh__blob--a { width: 50vw; height: 50vw; left: -10%; top: -22%; background: radial-gradient(circle at 50% 50%, rgba(180,150,106,.78), transparent 66%); animation: meshA 15s ease-in-out infinite; }
-  .mesh__blob--b { width: 44vw; height: 44vw; right: -8%; top: -16%; background: radial-gradient(circle at 50% 50%, rgba(200,174,130,.72), transparent 66%); animation: meshB 18s ease-in-out infinite; }
-  .mesh__blob--c { width: 42vw; height: 42vw; left: 24%;  top: -18%; background: radial-gradient(circle at 50% 50%, rgba(122,46,68,.5),    transparent 64%); animation: meshC 13s ease-in-out infinite; }
-  .mesh__blob--d { width: 32vw; height: 32vw; right: 14%; top: 4%;   background: radial-gradient(circle at 50% 50%, rgba(168,129,78,.6),    transparent 64%); animation: meshD 20s ease-in-out infinite; }
-  @keyframes meshA {
-    0%,100% { transform: translate(0,0)        scale(1);    }
-    33%     { transform: translate(34%,18%)    scale(1.2);  }
-    66%     { transform: translate(14%,34%)    scale(1.08); }
-  }
-  @keyframes meshB {
-    0%,100% { transform: translate(0,0)        scale(1);    }
-    33%     { transform: translate(-30%,22%)   scale(1.18); }
-    66%     { transform: translate(-14%,8%)    scale(1.26); }
-  }
-  @keyframes meshC {
-    0%,100% { transform: translate(0,0)        scale(1);    }
-    50%     { transform: translate(40%,26%)    scale(1.3);  }
-  }
-  @keyframes meshD {
-    0%,100% { transform: translate(0,0)        scale(1);    }
-    50%     { transform: translate(-32%,-20%)  scale(1.28); }
-  }
-  @media (prefers-reduced-motion: reduce) { .mesh__blob { animation: none !important; } }
+  .mesh__blob--a { width: 50vw; height: 50vw; left: -10%; top: -22%; background: radial-gradient(circle at 50% 50%, rgba(180,150,106,.78), transparent 66%); }
+  .mesh__blob--b { width: 44vw; height: 44vw; right: -8%; top: -16%; background: radial-gradient(circle at 50% 50%, rgba(200,174,130,.72), transparent 66%); }
+  .mesh__blob--c { width: 42vw; height: 42vw; left: 24%;  top: -18%; background: radial-gradient(circle at 50% 50%, rgba(122,46,68,.5),    transparent 64%); }
+  .mesh__blob--d { width: 32vw; height: 32vw; right: 14%; top: 4%;   background: radial-gradient(circle at 50% 50%, rgba(168,129,78,.6),    transparent 64%); }
 
   /* ---- tinted, layered shadows ---- */
   .shadow-soft   { box-shadow: 0 1px 2px rgba(63,24,37,0.04), 0 12px 32px -12px rgba(63,24,37,0.18); }
@@ -382,10 +363,10 @@
 <!-- ============ HERO ============ -->
 <section class="atmosphere relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28" data-hero>
   <div class="mesh" aria-hidden="true">
-    <span class="mesh__p" data-depth="34"><span class="mesh__blob mesh__blob--a"></span></span>
-    <span class="mesh__p" data-depth="-46"><span class="mesh__blob mesh__blob--b"></span></span>
-    <span class="mesh__p" data-depth="26"><span class="mesh__blob mesh__blob--c"></span></span>
-    <span class="mesh__p" data-depth="-58"><span class="mesh__blob mesh__blob--d"></span></span>
+    <span class="mesh__p" data-depth="95"><span class="mesh__blob mesh__blob--a"></span></span>
+    <span class="mesh__p" data-depth="-130"><span class="mesh__blob mesh__blob--b"></span></span>
+    <span class="mesh__p" data-depth="70"><span class="mesh__blob mesh__blob--c"></span></span>
+    <span class="mesh__p" data-depth="-155"><span class="mesh__blob mesh__blob--d"></span></span>
   </div>
   <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
     <div class="grid items-center gap-14 lg:grid-cols-12">
@@ -976,22 +957,36 @@
     next && next.addEventListener('click', () => { viewport.scrollBy({ left: step(), behavior: 'smooth' }); cooldown(1600); });
   })();
 
-  // Hero mesh gradient reacts to the mouse (parallax).
+  // Hero mesh gradient: drift contínuo (JS) + reação suave ao mouse.
   const hero = document.querySelector('[data-hero]');
   if (hero) {
-    const layers = hero.querySelectorAll('.mesh__p');
+    const layers = [...hero.querySelectorAll('.mesh__p')].map((el, i) => ({
+      el,
+      depth: parseFloat(el.dataset.depth) || 60,
+      ampX: 42 + i * 10, ampY: 32 + i * 9,                 // amplitude do passeio (px)
+      spX: 0.00034 + i * 0.00006, spY: 0.00046 + i * 0.00005, // velocidade
+      phX: i * 1.7, phY: i * 2.3,                          // defasagem
+      spS: 0.0004 + i * 0.00007, phS: i * 0.9,             // respiração (escala)
+    }));
+    let tx = 0, ty = 0, cx = 0, cy = 0;                    // alvo e atual do mouse (-1..1)
     hero.addEventListener('pointermove', (e) => {
       const r = hero.getBoundingClientRect();
-      const mx = ((e.clientX - r.left) / r.width - 0.5) * 2;   // -1 … 1
-      const my = ((e.clientY - r.top) / r.height - 0.5) * 2;   // -1 … 1
-      layers.forEach((l) => {
-        const d = parseFloat(l.dataset.depth) || 0;
-        l.style.transform = `translate3d(${(mx * d).toFixed(1)}px, ${(my * d).toFixed(1)}px, 0)`;
-      });
+      tx = ((e.clientX - r.left) / r.width - 0.5) * 2;
+      ty = ((e.clientY - r.top) / r.height - 0.5) * 2;
     });
-    hero.addEventListener('pointerleave', () => {
-      layers.forEach((l) => { l.style.transform = 'translate3d(0,0,0)'; });
-    });
+    hero.addEventListener('pointerleave', () => { tx = 0; ty = 0; });
+    const tick = (t) => {
+      cx += (tx - cx) * 0.06;                              // seguimento suave
+      cy += (ty - cy) * 0.06;
+      for (const L of layers) {
+        const dx = Math.sin(t * L.spX + L.phX) * L.ampX + cx * L.depth;
+        const dy = Math.cos(t * L.spY + L.phY) * L.ampY + cy * L.depth;
+        const s = 1 + Math.sin(t * L.spS + L.phS) * 0.06;
+        L.el.style.transform = `translate3d(${dx.toFixed(1)}px, ${dy.toFixed(1)}px, 0) scale(${s.toFixed(3)})`;
+      }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
   }
 
   // Especialidades: scroll-synced sticky stage.

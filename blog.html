@@ -262,15 +262,26 @@
           <h2 class="font-serif text-3xl leading-tight tracking-tightest text-cream sm:text-4xl">Receba novos conteúdos</h2>
           <p class="mt-3 max-w-md text-sm font-light leading-[1.8] text-cream/70">Dicas de cuidado com o sorriso direto no seu e-mail, sem spam.</p>
         </div>
-        <form class="flex flex-col gap-3 sm:flex-row" onsubmit="return false">
-          <input type="email" required placeholder="Seu melhor e-mail" class="w-full rounded-full border border-cream/20 bg-cream/10 px-6 py-3.5 text-sm text-cream placeholder:text-cream/50 focus:border-gold" />
-          <button type="submit" class="glass glass--gold glass--sm shrink-0">
-            <span class="glass__distort"></span>
-            <span class="glass__tint"></span>
-            <span class="glass__edge"></span>
-            <span class="glass__label">Inscrever</span>
-          </button>
-        </form>
+        <div>
+          <form id="newsletterForm" class="flex flex-col gap-3 sm:flex-row" novalidate>
+            <input type="hidden" name="access_key" value="c02c1c9b-9d24-4eb2-b3a7-b7c13b5a1836" />
+            <input type="hidden" name="subject" value="Nova inscrição na newsletter do site" />
+            <input type="hidden" name="from_name" value="Newsletter — Site Betina Bernardi Boff" />
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+            <input type="email" name="email" required placeholder="Seu melhor e-mail" class="w-full rounded-full border border-cream/20 bg-cream/10 px-6 py-3.5 text-sm text-cream placeholder:text-cream/50 focus:border-gold" />
+            <button type="submit" id="nlBtn" class="glass glass--gold glass--sm shrink-0">
+              <span class="glass__distort"></span>
+              <span class="glass__tint"></span>
+              <span class="glass__edge"></span>
+              <span class="glass__label" id="nlLabel">Inscrever</span>
+            </button>
+          </form>
+          <p id="nlStatus" class="mt-3 hidden text-sm font-light"></p>
+          <div id="nlSuccess" class="hidden">
+            <p class="font-serif text-2xl text-cream">Pronto! Inscrição recebida.</p>
+            <p class="mt-1 text-sm font-light text-cream/70">Você será avisado quando sair um conteúdo novo. 💛</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -348,6 +359,39 @@
     };
     menuBtn.addEventListener('click', () => setMenu(mobileMenu.classList.contains('hidden')));
     mobileMenu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+  }
+
+  // Newsletter subscription (Web3Forms).
+  const nlForm = document.getElementById('newsletterForm');
+  if (nlForm) {
+    const nlBtn = document.getElementById('nlBtn');
+    const nlLabel = document.getElementById('nlLabel');
+    const nlStatus = document.getElementById('nlStatus');
+    const nlSuccess = document.getElementById('nlSuccess');
+    nlForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      nlStatus.classList.add('hidden');
+      if (!nlForm.checkValidity()) { nlForm.reportValidity(); return; }
+      nlBtn.disabled = true; nlLabel.textContent = 'Enviando…';
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(nlForm),
+        });
+        const data = await res.json();
+        if (data.success) {
+          nlForm.classList.add('hidden');
+          nlSuccess.classList.remove('hidden');
+        } else {
+          nlStatus.textContent = data.message || 'Não foi possível inscrever. Tente novamente.';
+          nlStatus.style.color = '#f3c9b4'; nlStatus.classList.remove('hidden');
+        }
+      } catch (err) {
+        nlStatus.textContent = 'Falha de conexão. Tente novamente.';
+        nlStatus.style.color = '#f3c9b4'; nlStatus.classList.remove('hidden');
+      } finally {
+        nlBtn.disabled = false; nlLabel.textContent = 'Inscrever';
+      }
+    });
   }
 </script>
 </body>

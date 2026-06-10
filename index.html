@@ -113,6 +113,12 @@
             mask-image: radial-gradient(ellipse 110% 100% at 62% 0%, #000 38%, transparent 92%);
   }
   .mesh__p { position: absolute; inset: 0; will-change: transform; }
+  .mesh-cursor {
+    position: absolute; top: 0; left: 0; z-index: 0; pointer-events: none;
+    width: 40vw; height: 40vw; border-radius: 50%;
+    background: radial-gradient(circle, rgba(122,46,68,.6), rgba(92,35,53,0) 62%);
+    filter: blur(40px); opacity: 0; transition: opacity .5s ease; will-change: transform, opacity;
+  }
   .mesh__blob { position: absolute; border-radius: 50%; filter: blur(48px); will-change: transform; }
   .mesh__blob--a { width: 50vw; height: 50vw; left: -10%; top: -22%; background: radial-gradient(circle at 50% 50%, rgba(180,150,106,.78), transparent 66%); }
   .mesh__blob--b { width: 44vw; height: 44vw; right: -8%; top: -16%; background: radial-gradient(circle at 50% 50%, rgba(200,174,130,.72), transparent 66%); }
@@ -368,6 +374,7 @@
     <span class="mesh__p" data-depth="70"><span class="mesh__blob mesh__blob--c"></span></span>
     <span class="mesh__p" data-depth="-155"><span class="mesh__blob mesh__blob--d"></span></span>
   </div>
+  <div class="mesh-cursor" data-mesh-cursor aria-hidden="true"></div>
   <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
     <div class="grid items-center gap-14 lg:grid-cols-12">
 
@@ -968,21 +975,30 @@
       phX: i * 1.7, phY: i * 2.3,                          // defasagem
       spS: 0.0004 + i * 0.00007, phS: i * 0.9,             // respiração (escala)
     }));
-    let tx = 0, ty = 0, cx = 0, cy = 0;                    // alvo e atual do mouse (-1..1)
+    const cursor = hero.querySelector('[data-mesh-cursor]');
+    let tx = 0, ty = 0, cx = 0, cy = 0;                    // alvo/atual do mouse (-1..1)
+    let tpx = 0, tpy = 0, cpx = 0, cpy = 0, primed = false; // posição do brilho (px)
     hero.addEventListener('pointermove', (e) => {
       const r = hero.getBoundingClientRect();
       tx = ((e.clientX - r.left) / r.width - 0.5) * 2;
       ty = ((e.clientY - r.top) / r.height - 0.5) * 2;
+      tpx = e.clientX - r.left; tpy = e.clientY - r.top;
+      if (!primed) { cpx = tpx; cpy = tpy; primed = true; }  // evita "deslizar" do canto
+      if (cursor) cursor.style.opacity = '1';
     });
-    hero.addEventListener('pointerleave', () => { tx = 0; ty = 0; });
+    hero.addEventListener('pointerleave', () => { tx = 0; ty = 0; if (cursor) cursor.style.opacity = '0'; });
     const tick = (t) => {
-      cx += (tx - cx) * 0.06;                              // seguimento suave
+      cx += (tx - cx) * 0.06;                              // seguimento suave (blobs)
       cy += (ty - cy) * 0.06;
       for (const L of layers) {
         const dx = Math.sin(t * L.spX + L.phX) * L.ampX + cx * L.depth;
         const dy = Math.cos(t * L.spY + L.phY) * L.ampY + cy * L.depth;
         const s = 1 + Math.sin(t * L.spS + L.phS) * 0.06;
         L.el.style.transform = `translate3d(${dx.toFixed(1)}px, ${dy.toFixed(1)}px, 0) scale(${s.toFixed(3)})`;
+      }
+      if (cursor) {                                        // brilho vinho segue o cursor
+        cpx += (tpx - cpx) * 0.14; cpy += (tpy - cpy) * 0.14;
+        cursor.style.transform = `translate(${cpx.toFixed(1)}px, ${cpy.toFixed(1)}px) translate(-50%, -50%)`;
       }
       requestAnimationFrame(tick);
     };

@@ -11,6 +11,8 @@ temporary screenshots/
 
 # pdfs (materiais de estudo etc. — nao fazem parte do site)
 *.pdf
+# ...exceto os cartoes prontos para grafica
+!cartao-*.pdf
 
 # os
 .DS_Store

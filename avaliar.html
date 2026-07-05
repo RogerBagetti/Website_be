@@ -228,6 +228,17 @@
         <p class="mx-auto mt-3 max-w-sm text-sm font-light leading-[1.8] text-muted">
           Muito obrigada por compartilhar a sua experiência. A Dra. Betina recebeu a sua avaliação com todo o carinho.
         </p>
+        <!-- convite para repetir a avaliação no Google (aparece só com nota 4–5 e GOOGLE_REVIEW_URL configurada) -->
+        <div id="googleCta" class="hidden">
+          <p class="mx-auto mt-6 max-w-sm text-sm font-light leading-[1.8] text-muted">
+            Sua opinião ajuda outras pessoas a encontrarem a Dra. Betina.
+            Pode deixar a mesma avaliação no Google? Leva 30 segundos 💛
+          </p>
+          <a id="googleCtaLink" href="#" target="_blank" rel="noopener noreferrer"
+            class="mt-5 inline-flex items-center gap-2 rounded-full bg-wine px-8 py-4 text-sm font-light tracking-wide text-cream shadow-soft transition-all duration-500 hover:-translate-y-0.5 hover:bg-winedeep">
+            Avaliar no Google <span aria-hidden="true">→</span>
+          </a>
+        </div>
         <a href="/" class="mt-7 inline-flex items-center gap-2 rounded-full border border-ink/15 px-7 py-3 text-sm font-light text-ink transition-colors hover:border-gold hover:text-gold">
           Voltar ao início
         </a>
@@ -247,6 +258,11 @@
 </footer>
 
 <script>
+  // Link "Escrever avaliação" do perfil de profissional da Dra. Betina no Google.
+  // Quando o perfil existir: Google Maps → perfil da empresa → "Pedir avaliações" → copiar o link aqui.
+  // Enquanto estiver vazio, o convite pós-envio para avaliar no Google fica oculto.
+  const GOOGLE_REVIEW_URL = '';
+
   const form = document.getElementById('reviewForm');
   const btn = document.getElementById('submitBtn');
   const label = document.getElementById('submitLabel');
@@ -303,6 +319,10 @@
       const data = await res.json();
       if (data.success) {
         form.classList.add('hidden');
+        if (GOOGLE_REVIEW_URL && rating >= 4) {
+          document.getElementById('googleCtaLink').href = GOOGLE_REVIEW_URL;
+          document.getElementById('googleCta').classList.remove('hidden');
+        }
         successPanel.classList.remove('hidden');
         successPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {

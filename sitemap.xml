@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://betinaboff.com/</loc>
+    <loc>https://www.betinaboff.com/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://betinaboff.com/blog.html</loc>
+    <loc>https://www.betinaboff.com/blog</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://betinaboff.com/contato.html</loc>
+    <loc>https://www.betinaboff.com/contato</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://betinaboff.com/avaliar.html</loc>
+    <loc>https://www.betinaboff.com/avaliar</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://betinaboff.com/artigo.html?id=frequencia-limpeza</loc>
+    <loc>https://www.betinaboff.com/artigo?id=frequencia-limpeza</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://betinaboff.com/artigo.html?id=autoestima</loc>
+    <loc>https://www.betinaboff.com/artigo?id=autoestima</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://betinaboff.com/artigo.html?id=sensibilidade</loc>
+    <loc>https://www.betinaboff.com/artigo?id=sensibilidade</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>

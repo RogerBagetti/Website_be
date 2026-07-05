@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://betinaboff.com/sitemap.xml
+Sitemap: https://www.betinaboff.com/sitemap.xml

@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Dentista em Palhoça, São José e Florianópolis | Dra. Betina Bernardi Boff</title>
-<link rel="icon" type="image/png" href="brand/Logo_ber.png" />
-<link rel="apple-touch-icon" href="brand/Logo_ber.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="brand/logo-96.png" />
+<link rel="apple-touch-icon" href="brand/logo-192.png" />
 <meta name="description" content="Odontologia em Palhoça, São José e Florianópolis com a Dra. Betina Bernardi Boff (CRO-SC 25849): consulta de avaliação, prevenção, restaurações, clareamento e reabilitação. Agende sua consulta." />
 <meta name="keywords" content="dentista Palhoça, dentista São José SC, dentista Florianópolis, odontologia Palhoça, clareamento, implantodontia, periodontia, Betina Bernardi Boff" />
 <link rel="canonical" href="https://www.betinaboff.com/" />
@@ -18,7 +18,10 @@
 <meta property="og:title" content="Dra. Betina Bernardi Boff — Dentista em Palhoça, São José e Florianópolis" />
 <meta property="og:description" content="Odontologia com cuidado, técnica e estética em Palhoça, São José e Florianópolis. Agende sua consulta de avaliação." />
 <meta property="og:url" content="https://www.betinaboff.com/" />
-<meta property="og:image" content="https://www.betinaboff.com/brand/Logo_ber.png" />
+<meta property="og:image" content="https://www.betinaboff.com/brand/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta property="og:locale" content="pt_BR" />
 
 <!-- Dados estruturados: consultório odontológico local -->
@@ -28,7 +31,8 @@
   "@type": "Dentist",
   "name": "Dra. Betina Bernardi Boff — Odontologia",
   "description": "Consultório odontológico com atendimento em Palhoça, São José e Florianópolis. Consulta de avaliação, odontologia preventiva, restaurações, clareamento e reabilitação.",
-  "image": "https://www.betinaboff.com/brand/Logo_ber.png",
+  "image": "https://www.betinaboff.com/brand/og-image.jpg",
+  "logo": "https://www.betinaboff.com/brand/logo-192.png",
   "url": "https://www.betinaboff.com/",
   "telephone": "+554888634224",
   "priceRange": "$$",
@@ -54,6 +58,24 @@
     "identifier": "CRO-SC 25849"
   },
   "sameAs": [ "https://www.instagram.com/betinaber/" ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Como funciona a primeira consulta?",
+      "acceptedAnswer": { "@type": "Answer", "text": "É uma avaliação completa: conversa sobre o seu histórico e as suas queixas, exame clínico detalhado e um plano de tratamento transparente, explicado passo a passo e sem pressa." } },
+    { "@type": "Question", "name": "Onde fica o consultório?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Na Av. Atílio Pedro Pagani, 115, no bairro Pagani, em Palhoça, ao lado do Via Catarina Shopping, com acesso rápido pela BR-101 e estacionamento fácil na região." } },
+    { "@type": "Question", "name": "Atende pacientes de São José e Florianópolis?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sim. Muitos pacientes vêm de São José e de Florianópolis: pela BR-101, o Pagani costuma ser mais rápido de alcançar do que o centro da Ilha." } },
+    { "@type": "Question", "name": "Quais tratamentos a Dra. Betina realiza?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Consulta de avaliação, odontologia preventiva (limpeza/profilaxia), restaurações estéticas, clareamento dental e reabilitação. Casos de implantodontia e periodontia são acompanhados com especialização em andamento na área." } },
+    { "@type": "Question", "name": "Como faço para agendar?",
+      "acceptedAnswer": { "@type": "Answer", "text": "O caminho mais rápido é o WhatsApp (+55 48 8863-4224). Também é possível enviar uma mensagem pelo formulário de contato do site." } }
+  ]
 }
 </script>
 
@@ -233,28 +255,67 @@
   .glass-nav.nav-dark .nav-cta:hover { background: #DCC79B; }
   .glass-nav.nav-dark .nav-burger { color: #F7F1E8; }
 
-  /* ---- especialidades scrollytelling ---- */
-  .spec-num { font-variant-numeric: tabular-nums; line-height: 1; }
-  .spec-stage-icon { transition: none; }
-  /* index list */
-  .spec-idx { position: relative; display: flex; align-items: center; gap: .85rem; width: 100%;
-    padding: .35rem 0; text-align: left; cursor: pointer; color: rgba(123,111,97,.65);
-    transition: color .4s ease; }
-  .spec-idx:hover { color: #5C2335; }
-  .spec-idx .spec-idx__num { font-size: .7rem; letter-spacing: .12em; color: rgba(123,111,97,.5); transition: color .4s ease; }
-  .spec-idx .spec-idx__dot { height: 6px; width: 6px; border-radius: 9999px; background: rgba(123,111,97,.3); transition: background .4s ease, transform .4s ease; }
-  .spec-idx.is-active { color: #5C2335; }
-  .spec-idx.is-active .spec-idx__num { color: #B4966A; }
-  .spec-idx.is-active .spec-idx__dot { background: #B4966A; transform: scale(1.7); }
-  .spec-idx.is-passed .spec-idx__dot { background: rgba(180,150,106,.6); }
-  /* progress rail */
-  .spec-rail { position: relative; width: 2px; background: rgba(44,38,32,.1); border-radius: 2px; overflow: hidden; }
-  .spec-rail__fill { position: absolute; inset: 0 0 auto 0; height: 0; background: linear-gradient(#C8AE82, #B4966A); transition: height .6s cubic-bezier(.16,.84,.44,1); }
-  /* steps */
-  .spec-step { min-height: 72vh; display: flex; flex-direction: column; justify-content: center;
-    opacity: .25; transform: translateY(10px); transition: opacity .6s ease, transform .6s ease; }
-  .spec-step.is-active { opacity: 1; transform: none; }
-  @media (max-width: 1023px) { .spec-step { min-height: 0; opacity: 1; transform: none; padding: 2.5rem 0; border-top: 1px solid rgba(44,38,32,.08); } }
+  /* ---- serviços: índice + painel ---- */
+  .svc-tab { position: relative; display: flex; width: 100%; align-items: baseline; justify-content: space-between; gap: 1rem;
+    padding: 1.15rem 0 1.15rem 1.4rem; text-align: left; border-bottom: 1px solid rgba(44,38,32,.09); cursor: pointer;
+    color: rgba(44,38,32,.55); transition: color .35s ease; }
+  .svc-tab:first-child { border-top: 1px solid rgba(44,38,32,.09); }
+  .svc-tab::before { content: ""; position: absolute; left: 0; top: 50%; height: 1.6rem; width: 2px; margin-top: -.8rem;
+    background: #B4966A; transform: scaleY(0); transition: transform .45s cubic-bezier(.16,.84,.44,1); }
+  .svc-tab__name { font-family: "Cormorant Garamond", serif; font-size: 1.6rem; line-height: 1.2; letter-spacing: -.02em; }
+  .svc-tab__hint { font-size: .8rem; font-weight: 300; color: rgba(123,111,97,.75); }
+  .svc-tab:hover { color: #5C2335; }
+  .svc-tab:active { transform: translateX(2px); }
+  .svc-tab.is-active { color: #2C2620; }
+  .svc-tab.is-active::before { transform: scaleY(1); }
+  .svc-panel { border-radius: 1.4rem; border: 1px solid rgba(44,38,32,.06); background: #F7F1E8; padding: 2rem;
+    box-shadow: 0 1px 2px rgba(63,24,37,0.04), 0 12px 32px -12px rgba(63,24,37,0.18); }
+  .svc-panel__head { display: flex; align-items: center; gap: 1rem; }
+  .svc-icon { display: inline-flex; height: 3rem; width: 3rem; flex: none; align-items: center; justify-content: center;
+    border-radius: 9999px; background: rgba(92,35,53,.07); color: #5C2335; }
+  .svc-list { margin-top: 1.4rem; display: grid; gap: .6rem; font-size: .9rem; font-weight: 300; color: rgba(44,38,32,.82); }
+  .svc-list li { display: flex; align-items: flex-start; gap: .7rem; }
+  .svc-list li::before { content: ""; margin-top: .55rem; height: .3rem; width: .3rem; flex: none; border-radius: 9999px; background: #B4966A; }
+  .svc-cta { margin-top: 1.8rem; display: inline-flex; align-items: center; gap: .5rem; border-radius: 9999px;
+    border: 1px solid rgba(92,35,53,.25); padding: .7rem 1.4rem; font-size: .875rem; font-weight: 300; color: #5C2335;
+    transition: background-color .3s ease, color .3s ease, border-color .3s ease, transform .35s cubic-bezier(.16,.84,.44,1); }
+  .svc-cta:hover { background: #5C2335; border-color: #5C2335; color: #F7F1E8; transform: translateY(-1px); }
+  .svc-cta:active { transform: translateY(0); }
+  @media (min-width: 1024px) {
+    .svc-panel { display: none; padding: 3rem; min-height: 25rem; box-shadow: 0 2px 4px rgba(63,24,37,0.05), 0 24px 60px -20px rgba(63,24,37,0.28); }
+    .svc-panel.is-active { display: block; animation: svc-in .5s cubic-bezier(.16,.84,.44,1); }
+  }
+  @keyframes svc-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  /* ---- primeira consulta: passos ---- */
+  .step { position: relative; }
+  .step__n { display: inline-flex; height: 3.25rem; width: 3.25rem; align-items: center; justify-content: center; border-radius: 9999px;
+    border: 1px solid rgba(180,150,106,.5); background: #F7F1E8; font-family: "Cormorant Garamond", serif; font-size: 1.6rem; color: #5C2335; }
+  @media (max-width: 767px) {
+    .step { display: grid; grid-template-columns: 3.25rem 1fr; column-gap: 1.1rem; align-items: start; }
+    .step__n { grid-row: span 2; }
+    .step h3 { margin-top: .55rem; }
+    .step p { grid-column: 2; }
+    .svc-panel { padding: 1.6rem; }
+  }
+  @media (min-width: 768px) {
+    .step:not(:last-child)::after { content: ""; position: absolute; top: 1.625rem; left: 4.25rem; right: 1rem; height: 1px;
+      background: linear-gradient(90deg, rgba(180,150,106,.55), rgba(180,150,106,0)); }
+  }
+
+  /* ---- FAQ ---- */
+  .faq details { border: 1px solid rgba(44,38,32,.10); border-radius: 1rem; background: rgba(255,255,255,.45); }
+  .faq details + details { margin-top: .75rem; }
+  .faq summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 1.15rem 1.4rem; font-weight: 400; color: #2C2620; border-radius: 1rem; transition: color .3s ease; }
+  .faq summary:hover { color: #5C2335; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; flex-shrink: 0; font-size: 1.35rem; line-height: 1; color: #B4966A;
+    transition: transform .35s cubic-bezier(.16,.84,.44,1); }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq .faq-a { padding: 0 1.4rem 1.2rem; font-weight: 300; font-size: .925rem; line-height: 1.8; color: #7B6F61; }
+  .faq-link { color: #5C2335; text-decoration: underline; text-decoration-color: rgba(180,150,106,.7); text-underline-offset: 3px; }
+  .faq-link:hover { text-decoration-color: #5C2335; }
 
   /* ---- avaliações: carrossel infinito ---- */
   .rev { position: relative; }
@@ -280,6 +341,19 @@
   :focus-visible { outline: 2px solid #B4966A; outline-offset: 3px; border-radius: 2px; }
 
   .tracking-tightest { letter-spacing: -0.03em; }
+
+  /* ---- barra fixa de agendamento (mobile) ---- */
+  .mcta { position: fixed; left: 16px; right: 16px; bottom: calc(14px + env(safe-area-inset-bottom)); z-index: 45;
+    display: flex; align-items: center; justify-content: center; gap: .6rem; height: 3.25rem; border-radius: 9999px;
+    background: #5C2335; color: #F7F1E8; font-size: .95rem; font-weight: 400; letter-spacing: .01em;
+    box-shadow: 0 2px 4px rgba(63,24,37,.12), 0 18px 40px -14px rgba(63,24,37,.55), inset 0 1px 0 rgba(255,255,255,.12);
+    transition: transform .5s cubic-bezier(.16,.84,.44,1), opacity .3s ease; }
+  .mcta:hover { background: #3F1825; }
+  .mcta:active { transform: scale(.98); }
+  .mcta:focus-visible { outline: 2px solid #B4966A; outline-offset: 3px; }
+  .mcta.is-hidden { opacity: 0; transform: translateY(140%); pointer-events: none; }
+  @media (min-width: 768px) { .mcta { display: none; } }
+  @media (max-width: 767px) { footer { padding-bottom: 5.5rem; } }
 </style>
 </head>
 
@@ -324,7 +398,7 @@
 
       <div class="relative z-10 flex items-center justify-between gap-4 px-4 sm:px-6 py-2.5">
         <a href="#top" class="flex items-center gap-3 group">
-          <img src="brand/Logo_ber.png" alt="Logo Betina Bernardi Boff" class="h-11 w-11 rounded-full object-cover ring-1 ring-white/40" />
+          <img src="brand/logo-192.png" alt="Logo Betina Bernardi Boff" class="h-11 w-11 rounded-full object-cover ring-1 ring-white/40" />
           <span class="leading-tight">
             <span class="nav-title block font-serif text-lg tracking-tightest text-ink transition-colors duration-500">Betina Bernardi Boff</span>
             <span class="block font-sans text-[10px] uppercase tracking-[0.32em] text-gold">Odontologia</span>
@@ -334,11 +408,12 @@
         <div class="nav-links hidden md:flex items-center gap-9 text-sm font-light text-ink/80 transition-colors duration-500">
           <a href="#sobre" class="navlink">Sobre</a>
           <a href="#especialidades" class="navlink">Serviços</a>
+          <a href="#primeira-consulta" class="navlink">Primeira consulta</a>
           <a href="#avaliacoes" class="navlink">Avaliações</a>
           <a href="/blog" class="navlink">Blog</a>
         </div>
 
-        <a href="#contato" class="nav-cta hidden sm:inline-flex items-center gap-2 rounded-full bg-wine px-5 py-2.5 text-sm font-light text-cream shadow-soft transition-all duration-500 hover:-translate-y-0.5">
+        <a href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="nav-cta hidden sm:inline-flex items-center gap-2 rounded-full bg-wine px-5 py-2.5 text-sm font-light text-cream shadow-soft transition-[transform,background-color,color] duration-500 hover:-translate-y-0.5 hover:bg-winedeep active:translate-y-0">
           Agendar consulta
         </a>
 
@@ -353,9 +428,11 @@
     <nav class="mobile-menu md:hidden mt-2 hidden overflow-hidden rounded-2xl border border-ink/10 bg-cream/95 p-2 shadow-float backdrop-blur-md" data-mobile-menu>
       <a href="#sobre" class="block rounded-xl px-4 py-3 text-base font-light text-ink transition-colors hover:bg-sand">Sobre</a>
       <a href="#especialidades" class="block rounded-xl px-4 py-3 text-base font-light text-ink transition-colors hover:bg-sand">Serviços</a>
+      <a href="#primeira-consulta" class="block rounded-xl px-4 py-3 text-base font-light text-ink transition-colors hover:bg-sand">Primeira consulta</a>
       <a href="#avaliacoes" class="block rounded-xl px-4 py-3 text-base font-light text-ink transition-colors hover:bg-sand">Avaliações</a>
+      <a href="#duvidas" class="block rounded-xl px-4 py-3 text-base font-light text-ink transition-colors hover:bg-sand">Dúvidas</a>
       <a href="/blog" class="block rounded-xl px-4 py-3 text-base font-light text-ink transition-colors hover:bg-sand">Blog</a>
-      <a href="#contato" class="mt-1 block rounded-xl bg-wine px-4 py-3 text-center text-base font-light text-cream transition-colors hover:bg-winedeep">Agendar consulta</a>
+      <a href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="mt-1 block rounded-xl bg-wine px-4 py-3 text-center text-base font-light text-cream transition-colors hover:bg-winedeep">Agendar pelo WhatsApp</a>
     </nav>
   </div>
 </header>
@@ -388,28 +465,39 @@
           e atenção ao que importa pra você.
         </p>
 
-        <div class="mt-10 flex flex-wrap items-center gap-4">
-          <a href="#contato" class="btn-wine inline-flex items-center gap-2 rounded-full bg-wine px-8 py-4 text-sm font-light tracking-wide text-cream shadow-soft hover:bg-winedeep">
-            Agendar uma consulta
+        <div class="mt-10 flex flex-wrap items-center gap-4" data-hide-mcta>
+          <a href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="btn-wine inline-flex items-center gap-2.5 rounded-full bg-wine px-8 py-4 text-sm font-light tracking-wide text-cream shadow-soft hover:bg-winedeep">
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7a8.5 8.5 0 1 1 16.1-3.8z"/></svg>
+            Agendar pelo WhatsApp
           </a>
-          <a href="#sobre" class="btn-ghost inline-flex items-center gap-2 rounded-full border border-ink/15 px-8 py-4 text-sm font-light tracking-wide text-ink hover:border-gold hover:text-gold">
+          <a href="#sobre" class="btn-ghost inline-flex items-center gap-2 rounded-full border border-ink/15 px-8 py-4 text-sm font-light tracking-wide text-ink hover:border-gold hover:text-wine">
             Conhecer a Dra. Betina
           </a>
         </div>
 
-        <div class="mt-12 flex items-center gap-8">
-          <div>
-            <div class="font-serif text-3xl text-ink">CRO-SC</div>
-            <div class="text-[11px] uppercase tracking-[0.2em] text-muted">25849</div>
-          </div>
-        </div>
-
-        <a href="https://www.google.com/maps/search/?api=1&query=Av.+At%C3%ADlio+Pedro+Pagani%2C+115+-+Pagani%2C+Palho%C3%A7a+-+SC%2C+88132-149" target="_blank" rel="noopener noreferrer" class="group mt-5 inline-flex items-center gap-2.5 text-sm font-light text-muted transition-colors hover:text-wine">
-          <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-wine/8 text-wine transition-colors group-hover:bg-wine/15">
-            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.35-7-10a7 7 0 0 1 14 0c0 5.65-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
-          </span>
-          <span>Av. Atílio Pedro Pagani, 115 · Pagani, Palhoça/SC <span class="text-gold underline-offset-2 group-hover:underline">ver no mapa</span></span>
-        </a>
+        <!-- credenciais + localização -->
+        <ul class="mt-12 max-w-md space-y-3.5 border-t border-ink/10 pt-6 text-sm font-light text-muted">
+          <li class="flex items-start gap-3">
+            <span class="mt-px flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-wine/[.07] text-wine">
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+            </span>
+            <span class="pt-1"><span class="text-ink">CRO-SC 25849</span> · Odontologia pela Unisul</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-px flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-wine/[.07] text-wine">
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11.5V16c0 1.4 2.2 3 5 3s5-1.6 5-3v-4.5"/></svg>
+            </span>
+            <span class="pt-1">Especialização em Implantodontia e Periodontia em andamento</span>
+          </li>
+          <li>
+            <a href="https://www.google.com/maps/search/?api=1&query=Av.+At%C3%ADlio+Pedro+Pagani%2C+115+-+Pagani%2C+Palho%C3%A7a+-+SC%2C+88132-149" target="_blank" rel="noopener noreferrer" class="group flex items-start gap-3 transition-colors hover:text-wine">
+              <span class="mt-px flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-wine/[.07] text-wine transition-colors group-hover:bg-wine/15">
+                <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a7 7 0 0 1 14 0c0 5.65-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
+              </span>
+              <span class="pt-1">Av. Atílio Pedro Pagani, 115 · Pagani, Palhoça <span class="text-wine underline decoration-gold/50 underline-offset-4 group-hover:decoration-wine">ver no mapa</span></span>
+            </a>
+          </li>
+        </ul>
       </div>
 
       <!-- portrait -->
@@ -428,7 +516,7 @@
             <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
 
             <figcaption class="absolute bottom-5 left-5 right-5 flex items-center gap-3 rounded-2xl bg-cream/85 px-5 py-3 backdrop-blur-sm shadow-soft">
-              <img src="brand/Logo_ber.png" alt="" class="h-9 w-9 rounded-full object-cover" />
+              <img src="brand/logo-192.png" alt="" class="h-9 w-9 rounded-full object-cover" />
               <div class="leading-tight">
                 <div class="font-serif text-base text-ink">Dra. Betina Bernardi Boff</div>
                 <div class="text-[10px] uppercase tracking-[0.22em] text-gold">CRO-SC 25849 • Odontologia</div>
@@ -540,102 +628,142 @@
   </div>
 </section>
 
-<!-- ============ ESPECIALIDADES ============ -->
+<!-- ============ SERVIÇOS ============ -->
 <section id="especialidades" class="relative bg-sand/30 py-24 lg:py-32">
   <div class="mx-auto max-w-7xl px-6 lg:px-10">
-    <div class="reveal mx-auto max-w-2xl text-center">
-      <span class="text-[11px] uppercase tracking-[0.32em] text-gold">Serviços</span>
-      <h2 class="mt-4 font-serif text-4xl leading-tight tracking-tightest text-ink sm:text-5xl">
-        Cuidado completo, do preventivo ao sorriso dos sonhos
-      </h2>
-      <p class="mt-5 text-sm font-light text-muted">Role a página para explorar cada especialidade.</p>
+    <div class="reveal grid gap-6 lg:grid-cols-12 lg:items-end">
+      <div class="lg:col-span-7">
+        <span class="text-[11px] uppercase tracking-[0.32em] text-gold">Serviços</span>
+        <h2 class="mt-4 max-w-xl font-serif text-4xl leading-tight tracking-tightest text-ink sm:text-5xl">
+          Cuidado completo, do preventivo ao sorriso dos sonhos
+        </h2>
+      </div>
+      <p class="max-w-md text-base font-light leading-[1.8] text-muted lg:col-span-5 lg:justify-self-end">
+        Tudo começa com uma avaliação. A partir dela, o plano é montado para o seu caso, com prioridades claras e sem empurrar procedimento desnecessário.
+      </p>
     </div>
 
-    <div class="mt-12 lg:mt-14 lg:grid lg:grid-cols-12 lg:gap-16" data-scrolly>
-      <!-- sticky stage (desktop) -->
-      <div class="hidden lg:col-span-5 lg:block">
-        <div class="sticky top-0 flex h-screen flex-col justify-center">
-          <span class="text-[11px] uppercase tracking-[0.32em] text-gold">Serviço</span>
-          <div class="mt-3 flex items-end gap-4">
-            <span class="spec-num font-serif text-[7rem] text-wine" data-spec-num>01</span>
-            <span class="mb-4 text-sm font-light text-muted">/ 05</span>
-          </div>
-          <div class="mt-3 flex h-16 w-16 items-center justify-center rounded-full bg-wine/8 text-wine" data-spec-icon></div>
-
-          <div class="mt-10 flex gap-5">
-            <div class="spec-rail self-stretch" aria-hidden="true"><div class="spec-rail__fill" data-spec-rail></div></div>
-            <ol class="flex-1" data-spec-index>
-              <li><button type="button" class="spec-idx" data-go="0"><span class="spec-idx__dot"></span><span class="spec-idx__num">01</span><span class="font-serif text-lg">Consulta de avaliação</span></button></li>
-              <li><button type="button" class="spec-idx" data-go="1"><span class="spec-idx__dot"></span><span class="spec-idx__num">02</span><span class="font-serif text-lg">Odontologia preventiva</span></button></li>
-              <li><button type="button" class="spec-idx" data-go="2"><span class="spec-idx__dot"></span><span class="spec-idx__num">03</span><span class="font-serif text-lg">Restaurações</span></button></li>
-              <li><button type="button" class="spec-idx" data-go="3"><span class="spec-idx__dot"></span><span class="spec-idx__num">04</span><span class="font-serif text-lg">Clareamento</span></button></li>
-              <li><button type="button" class="spec-idx" data-go="4"><span class="spec-idx__dot"></span><span class="spec-idx__num">05</span><span class="font-serif text-lg">Reabilitação</span></button></li>
-            </ol>
-          </div>
-        </div>
+    <div class="reveal mt-12 lg:mt-16 lg:grid lg:grid-cols-12 lg:gap-12" data-svc>
+      <!-- índice (desktop) -->
+      <div class="hidden lg:col-span-5 lg:block" role="tablist" aria-label="Serviços" aria-orientation="vertical">
+        <button type="button" role="tab" id="svc-tab-0" aria-controls="svc-0" aria-selected="true" class="svc-tab is-active" data-svc-tab="0"><span class="svc-tab__name">Consulta de avaliação</span><span class="svc-tab__hint">o primeiro passo</span></button>
+        <button type="button" role="tab" id="svc-tab-1" aria-controls="svc-1" aria-selected="false" tabindex="-1" class="svc-tab" data-svc-tab="1"><span class="svc-tab__name">Odontologia preventiva</span><span class="svc-tab__hint">limpeza e acompanhamento</span></button>
+        <button type="button" role="tab" id="svc-tab-2" aria-controls="svc-2" aria-selected="false" tabindex="-1" class="svc-tab" data-svc-tab="2"><span class="svc-tab__name">Restaurações</span><span class="svc-tab__hint">resina estética</span></button>
+        <button type="button" role="tab" id="svc-tab-3" aria-controls="svc-3" aria-selected="false" tabindex="-1" class="svc-tab" data-svc-tab="3"><span class="svc-tab__name">Clareamento</span><span class="svc-tab__hint">consultório ou caseiro</span></button>
+        <button type="button" role="tab" id="svc-tab-4" aria-controls="svc-4" aria-selected="false" tabindex="-1" class="svc-tab" data-svc-tab="4"><span class="svc-tab__name">Reabilitação</span><span class="svc-tab__hint">implantes e próteses</span></button>
       </div>
 
-      <!-- detail steps -->
-      <div class="lg:col-span-7" data-spec-steps>
-        <article class="spec-step" data-step="0">
-          <span class="text-[11px] uppercase tracking-[0.3em] text-gold">Serviço 01</span>
-          <span class="mt-4 flex h-11 w-11 items-center justify-center rounded-full bg-wine/8 text-wine lg:hidden"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 21h8M12 17v4M7 4h10l-1 9a4 4 0 01-8 0L7 4z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <h3 class="mt-3 font-serif text-3xl tracking-tightest text-ink sm:text-4xl">Consulta de avaliação</h3>
-          <p class="mt-4 max-w-lg text-base font-light leading-[1.85] text-muted">O primeiro passo. Uma conversa e um exame clínico detalhado para entender suas necessidades, esclarecer dúvidas e montar um plano transparente, com prioridades e sem surpresas.</p>
-          <ul class="mt-5 space-y-2.5 text-sm font-light text-ink/80">
-            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Exame clínico completo</li>
-            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Plano de tratamento personalizado</li>
+      <!-- painéis (no mobile, todos empilhados) -->
+      <div class="space-y-5 lg:col-span-7 lg:space-y-0">
+        <article id="svc-0" role="tabpanel" aria-labelledby="svc-tab-0" class="svc-panel is-active">
+          <div class="svc-panel__head">
+            <span class="svc-icon"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="M9 10h6M9 14h6M9 18h3"/></svg></span>
+            <h3 class="font-serif text-3xl tracking-tightest text-ink sm:text-[2.15rem]">Consulta de avaliação</h3>
+          </div>
+          <p class="mt-5 text-base font-light leading-[1.85] text-muted">O primeiro passo. Uma conversa e um exame clínico detalhado para entender suas necessidades, esclarecer dúvidas e montar um plano transparente, com prioridades e sem surpresas.</p>
+          <ul class="svc-list">
+            <li>Exame clínico completo</li>
+            <li>Plano de tratamento personalizado</li>
           </ul>
+          <a class="svc-cta" href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">Agendar avaliação pelo WhatsApp</a>
         </article>
 
-        <article class="spec-step" data-step="1">
-          <span class="text-[11px] uppercase tracking-[0.3em] text-gold">Serviço 02</span>
-          <span class="mt-4 flex h-11 w-11 items-center justify-center rounded-full bg-wine/8 text-wine lg:hidden"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.65A4 4 0 0119 11c0 5.65-7 10-7 10z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <h3 class="mt-3 font-serif text-3xl tracking-tightest text-ink sm:text-4xl">Odontologia preventiva</h3>
-          <p class="mt-4 max-w-lg text-base font-light leading-[1.85] text-muted">A melhor forma de cuidar do sorriso é evitar problemas antes que eles apareçam. Cuidado periódico e orientação feita para a sua rotina.</p>
-          <ul class="mt-5 space-y-2.5 text-sm font-light text-ink/80">
-            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Limpeza profissional (profilaxia)</li>
-            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Aplicação de flúor</li>
-            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Avaliação e acompanhamento periódico</li>
+        <article id="svc-1" role="tabpanel" aria-labelledby="svc-tab-1" class="svc-panel">
+          <div class="svc-panel__head">
+            <span class="svc-icon"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/></svg></span>
+            <h3 class="font-serif text-3xl tracking-tightest text-ink sm:text-[2.15rem]">Odontologia preventiva</h3>
+          </div>
+          <p class="mt-5 text-base font-light leading-[1.85] text-muted">A melhor forma de cuidar do sorriso é evitar problemas antes que eles apareçam. Cuidado periódico e orientação feita para a sua rotina.</p>
+          <ul class="svc-list">
+            <li>Limpeza profissional (profilaxia)</li>
+            <li>Aplicação de flúor</li>
+            <li>Avaliação e acompanhamento periódico</li>
           </ul>
+          <a class="svc-cta" href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20limpeza%20e%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">Agendar limpeza pelo WhatsApp</a>
         </article>
 
-        <article class="spec-step" data-step="2">
-          <span class="text-[11px] uppercase tracking-[0.3em] text-gold">Serviço 03</span>
-          <span class="mt-4 flex h-11 w-11 items-center justify-center rounded-full bg-wine/8 text-wine lg:hidden"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <h3 class="mt-3 font-serif text-3xl tracking-tightest text-ink sm:text-4xl">Restaurações</h3>
-          <p class="mt-4 max-w-lg text-base font-light leading-[1.85] text-muted">Restaurações em resina estética que devolvem forma, função e naturalidade ao dente, com acabamento cuidadoso, respeitando a cor e a anatomia original.</p>
-          <ul class="mt-5 space-y-2.5 text-sm font-light text-ink/80">
-            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Resina estética</li>
-            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Tratamento de cáries</li>
-            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Reparo de pequenas fraturas</li>
+        <article id="svc-2" role="tabpanel" aria-labelledby="svc-tab-2" class="svc-panel">
+          <div class="svc-panel__head">
+            <span class="svc-icon"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4c-2 0-3 1.6-3 3.6 0 3 1.4 4.4 2 7.4.5 2.7 1 5 2.4 5 1.6 0 1.6-4.5 3.6-4.5s2 4.5 3.6 4.5c1.4 0 1.9-2.3 2.4-5 .6-3 2-4.4 2-7.4C20 5.6 19 4 17 4c-1.8 0-2.8 1-5 1S8.8 4 7 4z"/></svg></span>
+            <h3 class="font-serif text-3xl tracking-tightest text-ink sm:text-[2.15rem]">Restaurações</h3>
+          </div>
+          <p class="mt-5 text-base font-light leading-[1.85] text-muted">Restaurações em resina estética que devolvem forma, função e naturalidade ao dente, com acabamento cuidadoso, respeitando a cor e a anatomia original.</p>
+          <ul class="svc-list">
+            <li>Resina estética</li>
+            <li>Tratamento de cáries</li>
+            <li>Reparo de pequenas fraturas</li>
           </ul>
+          <a class="svc-cta" href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20uma%20avalia%C3%A7%C3%A3o%20para%20restaura%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">Perguntar sobre restaurações</a>
         </article>
 
-        <article class="spec-step" data-step="3">
-          <span class="text-[11px] uppercase tracking-[0.3em] text-gold">Serviço 04</span>
-          <span class="mt-4 flex h-11 w-11 items-center justify-center rounded-full bg-wine/8 text-wine lg:hidden"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 12h14M12 5v14" stroke-linecap="round"/></svg></span>
-          <h3 class="mt-3 font-serif text-3xl tracking-tightest text-ink sm:text-4xl">Clareamento</h3>
-          <p class="mt-4 max-w-lg text-base font-light leading-[1.85] text-muted">Clareamento seguro e supervisionado, em consultório ou com moldeiras para uso em casa. Avalio sensibilidade e tom ideal para um resultado bonito, sem agredir o esmalte.</p>
-          <ul class="mt-5 space-y-2.5 text-sm font-light text-ink/80">
-            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Clareamento em consultório</li>
-            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Clareamento caseiro supervisionado</li>
-            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Controle de sensibilidade</li>
+        <article id="svc-3" role="tabpanel" aria-labelledby="svc-tab-3" class="svc-panel">
+          <div class="svc-panel__head">
+            <span class="svc-icon"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg></span>
+            <h3 class="font-serif text-3xl tracking-tightest text-ink sm:text-[2.15rem]">Clareamento</h3>
+          </div>
+          <p class="mt-5 text-base font-light leading-[1.85] text-muted">Clareamento seguro e supervisionado, em consultório ou com moldeiras para uso em casa. Avalio sensibilidade e tom ideal para um resultado bonito, sem agredir o esmalte.</p>
+          <ul class="svc-list">
+            <li>Clareamento em consultório</li>
+            <li>Clareamento caseiro supervisionado</li>
+            <li>Controle de sensibilidade</li>
           </ul>
+          <a class="svc-cta" href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20saber%20mais%20sobre%20clareamento." target="_blank" rel="noopener noreferrer">Perguntar sobre clareamento</a>
         </article>
 
-        <article class="spec-step" data-step="4">
-          <span class="text-[11px] uppercase tracking-[0.3em] text-gold">Serviço 05</span>
-          <span class="mt-4 flex h-11 w-11 items-center justify-center rounded-full bg-wine/8 text-wine lg:hidden"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 7l8-4 8 4-8 4-8-4zM4 7v6l8 4 8-4V7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <h3 class="mt-3 font-serif text-3xl tracking-tightest text-ink sm:text-4xl">Reabilitação</h3>
-          <p class="mt-4 max-w-lg text-base font-light leading-[1.85] text-muted">Para casos que pedem mais, um plano completo que pode envolver implantes, próteses e reabilitação da mordida, devolvendo saúde, mastigação e autoestima, etapa por etapa.</p>
-          <ul class="mt-5 space-y-2.5 text-sm font-light text-ink/80">
-            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Implantes e próteses</li>
-            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Reabilitação da mordida</li>
-            <li class="flex items-start gap-2.5"><span class="mt-[8px] h-1 w-1 shrink-0 rounded-full bg-gold"></span>Planejamento passo a passo</li>
+        <article id="svc-4" role="tabpanel" aria-labelledby="svc-tab-4" class="svc-panel">
+          <div class="svc-panel__head">
+            <span class="svc-icon"><svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5c-2 0-3 1.5-3 3.4 0 2.8 1.6 3.9 2.2 6.1"/><path d="M17 3.5c2 0 3 1.5 3 3.4 0 2.8-1.6 3.9-2.2 6.1"/><path d="M7 3.5c1.8 0 2.8.9 5 .9s3.2-.9 5-.9"/><path d="M9 13h6M10 16h4M11 19h2"/></svg></span>
+            <h3 class="font-serif text-3xl tracking-tightest text-ink sm:text-[2.15rem]">Reabilitação</h3>
+          </div>
+          <p class="mt-5 text-base font-light leading-[1.85] text-muted">Para casos que pedem mais, um plano completo que pode envolver implantes, próteses e reabilitação da mordida, devolvendo saúde, mastigação e autoestima, etapa por etapa.</p>
+          <ul class="svc-list">
+            <li>Implantes e próteses</li>
+            <li>Reabilitação da mordida</li>
+            <li>Planejamento passo a passo</li>
           </ul>
+          <a class="svc-cta" href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20uma%20avalia%C3%A7%C3%A3o%20para%20implantes%20ou%20pr%C3%B3teses." target="_blank" rel="noopener noreferrer">Perguntar sobre implantes e próteses</a>
         </article>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRIMEIRA CONSULTA ============ -->
+<section id="primeira-consulta" class="relative py-24 lg:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="reveal max-w-2xl">
+      <span class="text-[11px] uppercase tracking-[0.32em] text-gold">Primeira consulta</span>
+      <h2 class="mt-4 font-serif text-4xl leading-tight tracking-tightest text-ink sm:text-5xl">
+        O que acontece na sua primeira visita
+      </h2>
+      <p class="mt-5 max-w-lg text-base font-light leading-[1.8] text-muted">
+        Ir ao dentista pela primeira vez, ou depois de muito tempo, pode dar um frio na barriga. Por isso, a avaliação segue sempre o mesmo caminho, no seu ritmo.
+      </p>
+    </div>
+
+    <ol class="steps reveal mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
+      <li class="step">
+        <span class="step__n" aria-hidden="true">1</span>
+        <h3 class="mt-5 font-serif text-2xl tracking-tightest text-ink">Uma conversa sem pressa</h3>
+        <p class="mt-3 max-w-xs text-sm font-light leading-[1.8] text-muted">Você conta o que te trouxe, seu histórico e o que te incomoda. Medos e dúvidas também entram na conversa.</p>
+      </li>
+      <li class="step">
+        <span class="step__n" aria-hidden="true">2</span>
+        <h3 class="mt-5 font-serif text-2xl tracking-tightest text-ink">Exame clínico detalhado</h3>
+        <p class="mt-3 max-w-xs text-sm font-light leading-[1.8] text-muted">Dentes, gengiva e mordida examinados com calma. Se for preciso algum exame complementar, você entende o porquê antes.</p>
+      </li>
+      <li class="step">
+        <span class="step__n" aria-hidden="true">3</span>
+        <h3 class="mt-5 font-serif text-2xl tracking-tightest text-ink">Um plano que você entende</h3>
+        <p class="mt-3 max-w-xs text-sm font-light leading-[1.8] text-muted">O que é urgente, o que pode esperar e o que é opcional, explicado passo a passo. A decisão é sempre sua.</p>
+      </li>
+    </ol>
+
+    <div class="reveal mt-14 flex flex-col items-start gap-4 rounded-[1.4rem] border border-gold/25 bg-cream/70 p-6 shadow-soft sm:flex-row sm:items-center sm:justify-between sm:p-8">
+      <p class="max-w-lg font-serif text-xl leading-snug text-ink sm:text-2xl">Tem receio de dentista? Conte na mensagem. O atendimento se adapta a você.</p>
+      <a href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="btn-wine inline-flex shrink-0 items-center gap-2 rounded-full bg-wine px-7 py-3.5 text-sm font-light tracking-wide text-cream shadow-soft hover:bg-winedeep">
+        Agendar minha avaliação
+      </a>
     </div>
   </div>
 </section>
@@ -755,15 +883,48 @@
   </div>
 </section>
 
+<!-- ============ DÚVIDAS ============ -->
+<section id="duvidas" class="relative border-t border-ink/5 bg-sand/30 py-24 lg:py-32">
+  <div class="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-12 lg:px-10">
+    <div class="reveal lg:col-span-4">
+      <span class="text-[11px] uppercase tracking-[0.32em] text-gold">Dúvidas frequentes</span>
+      <h2 class="mt-4 font-serif text-4xl leading-tight tracking-tightest text-ink sm:text-5xl">Antes de marcar</h2>
+      <p class="mt-5 max-w-sm text-base font-light leading-[1.8] text-muted">Não achou sua pergunta? Mande pelo WhatsApp que a Dra. Betina responde pessoalmente.</p>
+    </div>
+    <div class="faq reveal lg:col-span-8">
+      <details open>
+        <summary>Como funciona a primeira consulta?</summary>
+        <div class="faq-a">É uma avaliação completa: conversa sobre o seu histórico e as suas queixas, exame clínico detalhado e um plano de tratamento transparente, explicado passo a passo e sem pressa.</div>
+      </details>
+      <details>
+        <summary>Onde fica o consultório?</summary>
+        <div class="faq-a">Na Av. Atílio Pedro Pagani, 115, no bairro Pagani, em Palhoça, ao lado do Via Catarina Shopping, com acesso rápido pela BR-101 e estacionamento fácil na região. <a class="faq-link" href="https://www.google.com/maps/search/?api=1&query=Av.+At%C3%ADlio+Pedro+Pagani%2C+115+-+Pagani%2C+Palho%C3%A7a+-+SC%2C+88132-149" target="_blank" rel="noopener noreferrer">Ver no mapa</a></div>
+      </details>
+      <details>
+        <summary>Atende pacientes de São José e Florianópolis?</summary>
+        <div class="faq-a">Sim. Muitos pacientes vêm de <a class="faq-link" href="/dentista-sao-jose">São José</a> e de <a class="faq-link" href="/dentista-florianopolis">Florianópolis</a>: pela BR-101, o Pagani costuma ser mais rápido de alcançar do que o centro da Ilha.</div>
+      </details>
+      <details>
+        <summary>Quais tratamentos a Dra. Betina realiza?</summary>
+        <div class="faq-a">Consulta de avaliação, odontologia preventiva (limpeza/profilaxia), restaurações estéticas, clareamento dental e reabilitação. Casos de implantodontia e periodontia são acompanhados com especialização em andamento na área.</div>
+      </details>
+      <details>
+        <summary>Como faço para agendar?</summary>
+        <div class="faq-a">O caminho mais rápido é o <a class="faq-link" href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">WhatsApp (+55 48 8863-4224)</a>. Se preferir, envie uma mensagem pelo <a class="faq-link" href="/contato">formulário de contato</a>.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- ============ CTA / CONTATO ============ -->
 <section id="contato" class="relative overflow-hidden py-24 lg:py-32">
   <div class="mx-auto max-w-7xl px-6 lg:px-10">
-    <div class="atmosphere relative overflow-hidden rounded-[2rem] bg-winedeep px-8 py-16 text-center shadow-float sm:px-16 lg:py-24" data-nav-theme="dark">
+    <div class="atmosphere relative overflow-hidden rounded-[2rem] bg-winedeep px-8 py-16 text-center shadow-float sm:px-16 lg:py-24" data-nav-theme="dark" data-hide-mcta>
       <div class="pointer-events-none absolute -right-10 -top-10 h-56 w-56 rounded-full bg-gold/20 blur-3xl"></div>
       <div class="pointer-events-none absolute -bottom-12 -left-12 h-56 w-56 rounded-full bg-gold/10 blur-3xl"></div>
 
       <div class="reveal relative">
-        <img src="brand/Logo_ber.png" alt="" class="mx-auto h-16 w-16 rounded-full object-cover ring-1 ring-gold/40" />
+        <img src="brand/logo-192.png" alt="" class="mx-auto h-16 w-16 rounded-full object-cover ring-1 ring-gold/40" />
         <h2 class="mt-6 font-serif text-4xl leading-tight tracking-tightest text-cream sm:text-5xl">
           Vamos cuidar do seu sorriso?
         </h2>
@@ -771,7 +932,7 @@
           Agende sua avaliação e descubra um atendimento pensado em cada detalhe.
         </p>
         <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a href="https://wa.me/554888634224" target="_blank" rel="noopener noreferrer" class="glass glass--gold text-sm">
+          <a href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="glass glass--gold text-sm">
             <span class="glass__distort"></span>
             <span class="glass__tint"></span>
             <span class="glass__edge"></span>
@@ -807,7 +968,7 @@
     <div class="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
       <div class="sm:col-span-2 lg:col-span-1">
         <div class="flex items-center gap-3">
-          <img src="brand/Logo_ber.png" alt="" class="h-11 w-11 rounded-full object-cover" />
+          <img src="brand/logo-192.png" alt="" class="h-11 w-11 rounded-full object-cover" />
           <span class="font-serif text-lg text-ink tracking-tightest">Betina Bernardi Boff</span>
         </div>
         <p class="mt-4 max-w-xs text-sm font-light leading-[1.8] text-muted">
@@ -820,7 +981,9 @@
         <ul class="mt-4 space-y-2 text-sm font-light text-muted">
           <li><a href="#sobre" class="navlink">Sobre</a></li>
           <li><a href="#especialidades" class="navlink">Serviços</a></li>
+          <li><a href="#primeira-consulta" class="navlink">Primeira consulta</a></li>
           <li><a href="#avaliacoes" class="navlink">Avaliações</a></li>
+          <li><a href="#duvidas" class="navlink">Dúvidas frequentes</a></li>
           <li><a href="/blog" class="navlink">Blog</a></li>
           <li><a href="/dentista-palhoca" class="navlink">Dentista em Palhoça</a></li>
           <li><a href="/dentista-sao-jose" class="navlink">Dentista em São José</a></li>
@@ -831,7 +994,7 @@
       <div>
         <div class="text-[11px] uppercase tracking-[0.28em] text-gold">Contato</div>
         <ul class="mt-4 space-y-2 text-sm font-light text-muted">
-          <li><a href="https://wa.me/554888634224" target="_blank" rel="noopener noreferrer" class="navlink">WhatsApp · +55 48 8863-4224</a></li>
+          <li><a href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="navlink">WhatsApp · +55 48 8863-4224</a></li>
           <li><a href="/contato" class="navlink">E-mail</a></li>
           <li><a href="https://www.instagram.com/betinaber/" target="_blank" rel="noopener noreferrer" class="navlink">Instagram · @betinaber</a></li>
         </ul>
@@ -992,47 +1155,56 @@
     requestAnimationFrame(tick);
   }
 
-  // Especialidades: scroll-synced sticky stage.
+  // Serviços: índice + painel (desktop). No mobile, todos os painéis ficam visíveis.
   (function () {
-    const wrap = document.querySelector('[data-scrolly]');
-    if (!wrap) return;
-    const steps = [...document.querySelectorAll('[data-spec-steps] .spec-step')];
-    const idxBtns = [...document.querySelectorAll('[data-spec-index] .spec-idx')];
-    const numEl = document.querySelector('[data-spec-num]');
-    const iconEl = document.querySelector('[data-spec-icon]');
-    const railEl = document.querySelector('[data-spec-rail]');
-    const ICONS = [
-      '<svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 21h8M12 17v4M7 4h10l-1 9a4 4 0 01-8 0L7 4z" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-      '<svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.65A4 4 0 0119 11c0 5.65-7 10-7 10z" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-      '<svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-      '<svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 12h14M12 5v14" stroke-linecap="round"/></svg>',
-      '<svg viewBox="0 0 24 24" class="h-7 w-7" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 7l8-4 8 4-8 4-8-4zM4 7v6l8 4 8-4V7" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-    ];
-    let current = -1;
-    const setActive = (i) => {
-      if (i === current || i < 0) return;
-      current = i;
-      steps.forEach((s, j) => s.classList.toggle('is-active', j === i));
-      idxBtns.forEach((b, j) => { b.classList.toggle('is-active', j === i); b.classList.toggle('is-passed', j < i); });
-      if (numEl) {
-        numEl.textContent = String(i + 1).padStart(2, '0');
-        numEl.animate && numEl.animate([{ opacity: 0, transform: 'translateY(14px)' }, { opacity: 1, transform: 'none' }], { duration: 500, easing: 'cubic-bezier(.16,.84,.44,1)' });
-      }
-      if (iconEl) {
-        iconEl.innerHTML = ICONS[i] || '';
-        iconEl.animate && iconEl.animate([{ opacity: 0, transform: 'scale(.8)' }, { opacity: 1, transform: 'none' }], { duration: 500, easing: 'cubic-bezier(.16,.84,.44,1)' });
-      }
-      if (railEl) railEl.style.height = ((i + 1) / steps.length * 100) + '%';
+    const tabs = [...document.querySelectorAll('[data-svc-tab]')];
+    const panels = [...document.querySelectorAll('.svc-panel')];
+    if (!tabs.length) return;
+    const select = (i, focus) => {
+      tabs.forEach((t, j) => {
+        const on = j === i;
+        t.classList.toggle('is-active', on);
+        t.setAttribute('aria-selected', String(on));
+        t.tabIndex = on ? 0 : -1;
+      });
+      panels.forEach((p, j) => p.classList.toggle('is-active', j === i));
+      if (focus) tabs[i].focus();
     };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => select(i));
+      t.addEventListener('keydown', (e) => {
+        const k = e.key;
+        if (k === 'ArrowDown' || k === 'ArrowRight') { e.preventDefault(); select((i + 1) % tabs.length, true); }
+        if (k === 'ArrowUp' || k === 'ArrowLeft') { e.preventDefault(); select((i - 1 + tabs.length) % tabs.length, true); }
+        if (k === 'Home') { e.preventDefault(); select(0, true); }
+        if (k === 'End') { e.preventDefault(); select(tabs.length - 1, true); }
+      });
+    });
+  })();
+</script>
+
+<!-- ============ BARRA FIXA DE AGENDAMENTO (MOBILE) ============ -->
+<a href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="mcta is-hidden" data-mcta>
+  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7a8.5 8.5 0 1 1 16.1-3.8z"/></svg>
+  Agendar pelo WhatsApp
+</a>
+<script>
+  // Mostra a barra só depois do topo e a esconde quando outro botão de agendar já está na tela.
+  (function () {
+    const bar = document.querySelector('[data-mcta]');
+    if (!bar || !('IntersectionObserver' in window)) { bar && bar.classList.remove('is-hidden'); return; }
+    const targets = [...document.querySelectorAll('[data-hide-mcta]')];
+    const visible = new Set();
+    let pastTop = false;
+    const update = () => bar.classList.toggle('is-hidden', !pastTop || visible.size > 0);
     const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) setActive(steps.indexOf(e.target)); });
-    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
-    steps.forEach((s) => io.observe(s));
-    idxBtns.forEach((b) => b.addEventListener('click', () => {
-      const i = +b.dataset.go;
-      steps[i] && steps[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }));
-    setActive(0);
+      entries.forEach((e) => (e.isIntersecting ? visible.add(e.target) : visible.delete(e.target)));
+      update();
+    }, { threshold: 0.1 });
+    targets.forEach((t) => io.observe(t));
+    const onScroll = () => { const p = window.scrollY > window.innerHeight * 0.6; if (p !== pastTop) { pastTop = p; update(); } };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   })();
 </script>
 </body>

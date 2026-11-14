@@ -3,10 +3,18 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Artigo — Betina Bernardi Boff</title>
-<link rel="icon" type="image/png" href="brand/Logo_ber.png" />
-<link rel="apple-touch-icon" href="brand/Logo_ber.png" />
+<title>Blog | Dra. Betina Bernardi Boff</title>
+<link rel="icon" type="image/png" sizes="96x96" href="brand/logo-96.png" />
+<link rel="apple-touch-icon" href="brand/logo-192.png" />
 <meta name="description" content="Conteúdos sobre saúde bucal, estética e cuidados com o sorriso, por Dra. Betina Bernardi Boff." />
+<link rel="canonical" href="https://www.betinaboff.com/blog" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Blog | Dra. Betina Bernardi Boff" />
+<meta property="og:description" content="Conteúdos sobre saúde bucal, estética e cuidados com o sorriso." />
+<meta property="og:url" content="https://www.betinaboff.com/blog" />
+<meta property="og:image" content="https://www.betinaboff.com/brand/og-image.jpg" />
+<meta property="og:locale" content="pt_BR" />
+<meta name="twitter:card" content="summary_large_image" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -47,6 +55,22 @@
   .card-img { transition:transform .6s cubic-bezier(.16,.84,.44,1); }
   .post:hover .card-img { transform:scale(1.05); }
 
+  /* ---- capas dos artigos (na identidade da marca, sem imagens externas) ---- */
+  .cover { position: relative; overflow: hidden; isolation: isolate; }
+  .cover--wine { background: #3F1825; background-image: radial-gradient(70% 95% at 88% 8%, rgba(180,150,106,.42), transparent 62%), radial-gradient(60% 90% at 0% 100%, rgba(122,46,68,.85), transparent 60%); }
+  .cover--gold { background: #9C7A4C; background-image: radial-gradient(70% 95% at 88% 8%, rgba(236,220,190,.55), transparent 62%), radial-gradient(60% 90% at 0% 100%, rgba(92,35,53,.55), transparent 60%); }
+  .cover--sand { background: #E6D8C2; background-image: radial-gradient(70% 95% at 88% 8%, rgba(200,174,130,.75), transparent 62%), radial-gradient(60% 90% at 0% 100%, rgba(247,241,232,.95), transparent 60%); }
+  .cover::after { content: ""; position: absolute; inset: 12px; border: 1px solid rgba(247,241,232,.22); border-radius: .9rem; pointer-events: none; }
+  .cover--sand::after { border-color: rgba(92,35,53,.14); }
+  .cover__mark { position: absolute; right: -4%; top: 50%; height: 88%; width: auto; max-height: 340px; aspect-ratio: 1; opacity: .5;
+    transform: translateY(-50%) rotate(-8deg); transition: transform .9s cubic-bezier(.16,.84,.44,1), opacity .6s ease; }
+  .cover--sand .cover__mark { opacity: .75; }
+  .post:hover .cover__mark { transform: translateY(-52%) rotate(-3deg) scale(1.04); opacity: .7; }
+  .cover__word { position: absolute; left: 1.6rem; bottom: 1.35rem; font-family: "Cormorant Garamond", serif; font-style: italic;
+    font-size: 2rem; line-height: 1; letter-spacing: -.02em; color: #F7F1E8; }
+  .cover__word--lg { left: 2.2rem; bottom: 2rem; font-size: clamp(2.4rem, 5vw, 3.6rem); }
+  .cover--sand .cover__word { color: #5C2335; }
+
   /* ---- liquid glass top bar ---- */
   .glass-nav { position:relative; isolation:isolate; overflow:hidden; border-radius:1.1rem;
     box-shadow:0 8px 24px -10px rgba(63,24,37,.22),0 1px 2px rgba(63,24,37,.06); transition:box-shadow .5s ease; }
@@ -82,6 +106,19 @@
 
   :focus-visible { outline:2px solid #B4966A; outline-offset:3px; border-radius:2px; }
   .tracking-tightest { letter-spacing:-0.03em; }
+
+  /* ---- barra fixa de agendamento (mobile) ---- */
+  .mcta { position: fixed; left: 16px; right: 16px; bottom: calc(14px + env(safe-area-inset-bottom)); z-index: 45;
+    display: flex; align-items: center; justify-content: center; gap: .6rem; height: 3.25rem; border-radius: 9999px;
+    background: #5C2335; color: #F7F1E8; font-size: .95rem; font-weight: 400; letter-spacing: .01em;
+    box-shadow: 0 2px 4px rgba(63,24,37,.12), 0 18px 40px -14px rgba(63,24,37,.55), inset 0 1px 0 rgba(255,255,255,.12);
+    transition: transform .5s cubic-bezier(.16,.84,.44,1), opacity .3s ease; }
+  .mcta:hover { background: #3F1825; }
+  .mcta:active { transform: scale(.98); }
+  .mcta:focus-visible { outline: 2px solid #B4966A; outline-offset: 3px; }
+  .mcta.is-hidden { opacity: 0; transform: translateY(140%); pointer-events: none; }
+  @media (min-width: 768px) { .mcta { display: none; } }
+  @media (max-width: 767px) { footer { padding-bottom: 5.5rem; } }
 </style>
 </head>
 
@@ -117,7 +154,7 @@
 
       <div class="relative z-10 flex items-center justify-between gap-4 px-4 sm:px-6 py-2.5">
         <a href="/" class="flex items-center gap-3 group">
-          <img src="brand/Logo_ber.png" alt="Logo Betina Bernardi Boff" class="h-11 w-11 rounded-full object-cover ring-1 ring-white/40" />
+          <img src="brand/logo-192.png" alt="Logo Betina Bernardi Boff" class="h-11 w-11 rounded-full object-cover ring-1 ring-white/40" />
           <span class="leading-tight">
             <span class="nav-title block font-serif text-lg tracking-tightest text-ink transition-colors duration-500">Betina Bernardi Boff</span>
             <span class="block font-sans text-[10px] uppercase tracking-[0.32em] text-gold">Odontologia</span>
@@ -131,7 +168,7 @@
           <a href="/blog" class="navlink text-gold">Blog</a>
         </div>
 
-        <a href="/#contato" class="nav-cta hidden sm:inline-flex items-center gap-2 rounded-full bg-wine px-5 py-2.5 text-sm font-light text-cream shadow-soft transition-all duration-500 hover:-translate-y-0.5">
+        <a href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="nav-cta hidden sm:inline-flex items-center gap-2 rounded-full bg-wine px-5 py-2.5 text-sm font-light text-cream shadow-soft transition-[transform,background-color,color] duration-500 hover:-translate-y-0.5">
           Agendar consulta
         </a>
 
@@ -148,7 +185,7 @@
       <a href="/#especialidades" class="block rounded-xl px-4 py-3 text-base font-light text-ink transition-colors hover:bg-sand">Serviços</a>
       <a href="/#avaliacoes" class="block rounded-xl px-4 py-3 text-base font-light text-ink transition-colors hover:bg-sand">Avaliações</a>
       <a href="/blog" class="block rounded-xl px-4 py-3 text-base font-light text-gold transition-colors hover:bg-sand">Blog</a>
-      <a href="/#contato" class="mt-1 block rounded-xl bg-wine px-4 py-3 text-center text-base font-light text-cream transition-colors hover:bg-winedeep">Agendar consulta</a>
+      <a href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="mt-1 block rounded-xl bg-wine px-4 py-3 text-center text-base font-light text-cream transition-colors hover:bg-winedeep">Agendar pelo WhatsApp</a>
     </nav>
   </div>
 </header>
@@ -168,7 +205,7 @@
       </div>
       <h1 data-art="title" class="reveal mt-4 font-serif text-4xl leading-[1.08] tracking-tightest text-ink sm:text-5xl">Carregando…</h1>
       <div class="reveal mt-6 flex items-center gap-3">
-        <img src="brand/Logo_ber.png" alt="" class="h-10 w-10 rounded-full object-cover ring-1 ring-gold/30" />
+        <img src="brand/logo-192.png" alt="" class="h-10 w-10 rounded-full object-cover ring-1 ring-gold/30" />
         <div class="leading-tight">
           <div class="text-sm text-ink">Dra. Betina Bernardi Boff</div>
           <div class="text-[11px] uppercase tracking-[0.2em] text-muted">CRO-SC 25849</div>
@@ -179,10 +216,10 @@
 
   <!-- COVER -->
   <div class="mx-auto max-w-4xl px-6 lg:px-10">
-    <figure class="reveal relative overflow-hidden rounded-[1.6rem] shadow-float">
-      <img data-art="image" src="" alt="" class="h-64 w-full object-cover sm:h-80 lg:h-[26rem]" />
-      <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-    </figure>
+    <div data-art="cover" class="reveal cover cover--wine h-56 rounded-[1.6rem] shadow-float sm:h-72 lg:h-[22rem]" aria-hidden="true">
+      <img src="brand/logo-560.png" alt="" class="cover__mark" />
+      <span class="cover__word cover__word--lg"></span>
+    </div>
   </div>
 
   <!-- BODY -->
@@ -197,7 +234,7 @@
       </div>
       <div class="reveal mt-8 rounded-[1.4rem] border border-ink/5 bg-sand/40 p-7 sm:flex sm:items-center sm:justify-between sm:gap-6">
         <p class="font-serif text-2xl leading-snug text-ink">Ficou com alguma dúvida sobre o seu sorriso?</p>
-        <a href="/#contato" class="mt-4 inline-flex shrink-0 items-center gap-2 rounded-full bg-wine px-6 py-3 text-sm font-light text-cream shadow-soft transition-all duration-500 hover:-translate-y-0.5 hover:bg-winedeep sm:mt-0">
+        <a href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex shrink-0 items-center gap-2 rounded-full bg-wine px-6 py-3 text-sm font-light text-cream shadow-soft transition-[transform,background-color,color] duration-500 hover:-translate-y-0.5 hover:bg-winedeep sm:mt-0">
           Agendar consulta
         </a>
       </div>
@@ -211,7 +248,7 @@
         <h2 class="font-serif text-3xl leading-tight tracking-tightest text-ink sm:text-4xl">Continue lendo</h2>
         <a href="/blog" class="navlink shrink-0 text-sm font-light text-wine">Ver todos os artigos →</a>
       </div>
-      <div data-art="related" class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3"></div>>
+      <div data-art="related" class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3"></div>
     </div>
   </section>
 </main>
@@ -222,7 +259,7 @@
     <div class="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
       <div class="sm:col-span-2">
         <div class="flex items-center gap-3">
-          <img src="brand/Logo_ber.png" alt="" class="h-11 w-11 rounded-full object-cover" />
+          <img src="brand/logo-192.png" alt="" class="h-11 w-11 rounded-full object-cover" />
           <span class="font-serif text-lg text-ink tracking-tightest">Betina Bernardi Boff</span>
         </div>
         <p class="mt-4 max-w-xs text-sm font-light leading-[1.8] text-muted">
@@ -236,12 +273,15 @@
           <li><a href="/#especialidades" class="navlink">Serviços</a></li>
           <li><a href="/#avaliacoes" class="navlink">Avaliações</a></li>
           <li><a href="/blog" class="navlink">Blog</a></li>
+          <li><a href="/dentista-palhoca" class="navlink">Dentista em Palhoça</a></li>
+          <li><a href="/dentista-sao-jose" class="navlink">Dentista em São José</a></li>
+          <li><a href="/dentista-florianopolis" class="navlink">Dentista em Florianópolis</a></li>
         </ul>
       </div>
       <div>
         <div class="text-[11px] uppercase tracking-[0.28em] text-gold">Contato</div>
         <ul class="mt-4 space-y-2 text-sm font-light text-muted">
-          <li><a href="https://wa.me/554888634224" target="_blank" rel="noopener noreferrer" class="navlink">WhatsApp · +55 48 8863-4224</a></li>
+          <li><a href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="navlink">WhatsApp · +55 48 8863-4224</a></li>
           <li><a href="/contato" class="navlink">E-mail</a></li>
           <li><a href="https://www.instagram.com/betinaber/" target="_blank" rel="noopener noreferrer" class="navlink">Instagram · @betinaber</a></li>
         </ul>
@@ -261,7 +301,8 @@
     'como-escolher-dentista': {
       category: 'Guia', read: '9 min de leitura',
       title: 'Como escolher um dentista de confiança na Grande Florianópolis',
-      image: 'https://placehold.co/1200x700/B4966A/F7F1E8?text=Escolha',
+      cover: { tone: 'gold', word: 'Escolha' }, date: '2026-07-05',
+      excerpt: 'Os sete sinais práticos que separam um bom atendimento de uma armadilha, sem precisar entender nada de odontologia.',
       body: `
         <p class="lead"><em>A maioria das pessoas escolhe o dentista por acaso — pela placa mais próxima, pelo anúncio, pela pressa. Este guia é para você escolher por critério.</em></p>
 
@@ -322,7 +363,7 @@
         </ul>
         <p>Nenhum desses critérios exige conhecimento técnico — só atenção. E o profissional certo não vai se incomodar com nenhuma dessas exigências. Vai gostar delas: paciente criterioso é exatamente o paciente que valoriza trabalho bem feito.</p>
 
-        <blockquote><a class="cta-link" href="/#contato"><strong>Quer aplicar o checklist na prática?</strong></a> Agende uma consulta de avaliação: exame com calma, plano explicado passo a passo e nenhuma pressão para fechar nada. A decisão é sempre sua.</blockquote>
+        <blockquote><a class="cta-link" href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer"><strong>Quer aplicar o checklist na prática?</strong></a> Agende uma consulta de avaliação: exame com calma, plano explicado passo a passo e nenhuma pressão para fechar nada. A decisão é sempre sua.</blockquote>
 
         <h2 class="refs-head">Referências e leituras</h2>
         <ul class="refs">
@@ -336,7 +377,8 @@
     'sensibilidade': {
       category: 'Rotina', read: '7 min de leitura',
       title: 'Sensibilidade nos dentes: por que acontece?',
-      image: 'https://placehold.co/1200x700/5C2335/F7F1E8?text=Sensibilidade',
+      cover: { tone: 'wine', word: 'Sensibilidade' }, date: '2026-06-04',
+      excerpt: 'A explicação científica por trás daquela fisgada nos dentes e o que realmente resolve.',
       body: `
         <p class="lead"><em>Aquela fisgada com o sorvete ou com o café quente tem nome, tem explicação científica e, principalmente, tem solução.</em></p>
 
@@ -386,7 +428,7 @@
         <p>A sensibilidade é a sua dentina mandando um recado através de milhares de canais microscópicos: alguma coisa que deveria estar protegida acabou exposta. A solução raramente é complicada, mas funciona melhor quando você cuida ao mesmo tempo do sintoma e da causa.</p>
         <p>Então, se ultimamente o sorvete anda ganhando de você, talvez seja a hora de investigar.</p>
 
-        <blockquote><a class="cta-link" href="/#contato"><strong>Se aquela fisgada virou rotina, vale a pena investigar.</strong></a> Agende uma avaliação com a gente: vamos encontrar a causa e montar um plano que trate o problema na raiz, e não só o susto.</blockquote>
+        <blockquote><a class="cta-link" href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer"><strong>Se aquela fisgada virou rotina, vale a pena investigar.</strong></a> Agende uma avaliação com a gente: vamos encontrar a causa e montar um plano que trate o problema na raiz, e não só o susto.</blockquote>
 
         <h2 class="refs-head">Referências e leituras</h2>
         <ul class="refs">
@@ -402,7 +444,8 @@
     'frequencia-limpeza': {
       category: 'Prevenção', read: '8 min de leitura',
       title: 'A “limpeza” do dentista: por que esses 40 minutos importam muito mais',
-      image: 'https://placehold.co/1200x700/EADFCE/5C2335?text=Profilaxia',
+      cover: { tone: 'sand', word: 'Profilaxia' }, date: '2026-06-04',
+      excerpt: 'Ciência, história e prevenção por trás do procedimento mais subestimado da odontologia, e por que ele importa muito mais do que parece.',
       body: `
         <p class="lead"><em>Spoiler: aquela sensação de dente liso é só a parte que você vê. O que importa de verdade acontece nos bastidores.</em></p>
 
@@ -442,7 +485,7 @@
         <p>É prevenção no sentido mais puro da palavra. E, convenhamos, sair da cadeira passando a língua por aqueles dentes lisinhos continua sendo uma das melhores sensações que existem.</p>
         <p>Que tal não deixar para a próxima? Sua boca — e o resto de você — agradece.</p>
 
-        <blockquote><a class="cta-link" href="/#contato"><strong>Agende sua avaliação com a gente</strong></a> e descubra qual é a frequência ideal de profilaxia para o seu sorriso. Prevenir é sempre mais simples (e mais barato) do que remediar.</blockquote>
+        <blockquote><a class="cta-link" href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer"><strong>Agende sua avaliação com a gente</strong></a> e descubra qual é a frequência ideal de profilaxia para o seu sorriso. Prevenir é sempre mais simples (e mais barato) do que remediar.</blockquote>
 
         <h2 class="refs-head">Para quem quiser se aprofundar</h2>
         <ul class="refs">
@@ -457,7 +500,8 @@
     'autoestima': {
       category: 'Bem-estar', read: '7 min de leitura',
       title: 'O sorriso e a autoestima: o que a psicologia descobriu sobre o poder dos seus dentes',
-      image: 'https://placehold.co/1200x700/5C2335/F7F1E8?text=Confian%C3%A7a',
+      cover: { tone: 'wine', word: 'Autoestima' }, date: '2026-06-04',
+      excerpt: 'O que a psicologia revela sobre o poder dos seus dentes na forma como você se mostra ao mundo.',
       body: `
         <p class="lead"><em>A ciência confirma o que talvez você já desconfie: a forma como você encara o próprio sorriso muda a forma como você se mostra para o mundo.</em></p>
 
@@ -493,7 +537,7 @@
         <p>E talvez seja esse o ponto que a ciência, no fundo, está dizendo: cuidar dos dentes nunca foi só sobre dentes. É sobre rir sem pensar duas vezes. É sobre aparecer na foto. É sobre entrar numa sala sem a mão subindo automaticamente para cobrir a boca.</p>
         <p>Um sorriso de que você gosta não muda quem você é. Mas pode, sim, mudar o quanto você se permite aparecer.</p>
 
-        <blockquote><a class="cta-link" href="/#contato"><strong>Se o seu sorriso anda te fazendo recuar, vale uma conversa.</strong></a> Agende uma avaliação com a gente e vamos entender, juntos, o que faz sentido para o seu caso. Sem promessas mágicas, com cuidado de verdade.</blockquote>
+        <blockquote><a class="cta-link" href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer"><strong>Se o seu sorriso anda te fazendo recuar, vale uma conversa.</strong></a> Agende uma avaliação com a gente e vamos entender, juntos, o que faz sentido para o seu caso. Sem promessas mágicas, com cuidado de verdade.</blockquote>
 
         <h2 class="refs-head">Referências e leituras</h2>
         <ul class="refs">
@@ -518,12 +562,33 @@
     const id = getId();
     const post = POSTS[id];
 
-    document.title = post.title + ' — Betina Bernardi Boff';
+    const url = 'https://www.betinaboff.com/artigo?id=' + id;
+    document.title = post.title + ' | Dra. Betina Bernardi Boff';
+    const setMeta = (sel, attr, val) => { const el = document.querySelector(sel); if (el) el.setAttribute(attr, val); };
+    setMeta('meta[name="description"]', 'content', post.excerpt);
+    setMeta('link[rel="canonical"]', 'href', url);
+    setMeta('meta[property="og:title"]', 'content', post.title);
+    setMeta('meta[property="og:description"]', 'content', post.excerpt);
+    setMeta('meta[property="og:url"]', 'content', url);
+
+    // Dados estruturados do artigo
+    const ld = document.createElement('script');
+    ld.type = 'application/ld+json';
+    ld.textContent = JSON.stringify({
+      '@context': 'https://schema.org', '@type': 'BlogPosting',
+      headline: post.title, description: post.excerpt, datePublished: post.date,
+      mainEntityOfPage: url, inLanguage: 'pt-BR', image: 'https://www.betinaboff.com/brand/og-image.jpg',
+      author: { '@type': 'Person', name: 'Betina Bernardi Boff', jobTitle: 'Cirurgiã-dentista', identifier: 'CRO-SC 25849', url: 'https://www.betinaboff.com/' },
+      publisher: { '@type': 'Organization', name: 'Dra. Betina Bernardi Boff — Odontologia', logo: { '@type': 'ImageObject', url: 'https://www.betinaboff.com/brand/logo-192.png' } },
+    });
+    document.head.appendChild(ld);
+
     document.querySelector('[data-art="category"]').textContent = post.category;
     document.querySelector('[data-art="read"]').textContent = post.read;
     document.querySelector('[data-art="title"]').textContent = post.title;
-    const img = document.querySelector('[data-art="image"]');
-    img.src = post.image; img.alt = post.title;
+    const cover = document.querySelector('[data-art="cover"]');
+    cover.className = cover.className.replace(/cover--\w+/, 'cover--' + post.cover.tone);
+    cover.querySelector('.cover__word').textContent = post.cover.word;
     document.querySelector('[data-art="body"]').innerHTML = post.body;
 
     // Related: the other articles (no duplicates), up to 3.
@@ -535,13 +600,14 @@
       const p = POSTS[k];
       return `
         <a href="/artigo?id=${k}" class="post reveal in group flex flex-col overflow-hidden rounded-[1.25rem] border border-ink/5 bg-cream shadow-soft transition-transform duration-500 hover:-translate-y-1.5">
-          <div class="overflow-hidden">
-            <img src="${p.image}" alt="" class="card-img h-44 w-full object-cover" />
+          <div class="cover cover--${p.cover.tone} h-44" aria-hidden="true">
+            <img src="brand/logo-560.png" alt="" class="cover__mark" />
+            <span class="cover__word">${p.cover.word}</span>
           </div>
           <div class="flex flex-1 flex-col p-7">
             <div class="text-[11px] uppercase tracking-[0.24em] text-gold">${p.category}</div>
             <h3 class="mt-3 font-serif text-xl leading-snug text-ink">${p.title}</h3>
-            <span class="mt-5 inline-flex items-center gap-2 text-sm font-light text-wine group-hover:gap-3 transition-all">Ler artigo <span aria-hidden="true">→</span></span>
+            <span class="mt-5 inline-flex items-center gap-2 text-sm font-light text-wine transition-colors">Ler artigo <span aria-hidden="true" class="inline-block transition-transform duration-500 group-hover:translate-x-1">→</span></span>
           </div>
         </a>`;
     }).join('');
@@ -570,6 +636,31 @@
     menuBtn.addEventListener('click', () => setMenu(mobileMenu.classList.contains('hidden')));
     mobileMenu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
   }
+</script>
+
+<!-- ============ BARRA FIXA DE AGENDAMENTO (MOBILE) ============ -->
+<a href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="mcta is-hidden" data-mcta>
+  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7a8.5 8.5 0 1 1 16.1-3.8z"/></svg>
+  Agendar pelo WhatsApp
+</a>
+<script>
+  // Mostra a barra só depois do topo e a esconde quando outro botão de agendar já está na tela.
+  (function () {
+    const bar = document.querySelector('[data-mcta]');
+    if (!bar || !('IntersectionObserver' in window)) { bar && bar.classList.remove('is-hidden'); return; }
+    const targets = [...document.querySelectorAll('[data-hide-mcta]')];
+    const visible = new Set();
+    let pastTop = false;
+    const update = () => bar.classList.toggle('is-hidden', !pastTop || visible.size > 0);
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => (e.isIntersecting ? visible.add(e.target) : visible.delete(e.target)));
+      update();
+    }, { threshold: 0.1 });
+    targets.forEach((t) => io.observe(t));
+    const onScroll = () => { const p = window.scrollY > window.innerHeight * 0.6; if (p !== pastTop) { pastTop = p; update(); } };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
 </script>
 </body>
 </html>

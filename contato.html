@@ -4,8 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Fale com a Dra. Betina — Contato</title>
-<link rel="icon" type="image/png" href="brand/Logo_ber.png" />
-<link rel="apple-touch-icon" href="brand/Logo_ber.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="brand/logo-96.png" />
+<link rel="apple-touch-icon" href="brand/logo-192.png" />
 <meta name="description" content="Envie uma mensagem para a Dra. Betina Bernardi Boff. Tire dúvidas ou agende sua avaliação." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -71,6 +71,19 @@
   }
   :focus-visible { outline:2px solid #B4966A; outline-offset:3px; border-radius:2px; }
   .tracking-tightest { letter-spacing:-0.03em; }
+
+  /* ---- barra fixa de agendamento (mobile) ---- */
+  .mcta { position: fixed; left: 16px; right: 16px; bottom: calc(14px + env(safe-area-inset-bottom)); z-index: 45;
+    display: flex; align-items: center; justify-content: center; gap: .6rem; height: 3.25rem; border-radius: 9999px;
+    background: #5C2335; color: #F7F1E8; font-size: .95rem; font-weight: 400; letter-spacing: .01em;
+    box-shadow: 0 2px 4px rgba(63,24,37,.12), 0 18px 40px -14px rgba(63,24,37,.55), inset 0 1px 0 rgba(255,255,255,.12);
+    transition: transform .5s cubic-bezier(.16,.84,.44,1), opacity .3s ease; }
+  .mcta:hover { background: #3F1825; }
+  .mcta:active { transform: scale(.98); }
+  .mcta:focus-visible { outline: 2px solid #B4966A; outline-offset: 3px; }
+  .mcta.is-hidden { opacity: 0; transform: translateY(140%); pointer-events: none; }
+  @media (min-width: 768px) { .mcta { display: none; } }
+  @media (max-width: 767px) { footer { padding-bottom: 5.5rem; } }
 </style>
 </head>
 
@@ -106,7 +119,7 @@
 
       <div class="relative z-10 flex items-center justify-between gap-4 px-4 sm:px-6 py-2.5">
         <a href="/" class="flex items-center gap-3 group">
-          <img src="brand/Logo_ber.png" alt="Logo Betina Bernardi Boff" class="h-11 w-11 rounded-full object-cover ring-1 ring-white/40" />
+          <img src="brand/logo-192.png" alt="Logo Betina Bernardi Boff" class="h-11 w-11 rounded-full object-cover ring-1 ring-white/40" />
           <span class="leading-tight">
             <span class="block font-serif text-lg tracking-tightest text-ink">Betina Bernardi Boff</span>
             <span class="block font-sans text-[10px] uppercase tracking-[0.32em] text-gold">Odontologia</span>
@@ -120,7 +133,7 @@
           <a href="/blog" class="navlink">Blog</a>
         </div>
 
-        <a href="https://wa.me/554888634224" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 rounded-full bg-wine px-5 py-2.5 text-sm font-light text-cream shadow-soft transition-all duration-500 hover:-translate-y-0.5 hover:bg-winedeep">
+        <a href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 rounded-full bg-wine px-5 py-2.5 text-sm font-light text-cream shadow-soft transition-[transform,background-color,color] duration-500 hover:-translate-y-0.5 hover:bg-winedeep">
           WhatsApp
         </a>
 
@@ -137,7 +150,7 @@
       <a href="/#especialidades" class="block rounded-xl px-4 py-3 text-base font-light text-ink transition-colors hover:bg-sand">Serviços</a>
       <a href="/#avaliacoes" class="block rounded-xl px-4 py-3 text-base font-light text-ink transition-colors hover:bg-sand">Avaliações</a>
       <a href="/blog" class="block rounded-xl px-4 py-3 text-base font-light text-ink transition-colors hover:bg-sand">Blog</a>
-      <a href="https://wa.me/554888634224" target="_blank" rel="noopener noreferrer" class="mt-1 block rounded-xl bg-wine px-4 py-3 text-center text-base font-light text-cream transition-colors hover:bg-winedeep">WhatsApp</a>
+      <a href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="mt-1 block rounded-xl bg-wine px-4 py-3 text-center text-base font-light text-cream transition-colors hover:bg-winedeep">WhatsApp</a>
     </nav>
   </div>
 </header>
@@ -158,8 +171,23 @@
       </p>
     </div>
 
+    <!-- caminho mais rápido -->
+    <a href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer"
+       class="reveal group mt-10 flex items-center gap-4 rounded-[1.4rem] border border-gold/30 bg-cream/70 p-5 shadow-soft transition-[transform,border-color] duration-500 hover:-translate-y-0.5 hover:border-gold active:translate-y-0 sm:p-6">
+      <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-wine text-cream">
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7a8.5 8.5 0 1 1 16.1-3.8z"/></svg>
+      </span>
+      <span class="flex-1 leading-snug">
+        <span class="block font-serif text-xl text-ink">Quer agendar? O WhatsApp é mais rápido</span>
+        <span class="block text-sm font-light text-muted">+55 48 8863-4224</span>
+      </span>
+      <span aria-hidden="true" class="text-wine transition-transform duration-500 group-hover:translate-x-1">→</span>
+    </a>
+
+    <p class="reveal mt-8 text-center text-sm font-light text-muted">ou envie uma mensagem por aqui</p>
+
     <!-- form card -->
-    <div class="reveal mt-10 rounded-[1.6rem] border border-ink/5 bg-cream/80 p-7 shadow-float sm:p-10">
+    <div class="reveal mt-4 rounded-[1.6rem] border border-ink/5 bg-cream/80 p-7 shadow-float sm:p-10" data-hide-mcta>
       <form id="contactForm" novalidate>
         <!-- Web3Forms config -->
         <input type="hidden" name="access_key" value="c02c1c9b-9d24-4eb2-b3a7-b7c13b5a1836" />
@@ -170,17 +198,23 @@
         <div class="grid gap-5 sm:grid-cols-2">
           <div>
             <label for="f-name" class="field-label">Seu nome</label>
-            <input id="f-name" name="name" type="text" required placeholder="Como você se chama" class="field" />
+            <input id="f-name" name="name" type="text" required autocomplete="name" placeholder="Como você se chama" class="field" />
           </div>
           <div>
-            <label for="f-email" class="field-label">Seu e-mail</label>
-            <input id="f-email" name="email" type="email" required placeholder="voce@email.com" class="field" />
+            <label for="f-phone" class="field-label">Telefone / WhatsApp <span class="normal-case tracking-normal text-muted/80">(opcional)</span></label>
+            <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(48) 9 0000-0000" class="field" />
           </div>
         </div>
 
-        <div class="mt-5">
-          <label for="f-subject" class="field-label">Assunto</label>
-          <input id="f-subject" name="subject" type="text" required placeholder="Sobre o que você quer falar" class="field" />
+        <div class="mt-5 grid gap-5 sm:grid-cols-2">
+          <div>
+            <label for="f-email" class="field-label">Seu e-mail</label>
+            <input id="f-email" name="email" type="email" required autocomplete="email" placeholder="voce@email.com" class="field" />
+          </div>
+          <div>
+            <label for="f-subject" class="field-label">Assunto</label>
+            <input id="f-subject" name="subject" type="text" required placeholder="Ex.: agendar avaliação" class="field" />
+          </div>
         </div>
 
         <div class="mt-5">
@@ -189,7 +223,7 @@
         </div>
 
         <button type="submit" id="submitBtn"
-          class="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-wine px-8 py-4 text-sm font-light tracking-wide text-cream shadow-soft transition-all duration-500 hover:-translate-y-0.5 hover:bg-winedeep disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto">
+          class="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-wine px-8 py-4 text-sm font-light tracking-wide text-cream shadow-soft transition-[transform,background-color,color] duration-500 hover:-translate-y-0.5 hover:bg-winedeep disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto">
           <span id="submitLabel">Enviar mensagem</span>
           <svg id="submitSpinner" class="hidden h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2.5" stroke-opacity="0.25"/><path d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
         </button>
@@ -215,7 +249,7 @@
 
     <!-- alternative contacts -->
     <div class="reveal mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm font-light text-muted">
-      <a href="https://wa.me/554888634224" target="_blank" rel="noopener noreferrer" class="navlink">WhatsApp · +55 48 8863-4224</a>
+      <a href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="navlink">WhatsApp · +55 48 8863-4224</a>
       <a href="https://www.instagram.com/betinaber/" target="_blank" rel="noopener noreferrer" class="navlink">Instagram · @betinaber</a>
     </div>
   </div>
@@ -224,6 +258,38 @@
 <!-- ============ FOOTER ============ -->
 <footer class="border-t border-ink/10 bg-sand/40">
   <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="sm:col-span-2">
+        <div class="flex items-center gap-3">
+          <img src="brand/logo-192.png" alt="" class="h-11 w-11 rounded-full object-cover" />
+          <span class="font-serif text-lg text-ink tracking-tightest">Betina Bernardi Boff</span>
+        </div>
+        <p class="mt-4 max-w-xs text-sm font-light leading-[1.8] text-muted">
+          Odontologia com cuidado, técnica e estética. Cada sorriso tratado com a atenção que merece.
+        </p>
+      </div>
+      <div>
+        <div class="text-[11px] uppercase tracking-[0.28em] text-gold">Navegação</div>
+        <ul class="mt-4 space-y-2 text-sm font-light text-muted">
+          <li><a href="/#sobre" class="navlink">Sobre</a></li>
+          <li><a href="/#especialidades" class="navlink">Serviços</a></li>
+          <li><a href="/#avaliacoes" class="navlink">Avaliações</a></li>
+          <li><a href="/blog" class="navlink">Blog</a></li>
+          <li><a href="/dentista-palhoca" class="navlink">Dentista em Palhoça</a></li>
+          <li><a href="/dentista-sao-jose" class="navlink">Dentista em São José</a></li>
+          <li><a href="/dentista-florianopolis" class="navlink">Dentista em Florianópolis</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="text-[11px] uppercase tracking-[0.28em] text-gold">Contato</div>
+        <ul class="mt-4 space-y-2 text-sm font-light text-muted">
+          <li><a href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="navlink">WhatsApp · +55 48 8863-4224</a></li>
+          <li><a href="/contato" class="navlink">E-mail</a></li>
+          <li><a href="https://www.instagram.com/betinaber/" target="_blank" rel="noopener noreferrer" class="navlink">Instagram · @betinaber</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rule-gold"></div>
     <div class="flex flex-col items-center justify-between gap-2 py-6 text-xs font-light text-muted sm:flex-row">
       <span>© 2026 Betina Bernardi Boff — Todos os direitos reservados.</span>
       <span>CRO-SC 25849 • Cirurgiã-Dentista</span>
@@ -299,6 +365,31 @@
     menuBtn.addEventListener('click', () => setMenu(mobileMenu.classList.contains('hidden')));
     mobileMenu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
   }
+</script>
+
+<!-- ============ BARRA FIXA DE AGENDAMENTO (MOBILE) ============ -->
+<a href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="mcta is-hidden" data-mcta>
+  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7a8.5 8.5 0 1 1 16.1-3.8z"/></svg>
+  Agendar pelo WhatsApp
+</a>
+<script>
+  // Mostra a barra só depois do topo e a esconde quando outro botão de agendar já está na tela.
+  (function () {
+    const bar = document.querySelector('[data-mcta]');
+    if (!bar || !('IntersectionObserver' in window)) { bar && bar.classList.remove('is-hidden'); return; }
+    const targets = [...document.querySelectorAll('[data-hide-mcta]')];
+    const visible = new Set();
+    let pastTop = false;
+    const update = () => bar.classList.toggle('is-hidden', !pastTop || visible.size > 0);
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => (e.isIntersecting ? visible.add(e.target) : visible.delete(e.target)));
+      update();
+    }, { threshold: 0.1 });
+    targets.forEach((t) => io.observe(t));
+    const onScroll = () => { const p = window.scrollY > window.innerHeight * 0.6; if (p !== pastTop) { pastTop = p; update(); } };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
 </script>
 </body>
 </html>

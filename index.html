@@ -191,8 +191,8 @@
 
   /* ---- faixa de foto entre seções ---- */
   .photo-strip { position: relative; height: 40vh; min-height: 240px; max-height: 440px; overflow: hidden; background: #3F1825; }
-  .photo-strip__img { position: absolute; inset: -14% 0 -14% -45%; will-change: transform; }
-  .photo-strip__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 72% 58%; }
+  .photo-strip__img { position: absolute; inset: -14% 0; will-change: transform; }
+  .photo-strip__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 48% 62%; }
 
   /* ---- seção em vinho ---- */
   .wine-atmo { background-image:
@@ -674,11 +674,11 @@
 <!-- ============ FAIXA DE FOTO ============ -->
 <div class="photo-strip" data-strip aria-hidden="true">
   <picture class="photo-strip__img" data-strip-photo>
-    <source type="image/avif" srcset="brand/hero/consultorio-960.avif 960w, brand/hero/consultorio-1600.avif 1600w, brand/hero/consultorio-2560.avif 2560w" sizes="(max-width: 1023px) 180vw, 100vw" />
-    <source type="image/webp" srcset="brand/hero/consultorio-960.webp 960w, brand/hero/consultorio-1600.webp 1600w, brand/hero/consultorio-2560.webp 2560w" sizes="(max-width: 1023px) 180vw, 100vw" />
-    <img src="brand/hero/consultorio-2560.jpg" alt="" width="2560" height="1429" loading="lazy" decoding="async" />
+    <source type="image/avif" srcset="brand/faixa/clinica-960.avif 960w, brand/faixa/clinica-1600.avif 1600w, brand/faixa/clinica-2400.avif 2400w" sizes="100vw" />
+    <source type="image/webp" srcset="brand/faixa/clinica-960.webp 960w, brand/faixa/clinica-1600.webp 1600w, brand/faixa/clinica-2400.webp 2400w" sizes="100vw" />
+    <img src="brand/faixa/clinica-2400.jpg" alt="" width="2400" height="1018" loading="lazy" decoding="async" />
   </picture>
-  <div class="pointer-events-none absolute inset-0 bg-wine/35 mix-blend-multiply"></div>
+  <div class="pointer-events-none absolute inset-0 bg-wine/15 mix-blend-multiply"></div>
   <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10"></div>
 </div>
 

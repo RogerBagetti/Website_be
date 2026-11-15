@@ -79,6 +79,8 @@
 }
 </script>
 
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preload" as="image" type="image/avif" href="brand/hero/consultorio-1600.avif" imagesrcset="brand/hero/consultorio-960.avif 960w, brand/hero/consultorio-1600.avif 1600w, brand/hero/consultorio-2560.avif 2560w" imagesizes="(max-width: 1023px) 230vw, 125vw" fetchpriority="high" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -128,18 +130,73 @@
       radial-gradient(40% 40% at 50% 50%, rgba(234,223,206,0.6), transparent 70%);
   }
 
-  /* ---- soft mesh gradient (brand-tinted, very subtle) ---- */
-  .mesh {
-    position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; opacity: 1;
-    -webkit-mask-image: radial-gradient(ellipse 110% 100% at 62% 0%, #000 38%, transparent 92%);
-            mask-image: radial-gradient(ellipse 110% 100% at 62% 0%, #000 38%, transparent 92%);
+  /* ---- hero: foto do consultório, interativa na rolagem ---- */
+  .hero-stage { position: relative; overflow: hidden; background: #EADFCE url("data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAASACADASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQCBQYH/8QAIRAAAgICAgMAAwAAAAAAAAAAAQIAAwQRIUEFEjETMlH/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/xAAZEQACAwEAAAAAAAAAAAAAAAAAAQIRMSH/2gAMAwEAAhEDEQA/ANYfkaoANHMSZwBJVZqLV6KjMR/Jkn00oj5JFCp6jXPUy3lBfTmGzGdg2tkS4t8gzP8Ajfgg/dxbaNkM9rLoDiCStiWUWPcbqAFJ0OoQiWkeHO813GdZpm/c9yzrJOHskk67hCRhif/Z") 60% 50% / cover no-repeat; }
+  .hero-photo { position: absolute; inset: -3%; transform-origin: 70% 55%; will-change: transform; }
+  .hero-photo__img, .hero-photo__img img { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .hero-photo__img img { object-fit: cover; object-position: 60% 50%; }
+  .js .hero-photo__img { opacity: 0; transform: scale(1.08); transition: opacity .9s ease, transform 2.4s cubic-bezier(.16,.84,.44,1); }
+  .js .hero-stage.is-loaded .hero-photo__img { opacity: 1; transform: none; }
+  /* luz da janela "respirando" */
+  .hero-light { position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(34% 52% at 44% 42%, rgba(255,246,222,.75), rgba(255,246,222,0) 70%);
+    opacity: .35; animation: hero-breathe 8s ease-in-out infinite alternate; }
+  @keyframes hero-breathe { from { opacity: .35; } to { opacity: .6; } }
+  /* véu creme para leitura do texto */
+  .hero-veil { position: absolute; inset: 0; pointer-events: none;
+    background:
+      linear-gradient(90deg, rgba(247,241,232,.9) 0%, rgba(247,241,232,.8) 30%, rgba(247,241,232,.35) 50%, rgba(247,241,232,0) 64%),
+      linear-gradient(0deg, rgba(247,241,232,.55) 0%, rgba(247,241,232,0) 22%); }
+  .hero-dusk { position: absolute; inset: 0; pointer-events: none; background: #3F1825; opacity: 0; }
+  .hero-content { position: relative; z-index: 2; will-change: transform, opacity; }
+  .hero-phrase { position: absolute; z-index: 2; left: 0; right: 0; bottom: 14%; opacity: 0; pointer-events: none; will-change: transform, opacity; }
+  .hero-phrase p { text-shadow: 0 1px 24px rgba(247,241,232,.9), 0 0 2px rgba(247,241,232,.8); }
+  /* entrada orquestrada do texto */
+  .js .hero-in { opacity: 0; transform: translateY(18px);
+    transition: opacity .9s cubic-bezier(.16,.84,.44,1) calc(var(--i, 0) * 90ms), transform .9s cubic-bezier(.16,.84,.44,1) calc(var(--i, 0) * 90ms); }
+  .js .hero-stage.is-in .hero-in { opacity: 1; transform: none; }
+
+  @media (min-width: 1024px) {
+    .hero-pin { height: 180vh; }
+    .hero-stage { position: sticky; top: 0; height: 100vh; min-height: 640px; display: flex; align-items: center; padding: 6.5rem 0 2.5rem; }
+    .hero-stage .hero-h1 { font-size: clamp(3rem, 8.2vh, 4.5rem); }
   }
-  .mesh__p { position: absolute; inset: 0; will-change: transform; }
-  .mesh__blob { position: absolute; border-radius: 50%; filter: blur(48px); will-change: transform; }
-  .mesh__blob--a { width: 50vw; height: 50vw; left: -10%; top: -22%; background: radial-gradient(circle at 50% 50%, rgba(180,150,106,.78), transparent 66%); }
-  .mesh__blob--b { width: 44vw; height: 44vw; right: -8%; top: -16%; background: radial-gradient(circle at 50% 50%, rgba(200,174,130,.72), transparent 66%); }
-  .mesh__blob--c { width: 42vw; height: 42vw; left: 24%;  top: -18%; background: radial-gradient(circle at 50% 50%, rgba(122,46,68,.5),    transparent 64%); }
-  .mesh__blob--d { width: 32vw; height: 32vw; right: 14%; top: 4%;   background: radial-gradient(circle at 50% 50%, rgba(168,129,78,.6),    transparent 64%); }
+  @media (min-width: 1024px) and (max-height: 820px) {
+    .hero-stage { padding: 6rem 0 1.5rem; }
+    .hero-stage .hero-h1 { margin-top: 1rem; font-size: clamp(2.6rem, 7.4vh, 4rem); }
+    .hero-stage .hero-sub { margin-top: .9rem; }
+    .hero-stage .hero-cta { margin-top: 1.3rem; }
+    .hero-stage .hero-creds { margin-top: 1.3rem; padding-top: .9rem; }
+    .hero-stage .hero-creds > li + li { margin-top: .4rem; }
+  }
+  @media (max-width: 1023px) {
+    .hero-stage { min-height: 92svh; padding: 0 0 3.5rem; background-position: 68% 0; background-size: auto 62svh; }
+    .hero-photo { inset: 0 0 auto 0; height: 62svh; min-height: 380px; transform-origin: 68% 40%; }
+    .hero-photo__img img { object-position: 68% 50%; }
+    .hero-veil { background:
+      linear-gradient(180deg, rgba(247,241,232,.5) 0%, rgba(247,241,232,0) 14%),
+      linear-gradient(180deg, rgba(247,241,232,0) 0, rgba(247,241,232,0) calc(max(62svh, 380px) * .52), rgba(247,241,232,.92) calc(max(62svh, 380px) * .86), #F7F1E8 max(62svh, 380px), #F7F1E8 100%); }
+    .hero-content { padding-top: calc(max(62svh, 380px) * .72); }
+    .hero-phrase { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-pin { height: auto; }
+    .hero-stage { position: relative; height: auto; min-height: 100vh; }
+    .js .hero-photo__img, .js .hero-in { opacity: 1; transform: none; transition: none; }
+    .hero-light { animation: none; }
+    .hero-phrase { display: none; }
+  }
+
+  /* ---- faixa de foto entre seções ---- */
+  .photo-strip { position: relative; height: 40vh; min-height: 240px; max-height: 440px; overflow: hidden; background: #3F1825; }
+  .photo-strip__img { position: absolute; inset: -14% 0 -14% -45%; will-change: transform; }
+  .photo-strip__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 72% 58%; }
+
+  /* ---- seção em vinho ---- */
+  .wine-atmo { background-image:
+      radial-gradient(55% 60% at 88% 0%, rgba(180,150,106,.26), transparent 62%),
+      radial-gradient(50% 70% at 0% 100%, rgba(92,35,53,.9), transparent 62%); }
+  .on-wine .step__n { background: transparent; color: #C8AE82; border-color: rgba(200,174,130,.55); }
 
   /* ---- tinted, layered shadows ---- */
   .shadow-soft   { box-shadow: 0 1px 2px rgba(63,24,37,0.04), 0 12px 32px -12px rgba(63,24,37,0.18); }
@@ -313,7 +370,7 @@
   .faq summary::after { content: "+"; flex-shrink: 0; font-size: 1.35rem; line-height: 1; color: #B4966A;
     transition: transform .35s cubic-bezier(.16,.84,.44,1); }
   .faq details[open] summary::after { transform: rotate(45deg); }
-  .faq .faq-a { padding: 0 1.4rem 1.2rem; font-weight: 300; font-size: .925rem; line-height: 1.8; color: #7B6F61; }
+  .faq .faq-a { padding: 0 1.4rem 1.2rem; font-weight: 300; font-size: .925rem; line-height: 1.8; color: rgba(44,38,32,.74); }
   .faq-link { color: #5C2335; text-decoration: underline; text-decoration-color: rgba(180,150,106,.7); text-underline-offset: 3px; }
   .faq-link:hover { text-decoration-color: #5C2335; }
 
@@ -346,7 +403,7 @@
   .mcta { position: fixed; left: 16px; right: 16px; bottom: calc(14px + env(safe-area-inset-bottom)); z-index: 45;
     display: flex; align-items: center; justify-content: center; gap: .6rem; height: 3.25rem; border-radius: 9999px;
     background: #5C2335; color: #F7F1E8; font-size: .95rem; font-weight: 400; letter-spacing: .01em;
-    box-shadow: 0 2px 4px rgba(63,24,37,.12), 0 18px 40px -14px rgba(63,24,37,.55), inset 0 1px 0 rgba(255,255,255,.12);
+    box-shadow: 0 2px 4px rgba(63,24,37,.12), 0 18px 40px -14px rgba(63,24,37,.55), inset 0 1px 0 rgba(255,255,255,.12), 0 0 0 1px rgba(200,174,130,.4);
     transition: transform .5s cubic-bezier(.16,.84,.44,1), opacity .3s ease; }
   .mcta:hover { background: #3F1825; }
   .mcta:active { transform: scale(.98); }
@@ -438,60 +495,64 @@
 </header>
 
 <!-- ============ HERO ============ -->
-<section class="atmosphere relative overflow-hidden pt-32 pb-20 lg:pt-40 lg:pb-28" data-hero>
-  <div class="mesh" aria-hidden="true">
-    <span class="mesh__p" data-depth="95"><span class="mesh__blob mesh__blob--a"></span></span>
-    <span class="mesh__p" data-depth="-130"><span class="mesh__blob mesh__blob--b"></span></span>
-    <span class="mesh__p" data-depth="70"><span class="mesh__blob mesh__blob--c"></span></span>
-    <span class="mesh__p" data-depth="-155"><span class="mesh__blob mesh__blob--d"></span></span>
-  </div>
-  <div class="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
-    <div class="grid items-center gap-14 lg:grid-cols-12">
+<section class="hero-pin relative" data-hero>
+  <div class="hero-stage" data-hero-stage>
+    <!-- foto do consultório (fundo) -->
+    <div class="hero-photo" data-hero-photo aria-hidden="true">
+      <picture class="hero-photo__img">
+        <source type="image/avif" srcset="brand/hero/consultorio-960.avif 960w, brand/hero/consultorio-1600.avif 1600w, brand/hero/consultorio-2560.avif 2560w" sizes="(max-width: 1023px) 230vw, 125vw" />
+        <source type="image/webp" srcset="brand/hero/consultorio-960.webp 960w, brand/hero/consultorio-1600.webp 1600w, brand/hero/consultorio-2560.webp 2560w" sizes="(max-width: 1023px) 230vw, 125vw" />
+        <img src="brand/hero/consultorio-2560.jpg" alt="" width="2560" height="1429" fetchpriority="high" decoding="async" data-hero-img />
+      </picture>
+      <div class="hero-light"></div>
+    </div>
+    <div class="hero-veil" data-hero-veil aria-hidden="true"></div>
+    <div class="hero-dusk" data-hero-dusk aria-hidden="true"></div>
 
-      <!-- copy -->
-      <div class="lg:col-span-6 reveal">
-        <span class="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-cream/60 px-4 py-1.5 text-[11px] uppercase tracking-[0.3em] text-gold">
+    <div class="hero-content mx-auto w-full max-w-7xl px-6 lg:px-10" data-hero-content>
+      <div class="max-w-xl">
+        <span class="hero-in inline-flex items-center gap-2 rounded-full border border-gold/50 bg-cream/70 px-4 py-1.5 text-[11px] uppercase tracking-[0.3em] text-wine" style="--i:0">
           <span class="h-1 w-1 rounded-full bg-gold"></span> Cirurgiã-Dentista
         </span>
 
-        <h1 class="mt-7 font-serif text-5xl leading-[1.05] tracking-tightest text-ink sm:text-6xl lg:text-7xl">
+        <h1 style="--i:1" class="hero-in hero-h1 mt-7 font-serif text-5xl leading-[1.05] tracking-tightest text-ink sm:text-6xl lg:text-7xl">
           Cada detalhe<br />
           pensado.<br />
           <span class="italic text-wine">Cada sorriso, único</span>
         </h1>
 
-        <p class="mt-7 max-w-md text-base font-light leading-[1.8] text-muted">
+        <p style="--i:2" class="hero-in hero-sub mt-7 max-w-md text-base font-normal leading-[1.8] text-ink/80">
           Da saúde ao desenho do sorriso, um trabalho feito com técnica, calma
           e atenção ao que importa pra você.
         </p>
 
-        <div class="mt-10 flex flex-wrap items-center gap-4" data-hide-mcta>
+        <div style="--i:3" class="hero-in hero-cta mt-10 flex flex-wrap items-center gap-4" data-hide-mcta>
           <a href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="btn-wine inline-flex items-center gap-2.5 rounded-full bg-wine px-8 py-4 text-sm font-light tracking-wide text-cream shadow-soft hover:bg-winedeep">
             <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7a8.5 8.5 0 1 1 16.1-3.8z"/></svg>
             Agendar pelo WhatsApp
           </a>
-          <a href="#sobre" class="btn-ghost inline-flex items-center gap-2 rounded-full border border-ink/15 px-8 py-4 text-sm font-light tracking-wide text-ink hover:border-gold hover:text-wine">
+          <a href="#sobre" class="btn-ghost inline-flex items-center gap-2 rounded-full border border-ink/25 bg-cream/60 px-8 py-4 text-sm font-light tracking-wide text-ink hover:border-gold hover:text-wine">
             Conhecer a Dra. Betina
           </a>
         </div>
 
         <!-- credenciais + localização -->
-        <ul class="mt-12 max-w-md space-y-3.5 border-t border-ink/10 pt-6 text-sm font-light text-muted">
+        <ul style="--i:4" class="hero-in hero-creds mt-12 max-w-md space-y-3.5 border-t border-ink/15 pt-6 text-sm font-normal text-ink/80">
           <li class="flex items-start gap-3">
-            <span class="mt-px flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-wine/[.07] text-wine">
+            <span class="mt-px flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-cream/80 text-wine">
               <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
             </span>
             <span class="pt-1"><span class="text-ink">CRO-SC 25849</span> · Odontologia pela Unisul</span>
           </li>
           <li class="flex items-start gap-3">
-            <span class="mt-px flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-wine/[.07] text-wine">
+            <span class="mt-px flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-cream/80 text-wine">
               <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M7 11.5V16c0 1.4 2.2 3 5 3s5-1.6 5-3v-4.5"/></svg>
             </span>
             <span class="pt-1">Especialização em Implantodontia e Periodontia em andamento</span>
           </li>
           <li>
             <a href="https://www.google.com/maps/search/?api=1&query=Av.+At%C3%ADlio+Pedro+Pagani%2C+115+-+Pagani%2C+Palho%C3%A7a+-+SC%2C+88132-149" target="_blank" rel="noopener noreferrer" class="group flex items-start gap-3 transition-colors hover:text-wine">
-              <span class="mt-px flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-wine/[.07] text-wine transition-colors group-hover:bg-wine/15">
+              <span class="mt-px flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-cream/80 text-wine transition-colors group-hover:bg-wine/15">
                 <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a7 7 0 0 1 14 0c0 5.65-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
               </span>
               <span class="pt-1">Av. Atílio Pedro Pagani, 115 · Pagani, Palhoça <span class="text-wine underline decoration-gold/50 underline-offset-4 group-hover:decoration-wine">ver no mapa</span></span>
@@ -499,39 +560,19 @@
           </li>
         </ul>
       </div>
+    </div>
 
-      <!-- portrait -->
-      <div class="lg:col-span-6 reveal">
-        <div class="relative mx-auto max-w-md">
-          <!-- floating gold frame -->
-          <div class="absolute -inset-3 -z-10 rounded-[2rem] border border-gold/30"></div>
-          <div class="absolute -bottom-6 -left-6 -z-10 h-40 w-40 rounded-full bg-golden/30 blur-2xl"></div>
-
-          <figure class="relative overflow-hidden rounded-[1.7rem] bg-wine shadow-float">
-            <img src="brand/ff2ac173-db7a-4f11-a954-6a5f3321c4d9.jpg"
-                 alt="Dra. Betina Bernardi Boff em seu consultório"
-                 class="h-full w-full object-cover" />
-            <!-- color treatment + gradient overlay -->
-            <div class="pointer-events-none absolute inset-0 bg-wine/10 portrait-tone"></div>
-            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-
-            <figcaption class="absolute bottom-5 left-5 right-5 flex items-center gap-3 rounded-2xl bg-cream/85 px-5 py-3 backdrop-blur-sm shadow-soft">
-              <img src="brand/logo-192.png" alt="" class="h-9 w-9 rounded-full object-cover" />
-              <div class="leading-tight">
-                <div class="font-serif text-base text-ink">Dra. Betina Bernardi Boff</div>
-                <div class="text-[10px] uppercase tracking-[0.22em] text-gold">CRO-SC 25849 • Odontologia</div>
-              </div>
-            </figcaption>
-          </figure>
-        </div>
+    <!-- frase revelada ao rolar (desktop) -->
+    <div class="hero-phrase" data-hero-phrase aria-hidden="true">
+      <div class="mx-auto max-w-7xl px-6 lg:px-10">
+        <p class="max-w-lg font-serif text-5xl leading-[1.08] tracking-tightest text-winedeep xl:text-6xl">Um consultório pensado para você se sentir em casa.</p>
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- ============ VALORES ============ -->
-<section class="border-y border-ink/5 bg-sand/40 py-16 lg:py-20">
+<section class="border-y border-ink/5 bg-sand py-16 lg:py-20">
   <div class="mx-auto max-w-7xl px-6 lg:px-10">
     <div class="reveal text-center">
       <span class="text-[11px] uppercase tracking-[0.32em] text-gold">Valores</span>
@@ -544,22 +585,22 @@
       <div class="reveal text-center">
         <div class="font-serif text-2xl text-wine">Cuidado</div>
         <div class="mx-auto mt-3 h-px w-8 bg-gold/50"></div>
-        <p class="mx-auto mt-3 max-w-[15rem] text-sm font-light leading-[1.7] text-muted">Entender as condições de cada paciente e acolher de forma empática.</p>
+        <p class="mx-auto mt-3 max-w-[15rem] text-sm font-light leading-[1.7] text-ink/75">Entender as condições de cada paciente e acolher de forma empática.</p>
       </div>
       <div class="reveal text-center">
         <div class="font-serif text-2xl text-wine">Clareza</div>
         <div class="mx-auto mt-3 h-px w-8 bg-gold/50"></div>
-        <p class="mx-auto mt-3 max-w-[15rem] text-sm font-light leading-[1.7] text-muted">Comunicar com transparência para que o paciente saiba exatamente o que está sendo feito.</p>
+        <p class="mx-auto mt-3 max-w-[15rem] text-sm font-light leading-[1.7] text-ink/75">Comunicar com transparência para que o paciente saiba exatamente o que está sendo feito.</p>
       </div>
       <div class="reveal text-center">
         <div class="font-serif text-2xl text-wine">Técnica</div>
         <div class="mx-auto mt-3 h-px w-8 bg-gold/50"></div>
-        <p class="mx-auto mt-3 max-w-[15rem] text-sm font-light leading-[1.7] text-muted">Aplicar o máximo de rigor e excelência científica na execução de cada procedimento.</p>
+        <p class="mx-auto mt-3 max-w-[15rem] text-sm font-light leading-[1.7] text-ink/75">Aplicar o máximo de rigor e excelência científica na execução de cada procedimento.</p>
       </div>
       <div class="reveal text-center">
         <div class="font-serif text-2xl text-wine">Integridade</div>
         <div class="mx-auto mt-3 h-px w-8 bg-gold/50"></div>
-        <p class="mx-auto mt-3 max-w-[15rem] text-sm font-light leading-[1.7] text-muted">Agir com honestidade absoluta, priorizando sempre a ética e a necessidade real do paciente.</p>
+        <p class="mx-auto mt-3 max-w-[15rem] text-sm font-light leading-[1.7] text-ink/75">Agir com honestidade absoluta, priorizando sempre a ética e a necessidade real do paciente.</p>
       </div>
     </div>
   </div>
@@ -574,7 +615,7 @@
         <div class="relative mx-auto max-w-sm">
           <div class="absolute -inset-3 -z-10 rounded-[1.8rem] border border-gold/30"></div>
           <div class="absolute -right-6 -top-6 -z-10 h-32 w-32 rounded-full bg-golden/25 blur-2xl"></div>
-          <img src="brand/WhatsApp%20Image%202026-06-03%20at%2017.46.49%20(1).jpeg"
+          <img src="brand/ff2ac173-db7a-4f11-a954-6a5f3321c4d9.jpg"
                alt="Dra. Betina Bernardi Boff"
                class="w-full rounded-[1.6rem] object-cover shadow-float" />
         </div>
@@ -627,6 +668,17 @@
     </div>
   </div>
 </section>
+
+<!-- ============ FAIXA DE FOTO ============ -->
+<div class="photo-strip" data-strip aria-hidden="true">
+  <picture class="photo-strip__img" data-strip-photo>
+    <source type="image/avif" srcset="brand/hero/consultorio-960.avif 960w, brand/hero/consultorio-1600.avif 1600w, brand/hero/consultorio-2560.avif 2560w" sizes="(max-width: 1023px) 180vw, 100vw" />
+    <source type="image/webp" srcset="brand/hero/consultorio-960.webp 960w, brand/hero/consultorio-1600.webp 1600w, brand/hero/consultorio-2560.webp 2560w" sizes="(max-width: 1023px) 180vw, 100vw" />
+    <img src="brand/hero/consultorio-2560.jpg" alt="" width="2560" height="1429" loading="lazy" decoding="async" />
+  </picture>
+  <div class="pointer-events-none absolute inset-0 bg-wine/35 mix-blend-multiply"></div>
+  <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10"></div>
+</div>
 
 <!-- ============ SERVIÇOS ============ -->
 <section id="especialidades" class="relative bg-sand/30 py-24 lg:py-32">
@@ -729,14 +781,14 @@
 </section>
 
 <!-- ============ PRIMEIRA CONSULTA ============ -->
-<section id="primeira-consulta" class="relative py-24 lg:py-32">
+<section id="primeira-consulta" class="on-wine wine-atmo relative overflow-hidden bg-winedeep py-24 lg:py-32" data-nav-theme="dark">
   <div class="mx-auto max-w-7xl px-6 lg:px-10">
     <div class="reveal max-w-2xl">
-      <span class="text-[11px] uppercase tracking-[0.32em] text-gold">Primeira consulta</span>
-      <h2 class="mt-4 font-serif text-4xl leading-tight tracking-tightest text-ink sm:text-5xl">
+      <span class="text-[11px] uppercase tracking-[0.32em] text-golden">Primeira consulta</span>
+      <h2 class="mt-4 font-serif text-4xl leading-tight tracking-tightest text-cream sm:text-5xl">
         O que acontece na sua primeira visita
       </h2>
-      <p class="mt-5 max-w-lg text-base font-light leading-[1.8] text-muted">
+      <p class="mt-5 max-w-lg text-base font-light leading-[1.8] text-cream/75">
         Ir ao dentista pela primeira vez, ou depois de muito tempo, pode dar um frio na barriga. Por isso, a avaliação segue sempre o mesmo caminho, no seu ritmo.
       </p>
     </div>
@@ -744,24 +796,24 @@
     <ol class="steps reveal mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
       <li class="step">
         <span class="step__n" aria-hidden="true">1</span>
-        <h3 class="mt-5 font-serif text-2xl tracking-tightest text-ink">Uma conversa sem pressa</h3>
-        <p class="mt-3 max-w-xs text-sm font-light leading-[1.8] text-muted">Você conta o que te trouxe, seu histórico e o que te incomoda. Medos e dúvidas também entram na conversa.</p>
+        <h3 class="mt-5 font-serif text-2xl tracking-tightest text-cream">Uma conversa sem pressa</h3>
+        <p class="mt-3 max-w-xs text-sm font-light leading-[1.8] text-cream/75">Você conta o que te trouxe, seu histórico e o que te incomoda. Medos e dúvidas também entram na conversa.</p>
       </li>
       <li class="step">
         <span class="step__n" aria-hidden="true">2</span>
-        <h3 class="mt-5 font-serif text-2xl tracking-tightest text-ink">Exame clínico detalhado</h3>
-        <p class="mt-3 max-w-xs text-sm font-light leading-[1.8] text-muted">Dentes, gengiva e mordida examinados com calma. Se for preciso algum exame complementar, você entende o porquê antes.</p>
+        <h3 class="mt-5 font-serif text-2xl tracking-tightest text-cream">Exame clínico detalhado</h3>
+        <p class="mt-3 max-w-xs text-sm font-light leading-[1.8] text-cream/75">Dentes, gengiva e mordida examinados com calma. Se for preciso algum exame complementar, você entende o porquê antes.</p>
       </li>
       <li class="step">
         <span class="step__n" aria-hidden="true">3</span>
-        <h3 class="mt-5 font-serif text-2xl tracking-tightest text-ink">Um plano que você entende</h3>
-        <p class="mt-3 max-w-xs text-sm font-light leading-[1.8] text-muted">O que é urgente, o que pode esperar e o que é opcional, explicado passo a passo. A decisão é sempre sua.</p>
+        <h3 class="mt-5 font-serif text-2xl tracking-tightest text-cream">Um plano que você entende</h3>
+        <p class="mt-3 max-w-xs text-sm font-light leading-[1.8] text-cream/75">O que é urgente, o que pode esperar e o que é opcional, explicado passo a passo. A decisão é sempre sua.</p>
       </li>
     </ol>
 
-    <div class="reveal mt-14 flex flex-col items-start gap-4 rounded-[1.4rem] border border-gold/25 bg-cream/70 p-6 shadow-soft sm:flex-row sm:items-center sm:justify-between sm:p-8">
-      <p class="max-w-lg font-serif text-xl leading-snug text-ink sm:text-2xl">Tem receio de dentista? Conte na mensagem. O atendimento se adapta a você.</p>
-      <a href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="btn-wine inline-flex shrink-0 items-center gap-2 rounded-full bg-wine px-7 py-3.5 text-sm font-light tracking-wide text-cream shadow-soft hover:bg-winedeep">
+    <div class="reveal mt-14 flex flex-col items-start gap-4 rounded-[1.4rem] border border-golden/30 bg-cream/[.06] p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+      <p class="max-w-lg font-serif text-xl leading-snug text-cream sm:text-2xl">Tem receio de dentista? Conte na mensagem. O atendimento se adapta a você.</p>
+      <a href="https://wa.me/554888634224?text=Ol%C3%A1%2C%20Dra.%20Betina!%20Gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer" class="btn-wine inline-flex shrink-0 items-center gap-2 rounded-full bg-golden px-7 py-3.5 text-sm font-normal tracking-wide text-winedeep shadow-soft hover:bg-[#DCC79B]">
         Agendar minha avaliação
       </a>
     </div>
@@ -884,12 +936,12 @@
 </section>
 
 <!-- ============ DÚVIDAS ============ -->
-<section id="duvidas" class="relative border-t border-ink/5 bg-sand/30 py-24 lg:py-32">
+<section id="duvidas" class="relative border-t border-ink/5 bg-sand py-24 lg:py-32">
   <div class="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-12 lg:px-10">
     <div class="reveal lg:col-span-4">
       <span class="text-[11px] uppercase tracking-[0.32em] text-gold">Dúvidas frequentes</span>
       <h2 class="mt-4 font-serif text-4xl leading-tight tracking-tightest text-ink sm:text-5xl">Antes de marcar</h2>
-      <p class="mt-5 max-w-sm text-base font-light leading-[1.8] text-muted">Não achou sua pergunta? Mande pelo WhatsApp que a Dra. Betina responde pessoalmente.</p>
+      <p class="mt-5 max-w-sm text-base font-light leading-[1.8] text-ink/75">Não achou sua pergunta? Mande pelo WhatsApp que a Dra. Betina responde pessoalmente.</p>
     </div>
     <div class="faq reveal lg:col-span-8">
       <details open>
@@ -1123,37 +1175,82 @@
     next && next.addEventListener('click', () => { viewport.scrollBy({ left: step(), behavior: 'smooth' }); cooldown(1600); });
   })();
 
-  // Hero mesh gradient: drift contínuo (JS) + reação suave ao mouse.
-  const hero = document.querySelector('[data-hero]');
-  if (hero) {
-    const layers = [...hero.querySelectorAll('.mesh__p')].map((el, i) => ({
-      el,
-      depth: parseFloat(el.dataset.depth) || 60,
-      ampX: 42 + i * 10, ampY: 32 + i * 9,                 // amplitude do passeio (px)
-      spX: 0.00034 + i * 0.00006, spY: 0.00046 + i * 0.00005, // velocidade
-      phX: i * 1.7, phY: i * 2.3,                          // defasagem
-      spS: 0.0004 + i * 0.00007, phS: i * 0.9,             // respiração (escala)
-    }));
-    let tx = 0, ty = 0, cx = 0, cy = 0;                    // alvo e atual do mouse (-1..1)
+  // Hero: foto do consultório. A rolagem aproxima a câmera, o texto dá lugar à foto e a uma frase;
+  // o mouse dá uma paralaxe sutil. Só transform/opacity; o loop roda apenas com a foto na tela.
+  (function () {
+    const hero = document.querySelector('[data-hero]');
+    if (!hero) return;
+    const stage = hero.querySelector('[data-hero-stage]');
+    const photo = hero.querySelector('[data-hero-photo]');
+    const img = hero.querySelector('[data-hero-img]');
+    const content = hero.querySelector('[data-hero-content]');
+    const veil = hero.querySelector('[data-hero-veil]');
+    const dusk = hero.querySelector('[data-hero-dusk]');
+    const phrase = hero.querySelector('[data-hero-phrase]');
+    const strip = document.querySelector('[data-strip]');
+    const stripPhoto = document.querySelector('[data-strip-photo]');
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const desktop = matchMedia('(min-width: 1024px)');
+
+    // entrada: o texto sobe na hora; a foto entra assim que carregar (sem segurar o texto)
+    requestAnimationFrame(() => stage.classList.add('is-in'));
+    const loaded = () => stage.classList.add('is-loaded');
+    if (img.complete && img.naturalWidth) loaded(); else { img.addEventListener('load', loaded); img.addEventListener('error', loaded); }
+    if (reduce) return;
+
+    const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+    const smooth = (t) => { t = clamp(t, 0, 1); return t * t * (3 - 2 * t); };
+    let tx = 0, ty = 0, cx = 0, cy = 0, running = false;
+    const visible = new Set();
+
     hero.addEventListener('pointermove', (e) => {
-      const r = hero.getBoundingClientRect();
-      tx = ((e.clientX - r.left) / r.width - 0.5) * 2;
-      ty = ((e.clientY - r.top) / r.height - 0.5) * 2;
+      if (e.pointerType !== 'mouse') return;
+      tx = (e.clientX / innerWidth - 0.5) * 2;
+      ty = (e.clientY / innerHeight - 0.5) * 2;
     });
     hero.addEventListener('pointerleave', () => { tx = 0; ty = 0; });
-    const tick = (t) => {
-      cx += (tx - cx) * 0.06;                              // seguimento suave
-      cy += (ty - cy) * 0.06;
-      for (const L of layers) {
-        const dx = Math.sin(t * L.spX + L.phX) * L.ampX + cx * L.depth;
-        const dy = Math.cos(t * L.spY + L.phY) * L.ampY + cy * L.depth;
-        const s = 1 + Math.sin(t * L.spS + L.phS) * 0.06;
-        L.el.style.transform = `translate3d(${dx.toFixed(1)}px, ${dy.toFixed(1)}px, 0) scale(${s.toFixed(3)})`;
+
+    const frame = () => {
+      if (!running) return;
+      cx += (tx - cx) * 0.06; cy += (ty - cy) * 0.06;
+
+      if (visible.has(hero)) {
+        const r = hero.getBoundingClientRect();
+        if (desktop.matches) {
+          const p = clamp(-r.top / Math.max(1, r.height - innerHeight), 0, 1);
+          photo.style.transform = `translate3d(${(cx * -12).toFixed(1)}px, calc(${(-3 * p).toFixed(2)}% + ${(cy * -8).toFixed(1)}px), 0) scale(${(1 + 0.18 * p).toFixed(4)})`;
+          const f = smooth((p - 0.05) / 0.35);
+          content.style.opacity = (1 - f).toFixed(3);
+          content.style.transform = `translate3d(0, ${(-80 * f).toFixed(1)}px, 0)`;
+          content.style.pointerEvents = f > 0.85 ? 'none' : '';
+          veil.style.opacity = (1 - f).toFixed(3);
+          const g = smooth((p - 0.5) / 0.3);
+          phrase.style.opacity = g.toFixed(3);
+          phrase.style.transform = `translate3d(0, ${((1 - g) * 36).toFixed(1)}px, 0)`;
+          dusk.style.opacity = (smooth((p - 0.8) / 0.2) * 0.14).toFixed(3);
+        } else {
+          const s = clamp(-r.top / Math.max(1, r.height), 0, 1);
+          photo.style.transform = `translate3d(0, ${(-r.top * 0.4).toFixed(1)}px, 0) scale(${(1 + 0.06 * s).toFixed(4)})`;
+          content.style.opacity = ''; content.style.transform = ''; content.style.pointerEvents = '';
+          veil.style.opacity = ''; dusk.style.opacity = '';
+        }
       }
-      requestAnimationFrame(tick);
+      if (stripPhoto && visible.has(strip)) {
+        const r = strip.getBoundingClientRect();
+        const q = clamp((r.top + r.height / 2) / innerHeight, -0.5, 1.5) - 0.5;   // -1..1 ao cruzar a tela
+        stripPhoto.style.transform = `translate3d(0, ${(q * 9).toFixed(2)}%, 0)`;
+      }
+      requestAnimationFrame(frame);
     };
-    requestAnimationFrame(tick);
-  }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => (en.isIntersecting ? visible.add(en.target) : visible.delete(en.target)));
+      const was = running; running = visible.size > 0;
+      if (running && !was) requestAnimationFrame(frame);
+    });
+    io.observe(hero);
+    if (strip) io.observe(strip);
+  })();
 
   // Serviços: índice + painel (desktop). No mobile, todos os painéis ficam visíveis.
   (function () {

@@ -30,7 +30,7 @@
         cream:'#F7F1E8', sand:'#EADFCE', sandy:'#E0D2BC',
         gold:'#B4966A', golden:'#C8AE82',
         wine:'#5C2335', winedeep:'#3F1825',
-        ink:'#2C2620', muted:'#7B6F61',
+        ink:'#2C2620', muted:'#7B6F61', cafe:'#3B2A23',
       },
       fontFamily: { serif:['"Cormorant Garamond"','serif'], sans:['"Jost"','sans-serif'] },
     }},
@@ -48,6 +48,14 @@
   .shadow-soft  { box-shadow:0 1px 2px rgba(63,24,37,0.04), 0 12px 32px -12px rgba(63,24,37,0.18); }
   .shadow-float { box-shadow:0 2px 4px rgba(63,24,37,0.05), 0 24px 60px -20px rgba(63,24,37,0.28); }
   .rule-gold { height:1px; background:linear-gradient(90deg,transparent,#B4966A,transparent); }
+  /* ---- seções em café: texto claro por cima ---- */
+  .on-cafe { background:#3B2A23; }
+  .on-cafe .text-ink { color:#F7F1E8; }
+  .on-cafe .text-muted { color:rgba(247,241,232,.72); }
+  .on-cafe .text-ink\/75 { color:rgba(247,241,232,.78); }
+  .on-cafe .text-wine { color:#C8AE82; }
+  .on-cafe .bg-cream\/70 { background-color:rgba(247,241,232,.92); }
+  .on-cafe.border-ink\/10, .on-cafe.border-ink\/5 { border-color:rgba(247,241,232,.08); }
   .reveal { opacity:0; transform:translateY(22px); transition:opacity .9s cubic-bezier(.16,.84,.44,1), transform .9s cubic-bezier(.16,.84,.44,1); }
   .reveal.in { opacity:1; transform:none; }
   .navlink { position:relative; }
@@ -256,7 +264,7 @@
 </main>
 
 <!-- ============ FOOTER ============ -->
-<footer class="border-t border-ink/10 bg-sand/40">
+<footer class="on-cafe border-t border-ink/10">
   <div class="mx-auto max-w-7xl px-6 lg:px-10">
     <div class="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
       <div class="sm:col-span-2">

@@ -82,7 +82,7 @@
 </script>
 
 <script>document.documentElement.classList.add('js');</script>
-<link rel="preload" as="image" type="image/avif" href="brand/hero/consultorio-1600.avif" imagesrcset="brand/hero/consultorio-960.avif 960w, brand/hero/consultorio-1600.avif 1600w, brand/hero/consultorio-2560.avif 2560w" imagesizes="(max-width: 1023px) 230vw, 125vw" fetchpriority="high" />
+<link rel="preload" as="image" type="image/avif" href="brand/hero/consultorio-dia-1600.avif" imagesrcset="brand/hero/consultorio-dia-960.avif 960w, brand/hero/consultorio-dia-1600.avif 1600w, brand/hero/consultorio-dia-2560.avif 2560w" imagesizes="(max-width: 1023px) 230vw, 125vw" fetchpriority="high" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -132,14 +132,20 @@
       radial-gradient(40% 40% at 50% 50%, rgba(234,223,206,0.6), transparent 70%);
   }
 
-  /* ---- hero: foto do consultório, interativa na rolagem ---- */
-  .hero-stage { position: relative; overflow: hidden; background: #EADFCE url("data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAASACADASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQCBQYH/8QAIRAAAgICAgMAAwAAAAAAAAAAAQIAAwQRIUEFEjETMlH/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/xAAZEQACAwEAAAAAAAAAAAAAAAAAAQIRMSH/2gAMAwEAAhEDEQA/ANYfkaoANHMSZwBJVZqLV6KjMR/Jkn00oj5JFCp6jXPUy3lBfTmGzGdg2tkS4t8gzP8Ajfgg/dxbaNkM9rLoDiCStiWUWPcbqAFJ0OoQiWkeHO813GdZpm/c9yzrJOHskk67hCRhif/Z") 60% 50% / cover no-repeat; }
+  /* ---- hero: consultório do dia ao fim de tarde, conforme a rolagem ---- */
+  .hero-stage { position: relative; overflow: hidden; background: #EADFCE url("data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAASACADASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAABQAEAQL/xAAjEAABBAEDBQEBAAAAAAAAAAABAAIDEQQFEiETIkFRcTFS/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAEDAv/EABkRAAIDAQAAAAAAAAAAAAAAAAABAhEhMf/aAAwDAQACEQMRAD8Af4SWGAcMWB5RO8eVoxtTibB02xvkeCbDW2opqyjR3VY2BkWwUd3O01fHlDxmOLUXtcHEuYKpt+0jqGXyzt6f9NJoj1f1EvEcuVJ12McGgBtg2k1tmk8o9xEuf3c/U5hgCAUKUpEeilwzaqAQbAPCHj/XKUiQ4n//2Q==") 60% 50% / cover no-repeat; }
   .hero-photo { position: absolute; inset: -3%; transform-origin: 70% 55%; will-change: transform; }
-  .hero-photo__img, .hero-photo__img img { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .hero-photo__img, .hero-layer, .hero-photo__img img { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .hero-layer { display: block; }
   .hero-photo__img img { object-fit: cover; object-position: 60% 50%; }
   .js .hero-photo__img { opacity: 0; transform: scale(1.08); transition: opacity .9s ease, transform 2.4s cubic-bezier(.16,.84,.44,1); }
   .js .hero-stage.is-loaded .hero-photo__img { opacity: 1; transform: none; }
-  /* luz da janela "respirando" */
+  /* fim de tarde (por cima do dia) e brilho do refletor: a rolagem controla a opacidade */
+  .hero-layer--tarde { opacity: 0; will-change: opacity; }
+  .hero-lamp { position: absolute; left: 70%; top: 26%; width: 18%; aspect-ratio: 1; transform: translate(-50%, -50%);
+    border-radius: 50%; pointer-events: none; opacity: 0; mix-blend-mode: screen; will-change: opacity;
+    background: radial-gradient(closest-side, rgba(255,240,212,.7), rgba(255,222,168,.26) 40%, rgba(255,214,150,0)); }
+  /* luz da janela "respirando" (só no dia; o fim de tarde cobre por cima) */
   .hero-light { position: absolute; inset: 0; pointer-events: none;
     background: radial-gradient(34% 52% at 44% 42%, rgba(255,246,222,.75), rgba(255,246,222,0) 70%);
     opacity: .35; animation: hero-breathe 8s ease-in-out infinite alternate; }
@@ -149,7 +155,6 @@
     background:
       linear-gradient(90deg, rgba(247,241,232,.9) 0%, rgba(247,241,232,.8) 30%, rgba(247,241,232,.35) 50%, rgba(247,241,232,0) 64%),
       linear-gradient(0deg, rgba(247,241,232,.55) 0%, rgba(247,241,232,0) 22%); }
-  .hero-dusk { position: absolute; inset: 0; pointer-events: none; background: #3F1825; opacity: 0; }
   .hero-content { position: relative; z-index: 2; will-change: transform, opacity; }
   .hero-phrase { position: absolute; z-index: 2; left: 0; right: 0; bottom: 14%; opacity: 0; pointer-events: none; will-change: transform, opacity; }
   .hero-phrase p { text-shadow: 0 1px 24px rgba(247,241,232,.9), 0 0 2px rgba(247,241,232,.8); }
@@ -172,9 +177,9 @@
     .hero-stage .hero-creds > li + li { margin-top: .4rem; }
   }
   @media (max-width: 1023px) {
-    .hero-stage { min-height: 92svh; padding: 0 0 3.5rem; background-position: 68% 0; background-size: auto 62svh; }
-    .hero-photo { inset: 0 0 auto 0; height: 62svh; min-height: 380px; transform-origin: 68% 40%; }
-    .hero-photo__img img { object-position: 68% 50%; }
+    .hero-stage { min-height: 92svh; padding: 0 0 3.5rem; background-position: 85% 0; background-size: auto 62svh; }
+    .hero-photo { inset: 0 0 auto 0; height: 62svh; min-height: 380px; transform-origin: 60% 40%; }
+    .hero-photo__img img { object-position: 85% 50%; }
     .hero-veil { background:
       linear-gradient(180deg, rgba(247,241,232,.5) 0%, rgba(247,241,232,0) 14%),
       linear-gradient(180deg, rgba(247,241,232,0) 0, rgba(247,241,232,0) calc(max(62svh, 380px) * .52), rgba(247,241,232,.92) calc(max(62svh, 380px) * .86), #F7F1E8 max(62svh, 380px), #F7F1E8 100%); }
@@ -499,17 +504,27 @@
 <!-- ============ HERO ============ -->
 <section class="hero-pin relative" data-hero>
   <div class="hero-stage" data-hero-stage>
-    <!-- foto do consultório (fundo) -->
+    <!-- consultório (fundo): o dia por baixo; o fim de tarde entra por cima conforme a rolagem -->
     <div class="hero-photo" data-hero-photo aria-hidden="true">
-      <picture class="hero-photo__img">
-        <source type="image/avif" srcset="brand/hero/consultorio-960.avif 960w, brand/hero/consultorio-1600.avif 1600w, brand/hero/consultorio-2560.avif 2560w" sizes="(max-width: 1023px) 230vw, 125vw" />
-        <source type="image/webp" srcset="brand/hero/consultorio-960.webp 960w, brand/hero/consultorio-1600.webp 1600w, brand/hero/consultorio-2560.webp 2560w" sizes="(max-width: 1023px) 230vw, 125vw" />
-        <img src="brand/hero/consultorio-2560.jpg" alt="" width="2560" height="1429" fetchpriority="high" decoding="async" data-hero-img />
-      </picture>
-      <div class="hero-light"></div>
+      <div class="hero-photo__img" data-hero-layers>
+        <picture class="hero-layer">
+          <source type="image/avif" srcset="brand/hero/consultorio-dia-960.avif 960w, brand/hero/consultorio-dia-1600.avif 1600w, brand/hero/consultorio-dia-2560.avif 2560w" sizes="(max-width: 1023px) 230vw, 125vw" />
+          <source type="image/webp" srcset="brand/hero/consultorio-dia-960.webp 960w, brand/hero/consultorio-dia-1600.webp 1600w, brand/hero/consultorio-dia-2560.webp 2560w" sizes="(max-width: 1023px) 230vw, 125vw" />
+          <img src="brand/hero/consultorio-dia-2560.jpg" alt="" width="2560" height="1440" fetchpriority="high" decoding="async" data-hero-img />
+        </picture>
+        <div class="hero-light"></div>
+        <!-- fim de tarde: o JS só insere (e baixa) depois que a página carregou -->
+        <template data-hero-tarde>
+          <picture class="hero-layer hero-layer--tarde">
+            <source type="image/avif" srcset="brand/hero/consultorio-tarde-960.avif 960w, brand/hero/consultorio-tarde-1600.avif 1600w, brand/hero/consultorio-tarde-2560.avif 2560w" sizes="(max-width: 1023px) 230vw, 125vw" />
+            <source type="image/webp" srcset="brand/hero/consultorio-tarde-960.webp 960w, brand/hero/consultorio-tarde-1600.webp 1600w, brand/hero/consultorio-tarde-2560.webp 2560w" sizes="(max-width: 1023px) 230vw, 125vw" />
+            <img src="brand/hero/consultorio-tarde-2560.jpg" alt="" width="2560" height="1440" loading="lazy" fetchpriority="low" decoding="async" />
+          </picture>
+        </template>
+        <div class="hero-lamp" data-hero-lamp></div>
+      </div>
     </div>
     <div class="hero-veil" data-hero-veil aria-hidden="true"></div>
-    <div class="hero-dusk" data-hero-dusk aria-hidden="true"></div>
 
     <div class="hero-content mx-auto w-full max-w-7xl px-6 lg:px-10" data-hero-content>
       <div class="max-w-xl">
@@ -1177,17 +1192,20 @@
     next && next.addEventListener('click', () => { viewport.scrollBy({ left: step(), behavior: 'smooth' }); cooldown(1600); });
   })();
 
-  // Hero: foto do consultório. A rolagem aproxima a câmera, o texto dá lugar à foto e a uma frase;
-  // o mouse dá uma paralaxe sutil. Só transform/opacity; o loop roda apenas com a foto na tela.
+  // Hero: consultório do dia ao fim de tarde. A rolagem aproxima a câmera da cadeira, a luz cai para o fim de
+  // tarde e o refletor acende; o texto dá lugar a uma frase; o mouse dá uma paralaxe sutil.
+  // Só transform/opacity; o loop roda apenas com a foto na tela.
   (function () {
     const hero = document.querySelector('[data-hero]');
     if (!hero) return;
     const stage = hero.querySelector('[data-hero-stage]');
     const photo = hero.querySelector('[data-hero-photo]');
+    const layers = hero.querySelector('[data-hero-layers]');
     const img = hero.querySelector('[data-hero-img]');
+    const tpl = hero.querySelector('[data-hero-tarde]');
+    const lamp = hero.querySelector('[data-hero-lamp]');
     const content = hero.querySelector('[data-hero-content]');
     const veil = hero.querySelector('[data-hero-veil]');
-    const dusk = hero.querySelector('[data-hero-dusk]');
     const phrase = hero.querySelector('[data-hero-phrase]');
     const strip = document.querySelector('[data-strip]');
     const stripPhoto = document.querySelector('[data-strip-photo]');
@@ -1205,6 +1223,37 @@
     let tx = 0, ty = 0, cx = 0, cy = 0, running = false;
     const visible = new Set();
 
+    // fim de tarde: só baixa depois do load (não disputa com o LCP) e entra suave quando já está decodificada
+    let tarde = null, ready = 0, readyT = 0;
+    const addTarde = () => {
+      if (!tpl) return;
+      tarde = document.importNode(tpl.content.firstElementChild, true);
+      const ti = tarde.querySelector('img');
+      tpl.replaceWith(tarde);
+      const done = () => { readyT = 1; };
+      ti.decode().then(done, () => { if (ti.complete && ti.naturalWidth) done(); else ti.addEventListener('load', done, { once: true }); });
+    };
+    const idle = (fn) => ('requestIdleCallback' in window ? requestIdleCallback(fn, { timeout: 2000 }) : setTimeout(fn, 300));
+    if (document.readyState === 'complete') idle(addTarde); else addEventListener('load', () => idle(addTarde), { once: true });
+
+    // brilho do refletor: refaz a conta do object-fit: cover para ficar em cima da luminária em qualquer tela
+    const RATIO = 2730 / 1536, LAMP_X = 0.707, LAMP_Y = 0.255;
+    let photoH = 1;
+    const measure = () => {
+      photoH = Math.max(1, photo.offsetHeight);
+      const W = layers.clientWidth, H = layers.clientHeight;
+      if (!W || !H) return;
+      let w = W, h = W / RATIO;
+      if (h < H) { h = H; w = H * RATIO; }
+      const pos = getComputedStyle(img).objectPosition.split(' ').map((v) => parseFloat(v) / 100);
+      const px = isNaN(pos[0]) ? 0.5 : pos[0], py = isNaN(pos[1]) ? 0.5 : pos[1];
+      lamp.style.left = ((W - w) * px + w * LAMP_X).toFixed(1) + 'px';
+      lamp.style.top = ((H - h) * py + h * LAMP_Y).toFixed(1) + 'px';
+      lamp.style.width = (w * 0.18).toFixed(1) + 'px';
+    };
+    measure();
+    if ('ResizeObserver' in window) new ResizeObserver(measure).observe(layers); else addEventListener('resize', measure);
+
     hero.addEventListener('pointermove', (e) => {
       if (e.pointerType !== 'mouse') return;
       tx = (e.clientX / innerWidth - 0.5) * 2;
@@ -1215,12 +1264,14 @@
     const frame = () => {
       if (!running) return;
       cx += (tx - cx) * 0.06; cy += (ty - cy) * 0.06;
+      ready += (readyT - ready) * 0.08;
 
       if (visible.has(hero)) {
         const r = hero.getBoundingClientRect();
+        let dusk, glow;   // 0 = dia, 1 = fim de tarde com o refletor aceso
         if (desktop.matches) {
           const p = clamp(-r.top / Math.max(1, r.height - innerHeight), 0, 1);
-          photo.style.transform = `translate3d(${(cx * -12).toFixed(1)}px, calc(${(-3 * p).toFixed(2)}% + ${(cy * -8).toFixed(1)}px), 0) scale(${(1 + 0.18 * p).toFixed(4)})`;
+          photo.style.transform = `translate3d(${(cx * -12).toFixed(1)}px, calc(${(-3 * p).toFixed(2)}% + ${(cy * -8).toFixed(1)}px), 0) scale(${(1 + 0.08 * p).toFixed(4)})`;
           const f = smooth((p - 0.05) / 0.35);
           content.style.opacity = (1 - f).toFixed(3);
           content.style.transform = `translate3d(0, ${(-80 * f).toFixed(1)}px, 0)`;
@@ -1229,13 +1280,19 @@
           const g = smooth((p - 0.5) / 0.3);
           phrase.style.opacity = g.toFixed(3);
           phrase.style.transform = `translate3d(0, ${((1 - g) * 36).toFixed(1)}px, 0)`;
-          dusk.style.opacity = (smooth((p - 0.8) / 0.2) * 0.14).toFixed(3);
+          dusk = smooth((p - 0.1) / 0.75);
+          glow = smooth((p - 0.3) / 0.55);
         } else {
-          const s = clamp(-r.top / Math.max(1, r.height), 0, 1);
-          photo.style.transform = `translate3d(0, ${(-r.top * 0.4).toFixed(1)}px, 0) scale(${(1 + 0.06 * s).toFixed(4)})`;
+          // celular: a foto sai da tela rolando, então a troca de luz termina cedo, com o refletor ainda visível
+          const m = clamp(-r.top / photoH, 0, 1);
+          photo.style.transform = `translate3d(0, ${(-r.top * 0.4).toFixed(1)}px, 0) scale(${(1 + 0.05 * m).toFixed(4)})`;
           content.style.opacity = ''; content.style.transform = ''; content.style.pointerEvents = '';
-          veil.style.opacity = ''; dusk.style.opacity = '';
+          veil.style.opacity = '';
+          dusk = smooth((m - 0.03) / 0.37);
+          glow = smooth((m - 0.1) / 0.3);
         }
+        if (tarde) tarde.style.opacity = (dusk * ready).toFixed(3);
+        lamp.style.opacity = (glow * 0.85 * ready).toFixed(3);
       }
       if (stripPhoto && visible.has(strip)) {
         const r = strip.getBoundingClientRect();

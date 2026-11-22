@@ -102,9 +102,6 @@
           winedeep:'#3F1825',
           ink:     '#2C2620',
           muted:   '#7B6F61',
-          blush:   '#EBD5D2',
-          rose:    '#C99A9E',
-          rosedeep:'#8A4B58',
         },
         fontFamily: {
           serif: ['"Cormorant Garamond"', 'serif'],
@@ -218,8 +215,6 @@
 
   /* ---- thin rule with gold gradient ---- */
   .rule-gold { height: 1px; background: linear-gradient(90deg, transparent, #B4966A, transparent); }
-  /* rodapé em rosé: texto secundário um pouco mais escuro para manter o contraste */
-  footer .text-muted { color:#685C51; }
 
   /* ---- reveal-on-scroll ---- */
   .reveal { opacity: 0; transform: translateY(22px); transition: opacity .9s cubic-bezier(.16,.84,.44,1), transform .9s cubic-bezier(.16,.84,.44,1); }
@@ -341,10 +336,10 @@
     box-shadow: 0 1px 2px rgba(63,24,37,0.04), 0 12px 32px -12px rgba(63,24,37,0.18); }
   .svc-panel__head { display: flex; align-items: center; gap: 1rem; }
   .svc-icon { display: inline-flex; height: 3rem; width: 3rem; flex: none; align-items: center; justify-content: center;
-    border-radius: 9999px; background: #EBD5D2; color: #8A4B58; }
+    border-radius: 9999px; background: rgba(92,35,53,.07); color: #5C2335; }
   .svc-list { margin-top: 1.4rem; display: grid; gap: .6rem; font-size: .9rem; font-weight: 300; color: rgba(44,38,32,.82); }
   .svc-list li { display: flex; align-items: flex-start; gap: .7rem; }
-  .svc-list li::before { content: ""; margin-top: .55rem; height: .3rem; width: .3rem; flex: none; border-radius: 9999px; background: #C99A9E; }
+  .svc-list li::before { content: ""; margin-top: .55rem; height: .3rem; width: .3rem; flex: none; border-radius: 9999px; background: #B4966A; }
   .svc-cta { margin-top: 1.8rem; display: inline-flex; align-items: center; gap: .5rem; border-radius: 9999px;
     border: 1px solid rgba(92,35,53,.25); padding: .7rem 1.4rem; font-size: .875rem; font-weight: 300; color: #5C2335;
     transition: background-color .3s ease, color .3s ease, border-color .3s ease, transform .35s cubic-bezier(.16,.84,.44,1); }
@@ -379,7 +374,7 @@
     padding: 1.15rem 1.4rem; font-weight: 400; color: #2C2620; border-radius: 1rem; transition: color .3s ease; }
   .faq summary:hover { color: #5C2335; }
   .faq summary::-webkit-details-marker { display: none; }
-  .faq summary::after { content: "+"; flex-shrink: 0; font-size: 1.35rem; line-height: 1; color: #8A4B58;
+  .faq summary::after { content: "+"; flex-shrink: 0; font-size: 1.35rem; line-height: 1; color: #B4966A;
     transition: transform .35s cubic-bezier(.16,.84,.44,1); }
   .faq details[open] summary::after { transform: rotate(45deg); }
   .faq .faq-a { padding: 0 1.4rem 1.2rem; font-weight: 300; font-size: .925rem; line-height: 1.8; color: rgba(44,38,32,.74); }
@@ -594,7 +589,7 @@
 </section>
 
 <!-- ============ VALORES ============ -->
-<section class="border-y border-ink/5 bg-blush py-16 lg:py-20">
+<section class="border-y border-ink/5 bg-sand py-16 lg:py-20">
   <div class="mx-auto max-w-7xl px-6 lg:px-10">
     <div class="reveal text-center">
       <span class="text-[11px] uppercase tracking-[0.32em] text-gold">Valores</span>
@@ -636,7 +631,7 @@
       <div class="reveal lg:col-span-5">
         <div class="relative mx-auto max-w-sm">
           <div class="absolute -inset-3 -z-10 rounded-[1.8rem] border border-gold/30"></div>
-          <div class="absolute -right-6 -top-6 -z-10 h-32 w-32 rounded-full bg-rose/60 blur-2xl"></div>
+          <div class="absolute -right-6 -top-6 -z-10 h-32 w-32 rounded-full bg-golden/25 blur-2xl"></div>
           <img src="brand/ff2ac173-db7a-4f11-a954-6a5f3321c4d9.jpg"
                alt="Dra. Betina Bernardi Boff"
                class="w-full rounded-[1.6rem] object-cover shadow-float" />
@@ -955,7 +950,7 @@
 </section>
 
 <!-- ============ DÚVIDAS ============ -->
-<section id="duvidas" class="relative border-t border-ink/5 bg-blush py-24 lg:py-32">
+<section id="duvidas" class="relative border-t border-ink/5 bg-sand py-24 lg:py-32">
   <div class="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-12 lg:px-10">
     <div class="reveal lg:col-span-4">
       <span class="text-[11px] uppercase tracking-[0.32em] text-gold">Dúvidas frequentes</span>
@@ -1034,7 +1029,7 @@
 </section>
 
 <!-- ============ FOOTER ============ -->
-<footer class="border-t border-ink/10 bg-blush">
+<footer class="border-t border-ink/10 bg-sand/40">
   <div class="mx-auto max-w-7xl px-6 lg:px-10">
     <div class="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
       <div class="sm:col-span-2 lg:col-span-1">

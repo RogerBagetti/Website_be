@@ -96,7 +96,7 @@
         gold:'#B4966A', golden:'#C8AE82',
         wine:'#5C2335', winedeep:'#3F1825',
         ink:'#2C2620', muted:'#7B6F61',
-        mist:'#DCE6DA', sage:'#8FA89A', sagedeep:'#476A5B',
+        blush:'#EBD5D2', rose:'#C99A9E', rosedeep:'#8A4B58',
       },
       fontFamily: { serif:['"Cormorant Garamond"','serif'], sans:['"Jost"','sans-serif'] },
     }},
@@ -111,15 +111,15 @@
   .atmosphere { background:
       radial-gradient(60% 50% at 80% 8%, rgba(180,150,106,0.22), transparent 60%),
       radial-gradient(50% 60% at 6% 90%, rgba(92,35,53,0.10), transparent 60%); }
-  /* áreas claras: canto sálvia no lugar do vinho (os cartões vinho continuam iguais) */
+  /* áreas claras: brilho rosé à esquerda (os cartões vinho continuam iguais) */
   .atmosphere:not(.bg-winedeep) { background:
       radial-gradient(60% 50% at 80% 8%, rgba(180,150,106,0.22), transparent 60%),
-      radial-gradient(42% 55% at 0% 45%, rgba(214,226,212,0.9), transparent 70%); }
+      radial-gradient(42% 55% at 0% 45%, rgba(235,213,210,0.85), transparent 70%); }
   .shadow-soft  { box-shadow:0 1px 2px rgba(63,24,37,0.04), 0 12px 32px -12px rgba(63,24,37,0.18); }
   .shadow-float { box-shadow:0 2px 4px rgba(63,24,37,0.05), 0 24px 60px -20px rgba(63,24,37,0.28); }
   .rule-gold { height:1px; background:linear-gradient(90deg,transparent,#B4966A,transparent); }
-  /* rodapé em sálvia: texto secundário um pouco mais escuro para manter o contraste */
-  footer .text-muted { color:#6E6357; }
+  /* rodapé em rosé: texto secundário um pouco mais escuro para manter o contraste */
+  footer .text-muted { color:#685C51; }
   .reveal { opacity:0; transform:translateY(22px); transition:opacity .9s cubic-bezier(.16,.84,.44,1), transform .9s cubic-bezier(.16,.84,.44,1); }
   .reveal.in { opacity:1; transform:none; }
   .navlink { position:relative; }
@@ -143,7 +143,7 @@
     padding:1.1rem 1.4rem; font-weight:400; color:#2C2620; }
   .faq summary:hover { color:#5C2335; }
   .faq summary::-webkit-details-marker { display:none; }
-  .faq summary::after { content:"+"; flex-shrink:0; font-size:1.35rem; line-height:1; color:#476A5B;
+  .faq summary::after { content:"+"; flex-shrink:0; font-size:1.35rem; line-height:1; color:#8A4B58;
     transition:transform .35s cubic-bezier(.16,.84,.44,1); }
   .faq details[open] summary::after { transform:rotate(45deg); }
   .faq .faq-a { padding:0 1.4rem 1.2rem; font-weight:300; font-size:.925rem; line-height:1.8; color:#7B6F61; }
@@ -281,7 +281,7 @@
 </section>
 
 <!-- ============ SERVIÇOS ============ -->
-<section class="border-y border-ink/5 bg-mist py-16 lg:py-20">
+<section class="border-y border-ink/5 bg-blush py-16 lg:py-20">
   <div class="mx-auto max-w-7xl px-6 lg:px-10">
     <div class="reveal text-center">
       <span class="text-[11px] uppercase tracking-[0.32em] text-gold">Tratamentos</span>
@@ -377,7 +377,7 @@
 </section>
 
 <!-- ============ FOOTER ============ -->
-<footer class="border-t border-ink/10 bg-mist">
+<footer class="border-t border-ink/10 bg-blush">
   <div class="mx-auto max-w-7xl px-6 lg:px-10">
     <div class="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
       <div class="sm:col-span-2">

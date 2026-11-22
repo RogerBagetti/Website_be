@@ -23,6 +23,7 @@
         gold:'#B4966A', golden:'#C8AE82',
         wine:'#5C2335', winedeep:'#3F1825',
         ink:'#2C2620', muted:'#7B6F61',
+        mist:'#DCE6DA', sage:'#8FA89A', sagedeep:'#476A5B',
       },
       fontFamily: { serif:['"Cormorant Garamond"','serif'], sans:['"Jost"','sans-serif'] },
     }},
@@ -37,9 +38,15 @@
   .atmosphere { background:
       radial-gradient(60% 50% at 80% 8%, rgba(180,150,106,0.22), transparent 60%),
       radial-gradient(50% 60% at 6% 90%, rgba(92,35,53,0.10), transparent 60%); }
+  /* áreas claras: canto sálvia no lugar do vinho (os cartões vinho continuam iguais) */
+  .atmosphere:not(.bg-winedeep) { background:
+      radial-gradient(60% 50% at 80% 8%, rgba(180,150,106,0.22), transparent 60%),
+      radial-gradient(42% 55% at 0% 45%, rgba(214,226,212,0.9), transparent 70%); }
   .shadow-soft  { box-shadow:0 1px 2px rgba(63,24,37,0.04), 0 12px 32px -12px rgba(63,24,37,0.18); }
   .shadow-float { box-shadow:0 2px 4px rgba(63,24,37,0.05), 0 24px 60px -20px rgba(63,24,37,0.28); }
   .rule-gold { height:1px; background:linear-gradient(90deg,transparent,#B4966A,transparent); }
+  /* rodapé em sálvia: texto secundário um pouco mais escuro para manter o contraste */
+  footer .text-muted { color:#6E6357; }
   .reveal { opacity:0; transform:translateY(22px); transition:opacity .9s cubic-bezier(.16,.84,.44,1), transform .9s cubic-bezier(.16,.84,.44,1); }
   .reveal.in { opacity:1; transform:none; }
   .navlink { position:relative; }
@@ -249,7 +256,7 @@
 </main>
 
 <!-- ============ FOOTER ============ -->
-<footer class="border-t border-ink/10 bg-sand/40">
+<footer class="border-t border-ink/10 bg-mist">
   <div class="mx-auto max-w-7xl px-6 lg:px-10">
     <div class="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
       <div class="sm:col-span-2">

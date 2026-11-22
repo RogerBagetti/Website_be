@@ -31,6 +31,7 @@
         gold:'#B4966A', golden:'#C8AE82',
         wine:'#5C2335', winedeep:'#3F1825',
         ink:'#2C2620', muted:'#7B6F61',
+        mist:'#DCE6DA', sage:'#8FA89A', sagedeep:'#476A5B',
       },
       fontFamily: { serif:['"Cormorant Garamond"','serif'], sans:['"Jost"','sans-serif'] },
     }},
@@ -45,9 +46,15 @@
   .atmosphere { background:
       radial-gradient(60% 50% at 80% 8%, rgba(180,150,106,0.22), transparent 60%),
       radial-gradient(50% 60% at 6% 90%, rgba(92,35,53,0.10), transparent 60%); }
+  /* áreas claras: canto sálvia no lugar do vinho (os cartões vinho continuam iguais) */
+  .atmosphere:not(.bg-winedeep) { background:
+      radial-gradient(60% 50% at 80% 8%, rgba(180,150,106,0.22), transparent 60%),
+      radial-gradient(42% 55% at 0% 45%, rgba(214,226,212,0.9), transparent 70%); }
   .shadow-soft  { box-shadow:0 1px 2px rgba(63,24,37,0.04), 0 12px 32px -12px rgba(63,24,37,0.18); }
   .shadow-float { box-shadow:0 2px 4px rgba(63,24,37,0.05), 0 24px 60px -20px rgba(63,24,37,0.28); }
   .rule-gold { height:1px; background:linear-gradient(90deg,transparent,#B4966A,transparent); }
+  /* rodapé em sálvia: texto secundário um pouco mais escuro para manter o contraste */
+  footer .text-muted { color:#6E6357; }
   .reveal { opacity:0; transform:translateY(22px); transition:opacity .9s cubic-bezier(.16,.84,.44,1), transform .9s cubic-bezier(.16,.84,.44,1); }
   .reveal.in { opacity:1; transform:none; }
   .navlink { position:relative; }
@@ -62,6 +69,7 @@
   .cover--wine { background: #3F1825; background-image: radial-gradient(70% 95% at 88% 8%, rgba(180,150,106,.42), transparent 62%), radial-gradient(60% 90% at 0% 100%, rgba(122,46,68,.85), transparent 60%); }
   .cover--gold { background: #9C7A4C; background-image: radial-gradient(70% 95% at 88% 8%, rgba(236,220,190,.55), transparent 62%), radial-gradient(60% 90% at 0% 100%, rgba(92,35,53,.55), transparent 60%); }
   .cover--sand { background: #E6D8C2; background-image: radial-gradient(70% 95% at 88% 8%, rgba(200,174,130,.75), transparent 62%), radial-gradient(60% 90% at 0% 100%, rgba(247,241,232,.95), transparent 60%); }
+  .cover--sage { background: #5F8072; background-image: radial-gradient(70% 95% at 88% 8%, rgba(247,241,232,.32), transparent 62%), radial-gradient(60% 90% at 0% 100%, rgba(52,80,68,.8), transparent 60%); }
   .cover::after { content: ""; position: absolute; inset: 12px; border: 1px solid rgba(247,241,232,.22); border-radius: .9rem; pointer-events: none; }
   .cover--sand::after { border-color: rgba(92,35,53,.14); }
   .cover__mark { position: absolute; right: -4%; top: 50%; height: 88%; width: auto; max-height: 340px; aspect-ratio: 1; opacity: .5;
@@ -256,7 +264,7 @@
 </main>
 
 <!-- ============ FOOTER ============ -->
-<footer class="border-t border-ink/10 bg-sand/40">
+<footer class="border-t border-ink/10 bg-mist">
   <div class="mx-auto max-w-7xl px-6 lg:px-10">
     <div class="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
       <div class="sm:col-span-2">
@@ -308,7 +316,7 @@
       body: `
         <p class="lead"><em>Perto de casa, um anúncio, o convênio. É assim que muita gente escolhe dentista. Aqui estão sete pontos para escolher com mais critério, sem precisar entender de odontologia.</em></p>
 
-        <p>Sou dentista, então leve em conta que eu também estou entre as opções. Mesmo assim, os pontos abaixo valem para qualquer consultório, inclusive o meu.</p>
+        <p>Sou dentista, então leve em conta que eu também estou entre as opções. Mesmo assim, os pontos abaixo valem para qualquer dentista, inclusive para mim.</p>
         <p>Na Grande Florianópolis não falta opção. O Brasil tem mais de 400 mil cirurgiões-dentistas registrados, segundo o CFO, e por aqui há redes populares, clínicas grandes, consultórios de bairro e credenciados de convênio. Quando tudo parece igual, a tendência é decidir pelo preço da consulta ou pela distância. As duas coisas importam, mas dizem pouco sobre como você vai ser atendido.</p>
 
         <h2>1. O registro no CRO</h2>
@@ -439,7 +447,7 @@
     'frequencia-limpeza': {
       category: 'Prevenção', read: '4 min de leitura',
       title: 'Limpeza no dentista: o que é feito e de quanto em quanto tempo fazer',
-      cover: { tone: 'sand', word: 'Profilaxia' }, date: '2026-06-04',
+      cover: { tone: 'sage', word: 'Profilaxia' }, date: '2026-06-04',
       excerpt: 'O que acontece na profilaxia, por que o tártaro não sai com escova e qual intervalo faz sentido para você.',
       body: `
         <p class="lead"><em>A sensação de dente liso depois da limpeza é a parte que você percebe. O que mais importa é o que ela evita.</em></p>

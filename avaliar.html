@@ -159,13 +159,13 @@
       <a href="/#avaliacoes" class="inline-flex items-center gap-2 text-sm font-light text-muted transition-colors hover:text-wine">
         <span aria-hidden="true">←</span> Voltar às avaliações
       </a>
-      <span class="mt-6 block text-[11px] uppercase tracking-[0.32em] text-gold">Sua opinião importa</span>
+      <span class="mt-6 block text-[11px] uppercase tracking-[0.32em] text-gold">Depois da consulta</span>
       <h1 class="mt-3 font-serif text-4xl leading-tight tracking-tightest text-ink sm:text-5xl">
         Deixe sua avaliação
       </h1>
       <p class="mx-auto mt-4 max-w-md text-base font-light leading-[1.8] text-muted">
-        Conte como foi a sua experiência. Sua avaliação chega direto para a Dra. Betina
-        e ajuda outras pessoas a conhecerem o trabalho dela.
+        Me conta como foi a sua consulta. Eu leio todas as avaliações, e elas ajudam
+        outras pessoas a decidirem se vale marcar.
       </p>
     </div>
 
@@ -198,7 +198,7 @@
         <div class="mt-7 grid gap-5 sm:grid-cols-2">
           <div>
             <label for="r-name" class="field-label">Seu nome <span class="normal-case text-muted/70">(opcional)</span></label>
-            <input id="r-name" name="Nome" type="text" placeholder="Como podemos te chamar" class="field" />
+            <input id="r-name" name="Nome" type="text" placeholder="Como você se chama" class="field" />
           </div>
           <div>
             <label for="r-email" class="field-label">Seu e-mail <span class="normal-case text-muted/70">(opcional)</span></label>
@@ -207,8 +207,8 @@
         </div>
 
         <div class="mt-5">
-          <label for="r-feedback" class="field-label">Seu feedback <span class="normal-case text-muted/70">(opcional)</span></label>
-          <textarea id="r-feedback" name="Feedback" class="field" placeholder="Conte como foi a sua experiência: o atendimento, o cuidado da Dra. Betina, como você se sentiu durante a consulta, o resultado… Fique à vontade para compartilhar o que quiser."></textarea>
+          <label for="r-feedback" class="field-label">Comentário <span class="normal-case text-muted/70">(opcional)</span></label>
+          <textarea id="r-feedback" name="Feedback" class="field" placeholder="O que foi bom, o que pode melhorar, como você se sentiu na consulta… Escreva do seu jeito."></textarea>
         </div>
 
         <button type="submit" id="submitBtn"
@@ -228,12 +228,11 @@
         </div>
         <h2 class="mt-5 font-serif text-3xl text-ink">Avaliação enviada!</h2>
         <p class="mx-auto mt-3 max-w-sm text-sm font-light leading-[1.8] text-muted">
-          Muito obrigada por compartilhar a sua experiência. A Dra. Betina recebeu a sua avaliação com todo o carinho.
+          Muito obrigada por tirar um tempinho para isso.
         </p>
         <!-- convite para repetir a avaliação no Google (aparece só com nota 4–5 e GOOGLE_REVIEW_URL configurada) -->
         <div id="googleCta" class="hidden">
           <p class="mx-auto mt-6 max-w-sm text-sm font-light leading-[1.8] text-muted">
-            Sua opinião ajuda outras pessoas a encontrarem a Dra. Betina.
             Pode deixar a mesma avaliação no Google? Leva 30 segundos 💛
           </p>
           <a id="googleCtaLink" href="#" target="_blank" rel="noopener noreferrer"
@@ -259,7 +258,7 @@
           <span class="font-serif text-lg text-ink tracking-tightest">Betina Bernardi Boff</span>
         </div>
         <p class="mt-4 max-w-xs text-sm font-light leading-[1.8] text-muted">
-          Odontologia com cuidado, técnica e estética. Cada sorriso tratado com a atenção que merece.
+          Primeiro, entender. Depois, tratar. Dentista no Pagani, em Palhoça.
         </p>
       </div>
       <div>
@@ -310,7 +309,7 @@
   const ratingInput = document.getElementById('ratingInput');
   const ratingHint = document.getElementById('ratingHint');
   const subjectInput = document.getElementById('reviewSubject');
-  const HINTS = ['', 'Que pena! Conte o que podemos melhorar.', 'Vamos melhorar — obrigada pelo retorno.', 'Obrigada! Bom saber.', 'Que ótimo! Ficamos felizes.', 'Perfeito! Muito obrigada 💛'];
+  const HINTS = ['', 'Poxa, sinto muito. Me conta o que aconteceu?', 'Obrigada pela sinceridade. O que posso melhorar?', 'Obrigada! O que faltou para ser 5?', 'Que bom! Obrigada.', 'Que alegria, muito obrigada 💛'];
   let rating = 0;
   const paint = (n) => stars.forEach((s, i) => s.classList.toggle('is-on', i < n));
   const commit = (n) => {
